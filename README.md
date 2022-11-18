@@ -22,7 +22,7 @@ I'm trying to create a 2D game in C
 
 ## The data <a name="data"></a>
 > **What am I given?**
-
+### minilibx
 The minilibx library. It helps me with the graphics. It contains:
 - source code in C to create the mlx library
 - man pages (in man/ directory)
@@ -51,6 +51,9 @@ Install MinilibX
 	- libmlx.a and/or libmlx_$(HOSTTYPE).a in /usr/X11/lib or /usr/local/lib
 	- mlx.h in /usr/X11/include or /usr/local/include
 	- man/man3/mlx*.1 in /usr/X11/man/man3 or /usr/local/man/man3
+
+### itch.io
+It's an open marketplace for independent digital creators with a focus on independent video games. For this project it will help e find quality sprites for my game.
 
 ## The conditions <a name="conditions"></a>
 > **What constrains or details do I need to be aware of?**
@@ -188,13 +191,17 @@ You will get extra points if you:
 # 🔎 Research (phase 3) <a name="phase3"></a>
 
 ### Questions <a name="questions"></a>
-- Where should I start?
-- How to install and use the minilibx
-- How to use sprites in C
-- How 
+- How to unzip a .tgz file in the terminal?
+- How to install and use the minilibx?
+- How to use sprites in C?
 
 
 ### Answers <a name="answers"></a>
+> Unzip a .tgz file in the terminal
+```
+tar -xvzf /path/to/yourfile.tgz
+```
+
 > How to install and use the minilibx
 
 - [Documentation](https://harm-smits.github.io/42docs/libs/minilibx/getting_started.html)
