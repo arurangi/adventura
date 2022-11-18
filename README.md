@@ -23,9 +23,7 @@ I'm trying to create a 2D game in C
 ## The data <a name="data"></a>
 > **What am I given?**
 
-The minilibx library. It helps me with the graphics.
-
-Contents
+The minilibx library. It helps me with the graphics. It contains:
 - source code in C to create the mlx library
 - man pages (in man/ directory)
 - a test program (in test/ directory) is built with the library
@@ -190,6 +188,11 @@ You will get extra points if you:
 # 🔎 Research (phase 3) <a name="phase3"></a>
 
 ### Questions <a name="questions"></a>
+- Where should I start?
+- What can I access the minilibx
+- How to use sprites in C
+-  
+
 
 ### Answers <a name="answers"></a>
 > 
