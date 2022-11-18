@@ -1,7 +1,6 @@
 # so_long
-### Subtitle
-
-Description
+### Creating a 2D game
+In this project, I had to create a basic 2D game in C using the Minilibx library for graphics.
 
 
 
@@ -18,15 +17,16 @@ Description
 # 🤔 Understanding (phase 1) <a name="phase1"></a>
 ## The problem <a name="problem"></a>
 > **What am I solving?**
+I'm trying to write a 2D game in C.
 
 ## The data <a name="data"></a>
 > **What am I given?**
+The minilibx library.
 
 ## The conditions <a name="conditions"></a>
 > **What constrains or details do I need to be aware of?**
 
-### Common Instructions
-
+<details><summary>Common Instructions</summary>
 - Your project must be written in C.
 - Your project must be written in accordance with the Norm. If you have bonus
 files/functions, they are included in the norm check and you will receive a 0 if there
@@ -58,7 +58,7 @@ and/or the tests of the peer you are evaluating.
 tory will be graded. If Deepthought is assigned to grade your work, it will be done after 
 your peer-evaluations. If an error happens in any section of your work during
 Deepthought’s grading, the evaluation will stop.
-
+</details>
 ### Mandatory
 
 | **Description**  | You must create a basic 2D game in which a dolphin escapes Earth after eating some fish. Instead of a dolphin, fish, and the Earth, you can use any character, any collectible and any place you want.|
@@ -150,8 +150,6 @@ You will get extra points if you:
 - Make the player lose when they touch an enemy patrol.
 - Add some sprite animation.
 - Display the movement count directly on screen instead of writing it in the shell.
-
-### Forbiden
 
 # 🗺️ Planning (phase 2) <a name="phase2"></a>
 
