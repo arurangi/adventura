@@ -59,6 +59,7 @@ tory will be graded. If Deepthought is assigned to grade your work, it will be d
 your peer-evaluations. If an error happens in any section of your work during
 Deepthought’s grading, the evaluation will stop.
 </details>
+
 ### Mandatory
 
 | **Description**  | You must create a basic 2D game in which a dolphin escapes Earth after eating some fish. Instead of a dolphin, fish, and the Earth, you can use any character, any collectible and any place you want.|
