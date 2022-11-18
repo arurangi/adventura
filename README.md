@@ -189,10 +189,12 @@ You will get extra points if you:
 
 ### Questions <a name="questions"></a>
 - Where should I start?
-- What can I access the minilibx
+- How to install and use the minilibx
 - How to use sprites in C
--  
+- How 
 
 
 ### Answers <a name="answers"></a>
-> 
+> How to install and use the minilibx
+
+- [Documentation](https://harm-smits.github.io/42docs/libs/minilibx/getting_started.html)
