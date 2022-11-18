@@ -17,11 +17,42 @@ In this project, I had to create a basic 2D game in C using the Minilibx library
 # 🤔 Understanding (phase 1) <a name="phase1"></a>
 ## The problem <a name="problem"></a>
 > **What am I solving?**
-I'm trying to write a 2D game in C.
+
+I'm trying to create a 2D game in C
 
 ## The data <a name="data"></a>
 > **What am I given?**
-The minilibx library.
+
+The minilibx library. It helps me with the graphics.
+
+Contents
+- source code in C to create the mlx library
+- man pages (in man/ directory)
+- a test program (in test/ directory) is built with the library
+- a public include file mlx.h
+- a tiny configure script to generate an appropriate Makefile.gen
+
+Requirements for macOS
+```bash
+~ Brew install Xquartz
+~ reboot
+~ xeyes # run an hello world X11 app
+```
+
+MlX Color Opacity / Transparency / Alpha (32 bits depth)
+
+- 0xFF (fully transparent) or 0x00 (fully opaque)
+
+Compile MinilibX
+
+- run ./configure or make both will make a few tests, create Makefile.gen and then automatically run make on this generated Makefile.gen . libmlx.a and libmlx_$(HOSTTYPE).a are created. test/mlx-test binary is also created.
+
+Install MinilibX
+
+- no installation script is provided. You may want to install
+	- libmlx.a and/or libmlx_$(HOSTTYPE).a in /usr/X11/lib or /usr/local/lib
+	- mlx.h in /usr/X11/include or /usr/local/include
+	- man/man3/mlx*.1 in /usr/X11/man/man3 or /usr/local/man/man3
 
 ## The conditions <a name="conditions"></a>
 > **What constrains or details do I need to be aware of?**
