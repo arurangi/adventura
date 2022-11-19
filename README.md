@@ -104,7 +104,6 @@ Deepthought’s grading, the evaluation will stop.
 | **Arguments** | A map in format *.ber |
 | **External functions** | open, close, read, write,malloc, free, perror,strerror, exit -- All functions of the math library (-lm compiler option,man man 3 math) -- All functions of the [MiniLibX](https://github.com/42Paris/minilibx-linux) -- ft_printf and any equivalent YOU coded|
 | **Libft authorized** | Yes |
-| **Return value** | a line: correct behavior,  NULL: there is nothing else to read, or an error occurred |
 
 Your project must comply with the following rules:
 - You must use the [MiniLibX](https://github.com/42Paris/minilibx-linux). Either the version available on the school machines,
