@@ -7,3 +7,6 @@
 [submodule "mlx-o"]
 	path = mlx-o
 	url = https://github.com/42Paris/minilibx-linux.git
+[submodule "mlx"]
+	path = mlx
+	url = https://github.com/42Paris/minilibx-linux.git
