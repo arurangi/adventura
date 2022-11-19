@@ -6,7 +6,7 @@
 #    By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/19 13:37:59 by arurangi          #+#    #+#              #
-#    Updated: 2022/11/19 13:56:11 by arurangi         ###   ########.fr        #
+#    Updated: 2022/11/19 13:59:28 by arurangi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,17 +29,20 @@ OBJ =		${SRCS:.c=.o}
 
 # Rules
 %.o: %.c
-	$(CC) -Wall -Wextra -Werror -Imlx -c $< -o $@
+	@$(CC) -Wall -Wextra -Werror -Imlx -c $< -o $@
 
 $(NAME): $(OBJ)
-	$(CC) $(OBJ) -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME)
+	@$(CC) $(OBJ) -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME)
+
+run:	${NAME}
+			@./${NAME}
 
 clean:	${NAME}
-			rm ${OBJ}
+			@rm ${OBJ}
 fclean:	${NAME}
-			rm ${OBJ} ${NAME}
+			@rm ${OBJ} ${NAME}
 re:
-		fclean all
+		@fclean all
 
 .PHONY:
 		all clean fclean re
