@@ -190,8 +190,9 @@ You will get extra points if you:
 # 🔎 Research (phase 3) <a name="phase3"></a>
 
 ### Questions <a name="questions"></a>
-- How to unzip a .tgz file in the terminal?
+- How to unzip a .tgz file in the terminal? (resolved)
 - How to install and use the minilibx?
+- How to put a map as parameter of a function?
 - How to use sprites in C?
 
 
@@ -204,3 +205,6 @@ tar -xvzf /path/to/yourfile.tgz
 > How to install and use the minilibx
 
 - [Documentation](https://harm-smits.github.io/42docs/libs/minilibx/getting_started.html)
+
+> How to put a map as parameter of a function
+

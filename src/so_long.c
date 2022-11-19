@@ -6,9 +6,17 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 11:36:54 by arurangi          #+#    #+#             */
-/*   Updated: 2022/11/19 11:50:08 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/11/19 12:10:04 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
+// int	main(void)
+// {
+// 	int	nbr;
+
+// 	nbr = 33;
+// 	ft_printf("%d\n", nbr);
+// 	return (0);
+// }

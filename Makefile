@@ -6,7 +6,7 @@
 #    By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/19 11:26:27 by arurangi          #+#    #+#              #
-#    Updated: 2022/11/19 11:43:21 by arurangi         ###   ########.fr        #
+#    Updated: 2022/11/19 12:14:33 by arurangi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,15 +29,18 @@ CC =		gcc ${FLAGS}
 RM =		rm -f
 
 ${NAME} :	${OBJS}
-				ar rcs ${NAME} ${OBJS}
+				@ar rcs ${NAME} ${OBJS}
 
 all:		${NAME}
 
+run:	${NAME}
+				@${CC} -o runthis src/main.c libft.a
+				@./runthis
 clean:
-				${RM} ${OBJS}
+				@${RM} ${OBJS}
 
 fclean:		clean
-				${RM} ${NAME}
+				@${RM} ${NAME}
 
 re:			fclean all
 
