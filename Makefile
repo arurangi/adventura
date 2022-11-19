@@ -6,12 +6,13 @@
 #    By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/19 13:37:59 by arurangi          #+#    #+#              #
-#    Updated: 2022/11/19 14:28:59 by arurangi         ###   ########.fr        #
+#    Updated: 2022/11/19 15:18:33 by arurangi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # SOURCES
 SRCS	= 	src/so_long.c \
+			src/my_mlx_pixel_put.c \
 			libft/ft_strlen.c \
 			libft/ft_putchar.c \
 			libft/ft_putstr.c \
@@ -42,7 +43,7 @@ clean:		${NAME}
 fclean:		${NAME}
 				@rm ${OBJ} ${NAME}
 re:
-				@fclean all
+				fclean all
 
 .PHONY:
 				all clean fclean re
