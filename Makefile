@@ -5,12 +5,13 @@
 #                                                     +:+ +:+         +:+      #
 #    By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/11/19 11:26:27 by arurangi          #+#    #+#              #
-#    Updated: 2022/11/19 12:19:11 by arurangi         ###   ########.fr        #
+#    Created: 2022/11/19 13:37:59 by arurangi          #+#    #+#              #
+#    Updated: 2022/11/19 13:56:11 by arurangi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS =		libft/ft_printf.c \
+# Sources
+SRCS = 		src/so_long.c \
 			libft/ft_strlen.c \
 			libft/ft_putchar.c \
 			libft/ft_putstr.c \
@@ -18,31 +19,27 @@ SRCS =		libft/ft_printf.c \
 			libft/ft_putnbr_u.c \
 			libft/ft_isalpha.c \
 			libft/ft_puthex.c \
-			libft/ft_putfs.c
+			libft/ft_putfs.c \
+			libft/ft_printf.c 
 
-NLIB =		libft.a
-NPROG =		runthis
+# Variables
+NAME = runthis
+CC = gcc
+OBJ =		${SRCS:.c=.o}
 
-OBJS =		${SRCS:.c=.o}
+# Rules
+%.o: %.c
+	$(CC) -Wall -Wextra -Werror -Imlx -c $< -o $@
 
-FLAGS =		-Wall -Wextra -Werror 
-CC =		gcc ${FLAGS}
-RM =		rm -f
+$(NAME): $(OBJ)
+	$(CC) $(OBJ) -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME)
 
-${NLIB} :	${OBJS}
-				@ar rcs ${NLIB} ${OBJS}
+clean:	${NAME}
+			rm ${OBJ}
+fclean:	${NAME}
+			rm ${OBJ} ${NAME}
+re:
+		fclean all
 
-all:		${NLIB}
-
-run:	${NLIB}
-				@${CC} -o runthis src/main.c libft.a
-				@./${NPROG}
-clean:
-				@${RM} ${OBJS}
-
-fclean:		clean
-				@${RM} ${NLIB} ${NPROG}
-
-re:			fclean all
-
-.PHONY:		all clean fclean re
+.PHONY:
+		all clean fclean re

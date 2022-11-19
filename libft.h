@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 14:01:48 by arurangi          #+#    #+#             */
-/*   Updated: 2022/11/19 11:46:57 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/11/19 13:07:09 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <unistd.h>
 # include <limits.h>
 # include <stdarg.h>
+# include <mlx.h>
 
 int		ft_printf(const char *str, ...);
 size_t	ft_strlen(const char *s);
