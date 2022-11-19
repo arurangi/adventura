@@ -6,12 +6,12 @@
 #    By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/19 13:37:59 by arurangi          #+#    #+#              #
-#    Updated: 2022/11/19 13:59:28 by arurangi         ###   ########.fr        #
+#    Updated: 2022/11/19 14:28:59 by arurangi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-# Sources
-SRCS = 		src/so_long.c \
+# SOURCES
+SRCS	= 	src/so_long.c \
 			libft/ft_strlen.c \
 			libft/ft_putchar.c \
 			libft/ft_putstr.c \
@@ -22,27 +22,27 @@ SRCS = 		src/so_long.c \
 			libft/ft_putfs.c \
 			libft/ft_printf.c 
 
-# Variables
-NAME = runthis
-CC = gcc
-OBJ =		${SRCS:.c=.o}
+# VARIABLES
+NAME	= 	runthis
+CC		= 	gcc
+OBJ		=	${SRCS:.c=.o}
 
-# Rules
-%.o: %.c
-	@$(CC) -Wall -Wextra -Werror -Imlx -c $< -o $@
+# RULES
+%.o: 		%.c
+				@$(CC) -Wall -Wextra -Werror -Imlx -c $< -o $@
 
-$(NAME): $(OBJ)
-	@$(CC) $(OBJ) -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME)
+$(NAME): 	$(OBJ)
+				@$(CC) $(OBJ) -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME)
 
-run:	${NAME}
-			@./${NAME}
+r:			${NAME}
+				@./${NAME}
 
-clean:	${NAME}
-			@rm ${OBJ}
-fclean:	${NAME}
-			@rm ${OBJ} ${NAME}
+clean:		${NAME}
+				@rm ${OBJ}
+fclean:		${NAME}
+				@rm ${OBJ} ${NAME}
 re:
-		@fclean all
+				@fclean all
 
 .PHONY:
-		all clean fclean re
+				all clean fclean re
