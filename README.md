@@ -207,4 +207,5 @@ tar -xvzf /path/to/yourfile.tgz
 - [Documentation](https://harm-smits.github.io/42docs/libs/minilibx/getting_started.html)
 
 > How to put a map as parameter of a function
-
+> Put something on the screen
+> Intercept key strokes and display on terminal
