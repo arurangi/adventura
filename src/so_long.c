@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 11:36:54 by arurangi          #+#    #+#             */
-/*   Updated: 2022/11/21 15:31:38 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/11/21 16:51:16 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,25 +47,10 @@ typedef struct s_player {
 // 	return (0);
 // }
 
-void	draw_map(t_game game)
-{
-	t_map	map;
-	int		height;
-	int		width;
 
-	map.floor = mlx_xpm_file_to_image(game.mlx, "./assets/xpm/floor_1.xpm", &width, &height);
-	height = 0;
-	while (height < 520)
-	{
-		width = 0;
-		while (width < 520)
-		{
-			mlx_put_image_to_window(game.mlx, game.window, map.floor, width, height);
-			width += 40;
-		}
-		height += 40;
-	}
-}
+
+void	draw_map(t_game game);
+int		key_hook(int keycode, t_game game);
 
 int	main(void)
 {
@@ -79,7 +64,39 @@ int	main(void)
 	{
 		game.window = mlx_new_window(game.mlx, 520, 520, "Video Game");
 		draw_map(game);
+		mlx_key_hook(game.window, key_hook, &game);
 		mlx_loop(game.mlx);
 	}
+	return (0);
+}
+
+
+
+
+void	draw_map(t_game game)
+{
+	t_map	map;
+	int		height;
+	int		width;
+
+	map.floor = mlx_xpm_file_to_image(game.mlx, "./assets/sprites/floor_1.xpm", &width, &height);
+	height = 0;
+	while (height < 520)
+	{
+		width = 0;
+		while (width < 520)
+		{
+			mlx_put_image_to_window(game.mlx, game.window, map.floor, width, height);
+			width += 40;
+		}
+		height += 40;
+	}
+}
+
+int	key_hook(int keycode, t_game game)
+{
+	(void)keycode;
+	(void)game;
+	ft_printf("Hello from key_hook\n");
 	return (0);
 }
