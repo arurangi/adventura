@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 17:16:17 by arurangi          #+#    #+#             */
-/*   Updated: 2022/11/22 12:00:22 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/11/22 12:04:21 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	draw_map(t_game *game)
 	int		height;
 	int		width;
 
-	if (map_is_valid(&game))
+	if (map_is_valid(game))
 	{
 		ft_printf("Hourra! The map is valid!\n");
 	}

@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 14:01:48 by arurangi          #+#    #+#             */
-/*   Updated: 2022/11/22 11:57:08 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/11/22 12:02:32 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ void		ft_putfs(char ch, va_list args, int *counter);
 void		my_mlx_pixel_put(t_data *data, int x, int y, int color);
 
 void		draw_map(t_game *game);
-static int	map_is_valid(char *game);
-static void	map_init(t_game game, t_map map);
+int			map_is_valid(char *game);
 
 #endif
