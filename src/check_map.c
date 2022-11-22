@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 11:05:41 by arurangi          #+#    #+#             */
-/*   Updated: 2022/11/22 12:31:02 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/11/22 16:58:43 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,54 +21,94 @@
 
 #include "../libft.h"
 
+int	find_height(int fd);
+
 int	map_is_valid(t_game *game)
 {
 	int		fd;
-	
-	if (valid_ber_file(game->mpath))
+	int		row;
+	int		col;
+
+	// -> Open file
+	fd = open(game->mpath, O_RDONLY);
+	if (fd < 0)
 	{
-		// -> Open file
-		fd = open(game->mpath, O_RDONLY);
-		if (!fd)
-			ft_printf("Invalid file");
-		// Calculate size of the map
-		// Allocate a memory for the map
-		game->map = malloc(sizeof(char *) * (find_size(game, fd) + 1));
+		ft_printf("File Error: invalid file descriptor");
+		return (0);
 	}
-	else
-		ft_printf("Error: file is not a .ber");
-	// files opens
-	// 
-	return (1)
+	// Allocate memory table
+	game->m_height = find_height(fd);
+	game->map = malloc(sizeof(char *) * ( game->m_height + 1));
+	if (!game->map)
+		return (0);
+	// Save each map line into struct
+	fd = open(game->mpath, O_RDONLY);
+	row = 0;
+	while (row < game->m_height)
+	{
+		game->map[row] = get_next_line(fd);
+		ft_printf("%s", game->map[row]);
+		row++;
+	}
+	game->map[row] = NULL;
+	
+	// Check game.map for valid content, line by line
+	row = 0;
+	while (game->map[row])
+	{
+		col = 0;
+		while(game->map[row][col] && game->map[row][col] != '\n')
+		{
+			// Check walls
+			if (row == 0 || row == game->m_height - 1 || col == 0 || game->map[row][col + 1] == '\0') 
+			{
+				if (game->map[row][col] != '1' && game->map[row][col] != '\0')
+				{
+					ft_printf("Error: map not surrounded by walls @[%d][%d]\n", row, col);
+					return (0);
+				}
+				//ft_printf("[%d][%d] Walled Up!\n", row, col);
+			}
+			col++;
+		}
+		row++;
+	}
+	return (1);
 }
 
-static int	valid_ber_file(char *filepath)
-{
-	int		len;
-	char	*ext;
+// Valid characters (0, 1, C, E, P)
+// At least one C, E and P
+// Must be valid path
 
-	len = ft_strlen(filepath);
-	if ((len > 4) 
-		&& (filepath[len - 1] == 'r'
-		&& filepath[len - 2] == 'e'
-		&& filepath[len - 3] == 'b'
-		&& filepath[len - 4] == '.'))
+/*
+int	valid_character(char ch)
+{
+	if (ch == '0'
+		|| ch == '1'
+		|| ch == 'C'
+		|| ch == 'E'
+		|| ch == 'P')
 		return (1);
 	return (0);
 }
+*/
 
-// Find 
-int	find_size(int fd)
+// Find height
+int	find_height(int fd)
 {
-	char	buffer[1];
-	int		count;
+	char	*str;
+	int		height;
 
-	count = 0;	
-	while (read(fd, buffer, 1))
+	height = 0;
+	while (1)
 	{
-		if (buffer[0] == 'I')
-			count++;
+		str = get_next_line(fd);
+		if (str == NULL)
+			break ;
+		height++;
+		free(str);
 	}
-	// 
-	return (count);
+	close(fd);
+	return (height);
 }
+

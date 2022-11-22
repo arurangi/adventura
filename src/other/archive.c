@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 09:55:36 by arurangi          #+#    #+#             */
-/*   Updated: 2022/11/22 11:59:37 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/11/22 13:57:38 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,5 +63,24 @@ static void	map_init(t_game game, t_map map)
 	map.wall = mlx_xpm_file_to_image(game.mlx, "./assets/sprites/floor_1.xpm", &width, &height);
 	map.collectible = mlx_xpm_file_to_image(game.mlx, "./assets/sprites/floor_1.xpm", &width, &height);
 	map.exit = mlx_xpm_file_to_image(game.mlx, "./assets/sprites/floor_1.xpm", &width, &height);
+}
+*/
+
+// Find Width, longest line. 
+/*
+// Find width
+int	find_width(int fd)
+{
+	char	buffer[1];
+	int		count;
+
+	count = 0;	
+	while (read(fd, buffer, 1))
+	{
+		if (buffer[0] == 'I')
+			count++;
+	}
+	// 
+	return (count);
 }
 */

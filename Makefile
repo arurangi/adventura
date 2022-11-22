@@ -6,13 +6,14 @@
 #    By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/19 13:37:59 by arurangi          #+#    #+#              #
-#    Updated: 2022/11/19 15:18:33 by arurangi         ###   ########.fr        #
+#    Updated: 2022/11/22 16:53:15 by arurangi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # SOURCES
 SRCS	= 	src/so_long.c \
-			src/my_mlx_pixel_put.c \
+			src/draw_map.c \
+			src/check_map.c \
 			libft/ft_strlen.c \
 			libft/ft_putchar.c \
 			libft/ft_putstr.c \
@@ -21,7 +22,9 @@ SRCS	= 	src/so_long.c \
 			libft/ft_isalpha.c \
 			libft/ft_puthex.c \
 			libft/ft_putfs.c \
-			libft/ft_printf.c 
+			libft/ft_printf.c \
+			libft/get_next_line.c \
+			libft/get_next_line_utils.c
 
 # VARIABLES
 NAME	= 	runthis
@@ -33,7 +36,7 @@ OBJ		=	${SRCS:.c=.o}
 				@$(CC) -Wall -Wextra -Werror -Imlx -c $< -o $@
 
 $(NAME): 	$(OBJ)
-				@$(CC) $(OBJ) -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME)
+				@$(CC) $(OBJ) -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME) 
 
 r:			${NAME}
 				@./${NAME}
