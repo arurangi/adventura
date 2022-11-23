@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 11:05:41 by arurangi          #+#    #+#             */
-/*   Updated: 2022/11/22 16:58:43 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/11/23 10:24:22 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ int	map_is_valid(t_game *game)
 	while (row < game->m_height)
 	{
 		game->map[row] = get_next_line(fd);
-		ft_printf("%s", game->map[row]);
 		row++;
 	}
 	game->map[row] = NULL;
@@ -67,7 +66,6 @@ int	map_is_valid(t_game *game)
 					ft_printf("Error: map not surrounded by walls @[%d][%d]\n", row, col);
 					return (0);
 				}
-				//ft_printf("[%d][%d] Walled Up!\n", row, col);
 			}
 			col++;
 		}

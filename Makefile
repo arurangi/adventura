@@ -6,7 +6,7 @@
 #    By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/19 13:37:59 by arurangi          #+#    #+#              #
-#    Updated: 2022/11/22 16:53:15 by arurangi         ###   ########.fr        #
+#    Updated: 2022/11/23 10:19:30 by arurangi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,15 +38,17 @@ OBJ		=	${SRCS:.c=.o}
 $(NAME): 	$(OBJ)
 				@$(CC) $(OBJ) -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME) 
 
+all:		${NAME}
+
 r:			${NAME}
 				@./${NAME}
 
-clean:		${NAME}
-				@rm ${OBJ}
-fclean:		${NAME}
-				@rm ${OBJ} ${NAME}
-re:
-				fclean all
+clean:		
+			@rm ${OBJ}
 
-.PHONY:
-				all clean fclean re
+fclean:		clean
+				@rm ${NAME}
+
+re:			fclean all
+
+.PHONY:		all clean fclean re
