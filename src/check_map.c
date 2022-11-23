@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 11:05:41 by arurangi          #+#    #+#             */
-/*   Updated: 2022/11/23 10:24:22 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/11/23 10:41:26 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,11 +59,13 @@ int	map_is_valid(t_game *game)
 		while(game->map[row][col] && game->map[row][col] != '\n')
 		{
 			// Check walls
-			if (row == 0 || row == game->m_height - 1 || col == 0 || game->map[row][col + 1] == '\0') 
+			if (row == 0 || row == game->m_height - 1 || col == 0
+				|| game->map[row][col + 1] == '\0'
+				|| game->map[row][col + 1] == '\n') 
 			{
 				if (game->map[row][col] != '1' && game->map[row][col] != '\0')
 				{
-					ft_printf("Error: map not surrounded by walls @[%d][%d]\n", row, col);
+					ft_printf("Not surrounded by walls at [%d][%d]\n", row, col);
 					return (0);
 				}
 			}
