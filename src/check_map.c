@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 11:05:41 by arurangi          #+#    #+#             */
-/*   Updated: 2022/11/23 12:10:30 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/11/23 12:40:16 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,18 @@ int	map_is_valid(t_game *game)
 				game->e_credit++;
 			if (game->map[row][col] == 'P')
 				game->p_credit++;
+			// Map is rectangular
+			if (game->map[row][col + 1] == '\n'
+				|| game->map[row][col + 1] == '\0')
+			{
+				if (game->map_width == -1)
+					game->map_width = col;
+				else if (game->map_width != col)
+				{
+					ft_printf("Map is not rectangular");
+					return (0);
+				}
+			}
 			col++;
 		}
 		row++;
@@ -118,6 +130,7 @@ void	map_init(t_game *game)
 	game->c_credit = 0;
 	game->e_credit = 0;
 	game->p_credit = 0;
+	game->map_width = -1;
 }
 
 

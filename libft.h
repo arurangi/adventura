@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 14:01:48 by arurangi          #+#    #+#             */
-/*   Updated: 2022/11/23 12:10:08 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/11/23 12:22:56 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ typedef struct s_game {
 	char	**map;
 	char	*mpath;
 	int		map_height;
+	int		map_width;
 	int		c_credit;
 	int		e_credit;
 	int		p_credit;
