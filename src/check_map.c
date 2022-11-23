@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 11:05:41 by arurangi          #+#    #+#             */
-/*   Updated: 2022/11/23 12:40:16 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/11/23 12:44:53 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,13 +106,10 @@ int	map_is_valid(t_game *game)
 		ft_printf("Your map needs an EXIT\n");
 	if (game->p_credit == 0)
 		ft_printf("Your map needs a PLAYER position\n");
+	// Check for valid path
+	
 	return (1);
 }
-
-
-// At least one C, E and P
-// Must be valid path
-
 
 int	not_valid_character(char ch)
 {
