@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 11:05:41 by arurangi          #+#    #+#             */
-/*   Updated: 2022/11/23 10:41:26 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/11/23 10:59:18 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,14 +37,14 @@ int	map_is_valid(t_game *game)
 		return (0);
 	}
 	// Allocate memory table
-	game->m_height = find_height(fd);
-	game->map = malloc(sizeof(char *) * ( game->m_height + 1));
+	game->map_height = find_height(fd);
+	game->map = malloc(sizeof(char *) * ( game->map_height + 1));
 	if (!game->map)
 		return (0);
 	// Save each map line into struct
 	fd = open(game->mpath, O_RDONLY);
 	row = 0;
-	while (row < game->m_height)
+	while (row < game->map_height)
 	{
 		game->map[row] = get_next_line(fd);
 		row++;
@@ -59,7 +59,7 @@ int	map_is_valid(t_game *game)
 		while(game->map[row][col] && game->map[row][col] != '\n')
 		{
 			// Check walls
-			if (row == 0 || row == game->m_height - 1 || col == 0
+			if (row == 0 || row == game->map_height - 1 || col == 0
 				|| game->map[row][col + 1] == '\0'
 				|| game->map[row][col + 1] == '\n') 
 			{
