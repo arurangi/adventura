@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 09:55:36 by arurangi          #+#    #+#             */
-/*   Updated: 2022/11/22 13:57:38 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/11/23 12:00:56 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,24 +34,6 @@ int	key_hook(int keycode, t_game game)
 	(void)game;
 	ft_printf("Hello from key_hook\n");
 	return (0);
-}
-*/
-
-// Map is valid
-/*
-if (map_is_valid())
-	map_init(game);
-	height = 0;
-	while (height < 520)
-	{
-		width = 0;
-		while (width < 520)
-		{
-			mlx_put_image_to_window(game->mlx, game->window, game->empty_space, width, height);
-			width += 40;
-		}
-		height += 40;
-	}
 }
 */
 

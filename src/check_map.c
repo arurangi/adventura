@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 11:05:41 by arurangi          #+#    #+#             */
-/*   Updated: 2022/11/23 10:59:18 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/11/23 12:10:30 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@ int	map_is_valid(t_game *game)
 	int		row;
 	int		col;
 
-	// -> Open file
+	map_init(game);
+	// I can open the file
 	fd = open(game->mpath, O_RDONLY);
 	if (fd < 0)
 	{
@@ -58,40 +59,67 @@ int	map_is_valid(t_game *game)
 		col = 0;
 		while(game->map[row][col] && game->map[row][col] != '\n')
 		{
-			// Check walls
+			// Valid characters (0, 1, C, E, P)
+			if (not_valid_character(game->map[row][col]))
+			{
+				ft_printf("Not valid character at [%d][%d]\n", row, col);
+				return (0);
+			}
+			// Surrounded by walls
 			if (row == 0 || row == game->map_height - 1 || col == 0
 				|| game->map[row][col + 1] == '\0'
 				|| game->map[row][col + 1] == '\n') 
 			{
-				if (game->map[row][col] != '1' && game->map[row][col] != '\0')
+				if (game->map[row][col] != '1')
 				{
 					ft_printf("Not surrounded by walls at [%d][%d]\n", row, col);
 					return (0);
 				}
 			}
+			// At least one : C, E, P
+			if (game->map[row][col] == 'C')
+				game->c_credit++;
+			if (game->map[row][col] == 'E')
+				game->e_credit++;
+			if (game->map[row][col] == 'P')
+				game->p_credit++;
 			col++;
 		}
 		row++;
 	}
+	// Check credits
+	if (game->c_credit == 0)
+		ft_printf("Your map needs a COLLECTIBLE\n");
+	if (game->e_credit == 0)
+		ft_printf("Your map needs an EXIT\n");
+	if (game->p_credit == 0)
+		ft_printf("Your map needs a PLAYER position\n");
 	return (1);
 }
 
-// Valid characters (0, 1, C, E, P)
+
 // At least one C, E and P
 // Must be valid path
 
-/*
-int	valid_character(char ch)
+
+int	not_valid_character(char ch)
 {
 	if (ch == '0'
 		|| ch == '1'
 		|| ch == 'C'
 		|| ch == 'E'
 		|| ch == 'P')
-		return (1);
-	return (0);
+		return (0);
+	return (1);
 }
-*/
+
+void	map_init(t_game *game)
+{
+	game->c_credit = 0;
+	game->e_credit = 0;
+	game->p_credit = 0;
+}
+
 
 // Find height
 int	find_height(int fd)

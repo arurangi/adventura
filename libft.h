@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 14:01:48 by arurangi          #+#    #+#             */
-/*   Updated: 2022/11/23 10:59:35 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/11/23 12:10:08 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,8 @@ char	*free_stash(char *stash);
 
 void		draw_map(t_game *game);
 int			map_is_valid(t_game *game);
+int			not_valid_character(char ch); // Check map for valid characters
+void		map_init(t_game *game); // Initialize credits for C, E and P
 
 
 #endif
