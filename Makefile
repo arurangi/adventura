@@ -6,7 +6,7 @@
 #    By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/19 13:37:59 by arurangi          #+#    #+#              #
-#    Updated: 2022/11/25 12:49:05 by arurangi         ###   ########.fr        #
+#    Updated: 2022/11/25 15:16:17 by arurangi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,6 +14,7 @@
 SRCS	= 	src/so_long.c \
 			src/draw_map.c \
 			src/check_map.c \
+			src/utils.c \
 			libft/ft_strlen.c \
 			libft/ft_putchar.c \
 			libft/ft_putstr.c \
