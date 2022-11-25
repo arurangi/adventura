@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 14:01:48 by arurangi          #+#    #+#             */
-/*   Updated: 2022/11/23 12:22:56 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/11/25 12:56:06 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,10 @@ char	*ft_strjoin_mod(char *old_stash, char *buff);
 char	*ft_strdup(const char *str);
 int		ft_strchr_mod(const char *s, char ch);
 
+char	**ft_split(char const *str, char ch);
+char	*ft_strjoin(char const *s1, char const *s2);
+char	**ft_split_fd(int fd, char seperator);
+
 /*  GET_NEXT_LINE  */
 
 char	*get_next_line(int fd);
@@ -71,6 +75,7 @@ void		draw_map(t_game *game);
 int			map_is_valid(t_game *game);
 int			not_valid_character(char ch); // Check map for valid characters
 void		map_init(t_game *game); // Initialize credits for C, E and P
+
 
 
 #endif

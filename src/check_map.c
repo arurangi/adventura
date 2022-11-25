@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 11:05:41 by arurangi          #+#    #+#             */
-/*   Updated: 2022/11/23 12:44:53 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/11/25 12:54:22 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ int	map_is_valid(t_game *game)
 	int		col;
 
 	map_init(game);
+	
 	// I can open the file
 	fd = open(game->mpath, O_RDONLY);
 	if (fd < 0)
@@ -37,21 +38,19 @@ int	map_is_valid(t_game *game)
 		ft_printf("File Error: invalid file descriptor");
 		return (0);
 	}
+	
 	// Allocate memory table
 	game->map_height = find_height(fd);
-	game->map = malloc(sizeof(char *) * ( game->map_height + 1));
-	if (!game->map)
-		return (0);
+		
 	// Save each map line into struct
 	fd = open(game->mpath, O_RDONLY);
-	row = 0;
-	while (row < game->map_height)
+	game->map = ft_split_fd(fd, '\n');
+	if (!game->map)
 	{
-		game->map[row] = get_next_line(fd);
-		row++;
+		write(1, "Error: couldn't save the map in table", 38);
+		return (0);
 	}
-	game->map[row] = NULL;
-	
+
 	// Check game.map for valid content, line by line
 	row = 0;
 	while (game->map[row])
@@ -99,6 +98,7 @@ int	map_is_valid(t_game *game)
 		}
 		row++;
 	}
+	
 	// Check credits
 	if (game->c_credit == 0)
 		ft_printf("Your map needs a COLLECTIBLE\n");

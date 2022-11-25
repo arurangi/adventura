@@ -6,7 +6,7 @@
 #    By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/19 13:37:59 by arurangi          #+#    #+#              #
-#    Updated: 2022/11/23 10:19:30 by arurangi         ###   ########.fr        #
+#    Updated: 2022/11/25 12:49:05 by arurangi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,10 @@ SRCS	= 	src/so_long.c \
 			libft/ft_putfs.c \
 			libft/ft_printf.c \
 			libft/get_next_line.c \
-			libft/get_next_line_utils.c
+			libft/get_next_line_utils.c \
+			libft/ft_split.c \
+			libft/ft_strjoin.c \
+			libft/ft_split_fd.c \
 
 # VARIABLES
 NAME	= 	runthis
