@@ -31,10 +31,19 @@ typedef struct s_graph {
 
 int	path_finder(t_game *game)
 {
+	int		size;
+	int		head;
+	int		tail;
+
 	// Create new queue
-	t_graph	queue;
+	size = game->map_height * game->map_width;
+	t_node	queue[size];
+	head = 0;
+	tail = 0;
+	// Add initial position
+	queue[head] = game->starting_pos;
 	// Add all of neighbour to search queue
-	queue = enque(queue);
+	enqueue(&queue, &head, &tail, size);
 	// While the queue isn't empty
 	while (q_not_empty(queue))
 	{
@@ -62,7 +71,23 @@ int	path_finder(t_game *game)
 // Keep a queus
 // get_head()
 // get_tail()
-// enqueue();
+// insert();
+void	insert_neighbours(t_node *queue, int *head, int *tail, int size)
+{
+	int row;
+	int	col;
+
+	row = queue[*head].row;
+	col = queue[*tail].col;
+	if (tail == size - 1 || head > tail)
+		printf("Queue Overflow n");
+	else
+	{
+		queue[*head + 1] = ;
+		*head++;
+		*tail++;
+	}
+}
 // dequeue();
 // q_is_empty();
 

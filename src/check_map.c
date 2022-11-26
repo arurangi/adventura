@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 11:05:41 by arurangi          #+#    #+#             */
-/*   Updated: 2022/11/26 15:29:30 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/11/26 16:26:37 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ int	map_is_valid(t_game *game)
 	// Analyze the map further
 	map_init(game);
 	game->map_height = tab_height(game->map);
+	game->map_width = ft_strlen(game->map[0]);
 	row = 0;
 	while (game->map[row])
 	{
@@ -64,17 +65,16 @@ int	map_is_valid(t_game *game)
 			if (game->map[row][col] == 'E')
 				game->e_credit++;
 			if (game->map[row][col] == 'P')
-				game->p_credit++;
-			// Map is rectangular
-			if (game->map[row][col + 1] == '\0')
 			{
-				if (game->map_width == -1)
-					game->map_width = col;
-				else if (game->map_width != col)
-				{
+				game->p_credit++;
+				game->starting_pos.row = row;
+				game->starting_pos.col = col;
+			}
+			// Map is rectangular
+			if ((game->map[row][col + 1] == '\0') && (col + 1 != game->map_width))
+			{
 					ft_printf("Not rectangular at row %d\n", row);
 					return (0);
-				}
 			}
 			col++;
 		}
@@ -94,11 +94,11 @@ int	map_is_valid(t_game *game)
 	}
 
 	// Check for valid path
-	
-	// if (path_finder(game))
-	// 	return (1);
-	return (1);
+	if (path_finder(game))
+	{
+		ft_printf("Found a valid path!!!!!\n");
+		return (1);
+	}
+
+	return (0);
 }
-
-
-

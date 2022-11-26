@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 14:01:48 by arurangi          #+#    #+#             */
-/*   Updated: 2022/11/26 15:07:18 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/11/26 16:25:54 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,12 @@
 
 
 // Gobal informations
+
+typedef struct s_node{
+	int	row;
+	int	col;
+} t_node;
+
 typedef struct s_game {
 	void	*mlx;
 	void	*window;
@@ -46,6 +52,7 @@ typedef struct s_game {
 	int		c_credit;
 	int		e_credit;
 	int		p_credit;
+	t_node	starting_pos;
 	char	*path;
 	void	*empty_space;
 	void	*wall;
