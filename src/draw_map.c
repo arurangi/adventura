@@ -6,11 +6,11 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 17:16:17 by arurangi          #+#    #+#             */
-/*   Updated: 2022/11/25 15:24:01 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/11/26 15:32:52 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft.h"
+#include "../so_long.h"
 
 void	draw_map(t_game *game)
 {
@@ -21,9 +21,12 @@ void	draw_map(t_game *game)
 	}
 	if (map_is_valid(game))
 	{
-		ft_printf("\nHourra! The map is valid!\n");
+		ft_printf("Height: %d\n", game->map_height);
+		ft_printf("Width: %d\n", game->map_width);
+		ft_printf("%s\n", game->map[0]);
+		ft_printf("The map %s is \033[32mvalid\033[0m!\n\n", game->map_filepath + 12);
 		//load_assets(game);
 	}
 	else
-		ft_printf("\nMap is not valid!\n");
+		ft_printf("Map %s is\033[31m not valid\033[0m!\n\n", game->map_filepath + 12);
 }

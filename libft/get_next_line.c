@@ -6,11 +6,9 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 15:58:09 by Arsene            #+#    #+#             */
-/*   Updated: 2022/11/22 16:03:04 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/11/26 12:41:33 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "../libft.h"
 
 /* ************************************************************************** */
 /*                           get_next_line(int fd)                            */
@@ -19,6 +17,8 @@
 /*  end of the file or '\n' (new line). Then returns what was read.           */
 /*  N.B: Might jump over a '\n'.                                              */
 /* ************************************************************************ * */
+
+#include "../so_long.h"
 
 char	*get_next_line(int fd)
 {

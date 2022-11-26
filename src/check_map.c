@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 11:05:41 by arurangi          #+#    #+#             */
-/*   Updated: 2022/11/25 16:29:50 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/11/26 15:29:30 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,36 +19,24 @@
  * 
 */
 
-#include "../libft.h"
-
-int	find_map_height(int fd);
+#include "../so_long.h"
 
 int	map_is_valid(t_game *game)
 {
-	int		fd;
 	int		row;
 	int		col;
 
-	map_init(game);
-
-	// I can open the file
-	fd = open(game->map_filepath, O_RDONLY);
-	if (fd < 0)
-	{
-		ft_printf("File Error: invalid file descriptor");
-		return (0);
-	}
-		
-	// Save each map line into struct
-	game->map = ft_split_fd(fd, '\n');
+	// Parsing: save each map line into a table for easy access
+	game->map = ft_split_fd(game->map_filepath, '\n');
 	if (!game->map)
 	{
-		write(1, "Error: couldn't save the map in struct", 38);
+		write(1, "Error: couldn't parse the map", 29);
 		return (0);
 	}
 
 	// Analyze the map further
-	game->map_height = find_map_height(fd);
+	map_init(game);
+	game->map_height = tab_height(game->map);
 	row = 0;
 	while (game->map[row])
 	{
@@ -84,7 +72,7 @@ int	map_is_valid(t_game *game)
 					game->map_width = col;
 				else if (game->map_width != col)
 				{
-					ft_printf("Map is not rectangular at %dnth line", row);
+					ft_printf("Not rectangular at row %d\n", row);
 					return (0);
 				}
 			}
@@ -94,55 +82,23 @@ int	map_is_valid(t_game *game)
 	}
 	
 	// Check credits
-	if (game->c_credit == 0)
-		ft_printf("Your map needs a COLLECTIBLE\n");
-	if (game->e_credit == 0)
-		ft_printf("Your map needs an EXIT\n");
-	if (game->p_credit == 0)
-		ft_printf("Your map needs a PLAYER position\n");
+	if ((game->c_credit * game->e_credit * game->p_credit) == 0)
+	{
+		if (game->c_credit == 0)
+			ft_printf("Your map needs a COLLECTIBLE\n");
+		if (game->e_credit == 0)
+			ft_printf("Your map needs an EXIT\n");
+		if (game->p_credit == 0)
+			ft_printf("Your map needs a PLAYER position\n");
+		return (0);
+	}
+
 	// Check for valid path
 	
-	if (path_finder(game))
-		return (1);
-	return (0);
-}
-
-int	not_valid_character(char ch)
-{
-	if (ch == '0'
-		|| ch == '1'
-		|| ch == 'C'
-		|| ch == 'E'
-		|| ch == 'P')
-		return (0);
+	// if (path_finder(game))
+	// 	return (1);
 	return (1);
 }
 
-void	map_init(t_game *game)
-{
-	game->c_credit = 0;
-	game->e_credit = 0;
-	game->p_credit = 0;
-	game->map_width = -1;
-}
 
-
-// Find height
-int	find_map_height(int fd)
-{
-	char	*str;
-	int		height;
-
-	height = 0;
-	while (1)
-	{
-		str = get_next_line(fd);
-		if (str == NULL)
-			break ;
-		height++;
-		free(str);
-	}
-	close(fd);
-	return (height);
-}
 

@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 13:17:08 by arurangi          #+#    #+#             */
-/*   Updated: 2022/11/19 11:48:33 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/11/26 12:39:16 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
  * Print Basic Format Specifier & counts characters printed
 */
 
-#include "../libft.h"
+#include "../so_long.h"
 
 void	ft_putfs(char ch, va_list args, int *counter)
 {

@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 11:50:24 by arurangi          #+#    #+#             */
-/*   Updated: 2022/11/19 11:48:49 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/11/26 12:39:34 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
  * Prints unsigned int to standard output
 */
 
-#include "../libft.h"
+#include "../so_long.h"
 
 int	ft_putnbr_u(unsigned int nbr, int *counter)
 {

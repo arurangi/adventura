@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 17:49:42 by arurangi          #+#    #+#             */
-/*   Updated: 2022/11/19 11:47:23 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/11/26 12:38:28 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
  * Returns : the integer
 */
 
-#include "../libft.h"
+#include "../so_long.h"
 
 static int	handle_long_return(long sign);
 

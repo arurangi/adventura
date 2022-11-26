@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 14:01:48 by arurangi          #+#    #+#             */
-/*   Updated: 2022/11/25 16:30:24 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/11/26 15:07:18 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#ifndef SO_LONG_H
+# define SO_LONG_H
 
 # include <stdlib.h> // malloc
 # include <unistd.h> // write
@@ -22,6 +22,14 @@
 # include <stdio.h> // FOPEN_MAX
 
 # define BUFFER_SIZE 1
+
+# define CRED     "\x1b[31m"
+# define CGREEN   "\x1b[32m"
+# define CYELLOW  "\x1b[33m"
+# define CBLUE    "\x1b[34m"
+# define CMAGENTA "\x1b[35m"
+# define CCYAN    "\x1b[36m"
+# define CRESET   "\x1b[0m"
 
 // Macros
 
@@ -63,7 +71,7 @@ int		ft_strchr_mod(const char *s, char ch);
 
 char	**ft_split(char const *str, char ch);
 char	*ft_strjoin(char const *s1, char const *s2);
-char	**ft_split_fd(int fd, char seperator);
+char	**ft_split_fd(char *filepath, char seperator);
 
 /*  GET_NEXT_LINE  */
 
@@ -78,8 +86,10 @@ int			map_is_valid(t_game *game);
 int			not_valid_character(char ch); // Check map for valid characters
 void		map_init(t_game *game); // Initialize credits for C, E and P
 
+/*     CHECK VALID MAP     */
 int			invalid_extension(char *filepath);
-
+int			path_finder(t_game *game);
+int			tab_height(char **tab);
 
 
 #endif

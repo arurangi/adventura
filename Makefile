@@ -6,7 +6,7 @@
 #    By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/19 13:37:59 by arurangi          #+#    #+#              #
-#    Updated: 2022/11/25 15:16:17 by arurangi         ###   ########.fr        #
+#    Updated: 2022/11/26 15:27:42 by arurangi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,23 +29,27 @@ SRCS	= 	src/so_long.c \
 			libft/ft_split.c \
 			libft/ft_strjoin.c \
 			libft/ft_split_fd.c \
+			
 
 # VARIABLES
-NAME	= 	runthis
+NAME	= 	so_long
 CC		= 	gcc
+FLAGS	=	-Wall -Wextra -Werror
 OBJ		=	${SRCS:.c=.o}
 
 # RULES
 %.o: 		%.c
-				@$(CC) -Wall -Wextra -Werror -Imlx -c $< -o $@
+				@$(CC) ${FLAGS} -Imlx -c $< -o $@
 
 $(NAME): 	$(OBJ)
 				@$(CC) $(OBJ) -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME) 
 
 all:		${NAME}
 
-r:			${NAME}
-				@./${NAME}
+map:		${NAME}
+				@./${NAME} assets/maps/000.ber
+				@./${NAME} assets/maps/001.ber
+				@./${NAME} assets/maps/002.ber
 
 clean:		
 			@rm ${OBJ}

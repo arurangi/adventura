@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 09:15:53 by arurangi          #+#    #+#             */
-/*   Updated: 2022/11/19 11:49:04 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/11/26 12:39:52 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
  * Prints string {str} to standard output
 */
 
-#include "../libft.h"
+#include "../so_long.h"
 
 int	ft_putstr(char *str)
 {

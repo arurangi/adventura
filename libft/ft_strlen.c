@@ -6,15 +6,13 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 15:15:58 by arurangi          #+#    #+#             */
-/*   Updated: 2022/11/22 16:05:08 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/11/26 12:40:36 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
  * Calculates length of a given string
 */
-
-#include "../libft.h"
 
 int	ft_strlen(const char *s)
 {

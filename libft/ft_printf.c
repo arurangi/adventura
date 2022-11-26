@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 16:49:26 by arurangi          #+#    #+#             */
-/*   Updated: 2022/11/19 13:51:54 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/11/26 12:38:49 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
  * Prints string to standard output and handles basic format specifiers
 */
 
-#include "../libft.h"
+#include "../so_long.h"
 
 int	ft_printf(const char *str, ...)
 {

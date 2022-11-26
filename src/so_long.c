@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 11:36:54 by arurangi          #+#    #+#             */
-/*   Updated: 2022/11/25 16:30:50 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/11/26 12:57:16 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
  * 
 */
 
-#include "../libft.h"
+#include "../so_long.h"
 
 int	main(int argc, char **argv)
 {
@@ -29,10 +29,10 @@ int	main(int argc, char **argv)
 		return (1);
 	}
 	game.map_filepath = argv[1];
-	game.mlx = mlx_init();
+	//game.mlx = mlx_init();
 	if (game.mlx)
 	{
-		draw_map(&game);
 	}
+		draw_map(&game);
 	return (0);
 }

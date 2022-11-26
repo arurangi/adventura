@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 09:32:11 by arurangi          #+#    #+#             */
-/*   Updated: 2022/11/19 11:48:57 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/11/26 12:39:43 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
  * Prints integer {nbr} to standard output
 */
 
-#include "../libft.h"
+#include "../so_long.h"
 
 int	ft_putnbr(int nbr, int *counter)
 {

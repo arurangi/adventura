@@ -19,10 +19,58 @@
  * 
 */
 
-#include "../libft.h"
+#include "../so_long.h"
 
-int	path_finder(t_game game)
+typedef struct s_graph {
+	char			ch;
+	char			position[2];
+	struct graph	*next;
+	struct graph	*previous;
+	int				visited;
+} t_graph;
+
+int	path_finder(t_game *game)
 {
-	
-	return (1);
+	// Create new queue
+	t_graph	queue;
+	// Add all of neighbour to search queue
+	queue = enque(queue);
+	// While the queue isn't empty
+	while (q_not_empty(queue))
+	{
+		// Grab first person off the queue
+		current = pop_head_queue();
+		// Check whether the person is a mango seller
+		if (not_visited())
+		{
+			if (found_exit(queue.ch))
+			{
+				// You're done!
+				return (1);
+			}
+			else
+			{
+				// Add all of this person's friends to the queue
+				// Mark that person as searched/visited
+			}
+		}
+	}
+	// If you reached here, no one was a mango seller
+	return (0);
 }
+
+// Keep a queus
+// get_head()
+// get_tail()
+// enqueue();
+// dequeue();
+// q_is_empty();
+
+int	found_exit(char ch)
+{
+	if (ch == 'E')
+		return (1);
+	return (0);
+}
+
+void	

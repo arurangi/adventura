@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 11:49:14 by arurangi          #+#    #+#             */
-/*   Updated: 2022/11/25 12:49:34 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/11/26 12:40:09 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
  * Returns array of strings
  */
 
-#include "../libft.h"
+#include "../so_long.h"
 
 static int	count_words(char *str, char c);
 static char	**malloc_array(char *str, char ch);

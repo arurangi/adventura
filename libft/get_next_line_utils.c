@@ -6,11 +6,9 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 15:58:12 by Arsene            #+#    #+#             */
-/*   Updated: 2022/11/22 16:03:30 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/11/26 12:40:57 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "../libft.h"
 
 /* ************************************************************************** */
 /*                              ft_strjoin_mod()                              */
@@ -22,6 +20,8 @@
 /*  - allocates memory to tmp variable (tmp)                                  */
 /* 	- frees the first argument (stash)                                        */
 /* ************************************************************************** */
+
+#include "../so_long.h"
 
 char	*ft_strjoin_mod(char *stash, char *buffer)
 {

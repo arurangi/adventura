@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 09:10:02 by arurangi          #+#    #+#             */
-/*   Updated: 2022/11/25 12:49:40 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/11/26 12:40:17 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
  * Combines two strings to create a new one (with memory allocation)
 */
 
-#include "../libft.h"
+#include "../so_long.h"
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
