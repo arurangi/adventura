@@ -21,14 +21,6 @@
 
 #include "../so_long.h"
 
-typedef struct s_graph {
-	char			ch;
-	char			position[2];
-	struct graph	*next;
-	struct graph	*previous;
-	int				visited;
-} t_graph;
-
 int	path_finder(t_game *game)
 {
 	int		size;
@@ -42,6 +34,8 @@ int	path_finder(t_game *game)
 	tail = 0;
 	// Add initial position
 	queue[head] = game->starting_pos;
+	ft_printf("row: %d, col: %d\n", queue[0].row, queue[0].col);
+	/*
 	// Add all of neighbour to search queue
 	enqueue(&queue, &head, &tail, size);
 	// While the queue isn't empty
@@ -65,13 +59,20 @@ int	path_finder(t_game *game)
 		}
 	}
 	// If you reached here, no one was a mango seller
-	return (0);
+	*/
+	return (1);
 }
 
-// Keep a queus
-// get_head()
-// get_tail()
-// insert();
+t_node	add_node(int row, int col)
+{
+	t_node	node;
+
+	node.row = row;
+	node.col = col;
+	return (node);
+}
+
+/*
 void	insert_neighbours(t_node *queue, int *head, int *tail, int size)
 {
 	int row;
@@ -88,6 +89,7 @@ void	insert_neighbours(t_node *queue, int *head, int *tail, int size)
 		*tail++;
 	}
 }
+*/
 // dequeue();
 // q_is_empty();
 
@@ -97,5 +99,3 @@ int	found_exit(char ch)
 		return (1);
 	return (0);
 }
-
-void	
