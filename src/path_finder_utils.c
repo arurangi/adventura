@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 10:13:21 by arurangi          #+#    #+#             */
-/*   Updated: 2022/11/27 14:50:17 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/11/27 15:28:37 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,19 @@
 // Check if node has neem visited, based on coordinates
 int	not_visited(t_node *queue, int head)
 {
-	int	i;
+	int		i;
+	t_node	current;
 
+	current = queue[head];
 	i = 0;
-	if (head == 0)
-		return (1);
 	while (i < head)
 	{
-		if (queue[i].row == queue[head].row && queue[i].col == queue[head].col)
+		if (queue[i].row == current.row && queue[i].col == current.col)
+		{
+			ft_printf("Visited [%d][%d]\n", current.row, current.col);
 			return (0);
+		}
+		ft_printf("Not visited [%d][%d]\n", current.row, current.col);
 		i++;
 	}
 	return (1);

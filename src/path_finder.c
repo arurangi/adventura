@@ -38,8 +38,8 @@ int	path_finder(t_game *game)
 	// Add initial position
 	queue[head] = game->starting_pos;
 	// Add all of this person's friends to the queue
-	add_neighbours(game, queue, head, &tail);
-	head += 1;
+	//add_neighbours(game, queue, head, &tail);
+	//head += 1;
 	// While the queue isn't empty
 	while (head < q_size && queue[head].row != -1)
 	{
@@ -58,6 +58,13 @@ int	path_finder(t_game *game)
 			{
 				// Add all of this person's friends to the queue
 				add_neighbours(game, queue, head, &tail);
+				int i = head;
+				ft_printf("tail = %d\n", tail);
+				while (i < tail - 1)
+				{
+					ft_printf("\033[32mnode [%d]: [%d][%d]\033[0m => '%c'\n", i, queue[i].row, queue[i].col, game->map[queue[i].row][queue[i].col]);
+					i++;
+				}
 			}
 		}
 		head++;
