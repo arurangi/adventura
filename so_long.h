@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 14:01:48 by arurangi          #+#    #+#             */
-/*   Updated: 2022/11/27 12:41:04 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/11/27 14:45:56 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,8 @@
 // Gobal informations
 
 typedef struct s_node{
-	int				row;
-	int				col;
+	int		row;
+	int		col;
 } t_node;
 
 typedef struct s_game {
@@ -72,21 +72,21 @@ int			ft_puthex(unsigned long nbr, char format, int *counter);
 int			ft_isalpha(int c);
 void		ft_putfs(char ch, va_list args, int *counter);
 
-char	*ft_strjoin_mod(char *old_stash, char *buff);
-char	*ft_strdup(const char *str);
-int		ft_strchr_mod(const char *s, char ch);
+char		*ft_strjoin_mod(char *old_stash, char *buff);
+char		*ft_strdup(const char *str);
+int			ft_strchr_mod(const char *s, char ch);
 
-char	**ft_split(char const *str, char ch);
-char	*ft_strjoin(char const *s1, char const *s2);
-char	**ft_split_fd(char *filepath, char seperator);
+char		**ft_split(char const *str, char ch);
+char		*ft_strjoin(char const *s1, char const *s2);
+char		**ft_split_fd(char *filepath, char seperator);
 
 /*  GET_NEXT_LINE  */
 
-char	*get_next_line(int fd);
-char	*save_raw_line(int fd, char *stash);
-char	*trim_right(char *raw_line);
-char	*trim_left(char *stash);
-char	*free_stash(char *stash);
+char		*get_next_line(int fd);
+char		*save_raw_line(int fd, char *stash);
+char		*trim_right(char *raw_line);
+char		*trim_left(char *stash);
+char		*free_stash(char *stash);
 
 void		draw_map(t_game *game);
 int			map_is_valid(t_game *game);
@@ -99,9 +99,9 @@ int			path_finder(t_game *game);
 int			tab_height(char **tab);
 
 /*     PATH FINDER        */
-int		not_visited(t_node *queue, int head);
-int		found_exit(t_game *game, t_node node);
-t_node	add_node(int row, int col);
-void	add_neighbours(t_game *game, t_node *queue, int head, int *tail);
+int			not_visited(t_node *queue, int head);
+int			found_exit(t_game *game, t_node node);
+t_node		add_node(int row, int col);
+void		add_neighbours(t_game *game, t_node *queue, int head, int *tail);
 
 #endif

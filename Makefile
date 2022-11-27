@@ -6,7 +6,7 @@
 #    By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/19 13:37:59 by arurangi          #+#    #+#              #
-#    Updated: 2022/11/27 12:33:35 by arurangi         ###   ########.fr        #
+#    Updated: 2022/11/27 14:03:16 by arurangi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,7 +49,7 @@ $(NAME): 	$(OBJ)
 all:		${NAME}
 
 map:		${NAME}
-				@./${NAME} assets/maps/001.ber
+				@./${NAME} assets/maps/000.ber
 
 clean:		
 			@rm ${OBJ}
