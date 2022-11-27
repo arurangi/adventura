@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 14:01:48 by arurangi          #+#    #+#             */
-/*   Updated: 2022/11/26 17:23:29 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/11/27 12:41:04 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,5 +98,10 @@ int			invalid_extension(char *filepath);
 int			path_finder(t_game *game);
 int			tab_height(char **tab);
 
+/*     PATH FINDER        */
+int		not_visited(t_node *queue, int head);
+int		found_exit(t_game *game, t_node node);
+t_node	add_node(int row, int col);
+void	add_neighbours(t_game *game, t_node *queue, int head, int *tail);
 
 #endif

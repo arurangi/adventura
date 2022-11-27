@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_map.c                                        :+:      :+:    :+:   */
+/*   map_checker.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 11:05:41 by arurangi          #+#    #+#             */
-/*   Updated: 2022/11/26 16:26:37 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/11/27 11:41:29 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ int	map_is_valid(t_game *game)
 	// Check for valid path
 	if (path_finder(game))
 	{
-		ft_printf("Found a valid path!!!!!\n");
+		//ft_printf("Found a valid path!!!!!\n");
 		return (1);
 	}
 

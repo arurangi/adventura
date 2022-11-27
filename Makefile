@@ -6,16 +6,17 @@
 #    By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/19 13:37:59 by arurangi          #+#    #+#              #
-#    Updated: 2022/11/26 17:45:49 by arurangi         ###   ########.fr        #
+#    Updated: 2022/11/27 12:33:35 by arurangi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # SOURCES
 SRCS	= 	src/so_long.c \
 			src/draw_map.c \
-			src/check_map.c \
+			src/map_checker.c \
+			src/map_checker_utils.c \
 			src/path_finder.c \
-			src/utils.c \
+			src/path_finder_utils.c \
 			libft/ft_strlen.c \
 			libft/ft_putchar.c \
 			libft/ft_putstr.c \
@@ -48,9 +49,7 @@ $(NAME): 	$(OBJ)
 all:		${NAME}
 
 map:		${NAME}
-				@./${NAME} assets/maps/000.ber
 				@./${NAME} assets/maps/001.ber
-				@./${NAME} assets/maps/002.ber
 
 clean:		
 			@rm ${OBJ}
