@@ -33,12 +33,15 @@ int	path_finder(t_game *game)
 	t_node	queue[q_size];
 	queue[0] = game->starting_pos;
 	ft_printf("'P' at (%d, %d)\n", queue[0].row, queue[0].col);
+
 	// Add all neighbours
 	head = 0;
 	tail = 0;
 	add_neighbours(game, queue, head, &tail);
 	head += 1;
 
+	for (int i = head; i <= tail; i++)
+		ft_printf("%c at (%d,%d)\n", game->map[queue[i].row][queue[i].col], queue[i].row, queue[i].col);
 	// Add all of this person's friends to the queue
 	// While the queue isn't empty
 	while (head <= tail && tail < q_size)
@@ -46,20 +49,17 @@ int	path_finder(t_game *game)
 		// Grab first person off the queue
 		current = queue[head];
 		// Check whether node is an exit
-		if (!visited(queue, head))
+		if (found_exit(game, current))
 		{
-			if (found_exit(game, current))
-			{
-				// You're done!
-				ft_printf("\033[32mFound exit\033[0m at (%d, %d)\n", current.row, current.col);
-				ft_printf("\nhead: %d, tail: %d\n", head, tail);
-				return (1);
-			}
-			else
-			{
-				// Add all of this person's friends to the queue
-				add_neighbours(game, queue, head, &tail);
-			}
+			// You're done!
+			ft_printf("\033[32mFound exit\033[0m at (%d, %d)\n", current.row, current.col);
+			return (1);
+		}
+		else
+		{
+			// Add all of this person's friends to the queue
+			//ft_printf("Adding \033[30m(%d, %d)\033[0m's neighbours\n", current.row, current.col);
+			add_neighbours(game, queue, head, &tail);
 		}
 		head += 1;
 	}
