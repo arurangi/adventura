@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 10:13:21 by arurangi          #+#    #+#             */
-/*   Updated: 2022/11/28 16:08:34 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/11/28 16:45:45 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,8 @@ void	add_neighbours(t_game *game, t_node *queue, int head, int *tail)
 			// Avoid walls
 			if (game->map[row][col] == '1')
 				col++;
+			else if (game->map[row][col] == 'P')
+				col++;
 			// Avoid center
 			else if ((row == current.row) && (col == current.col))
 				col++;
@@ -79,6 +81,7 @@ void	add_neighbours(t_game *game, t_node *queue, int head, int *tail)
 			else
 			{
 				queue[pos++] = add_node(row, col);
+				ft_printf("\033[33mAdded\033[0m (%d, %d) => '%c'\n", row, col, game->map[row][col]);
 				*tail += 1;
 				col++;
 			}
