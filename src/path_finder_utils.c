@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 10:13:21 by arurangi          #+#    #+#             */
-/*   Updated: 2022/11/28 16:45:45 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/11/28 16:58:40 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,4 +88,5 @@ void	add_neighbours(t_game *game, t_node *queue, int head, int *tail)
 		}
 		row++;
 	}
+
 }

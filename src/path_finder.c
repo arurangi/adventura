@@ -34,37 +34,34 @@ int	path_finder(t_game *game)
 	q_size = (game->map_height * game->map_width) + 1;
 	t_node	queue[q_size];
 	queue[head] = game->starting_pos;
-	ft_printf("+--------------------+\n| Starting at (%d, %d) |\n+--------------------+\n", queue[head].row, queue[head].col);
+	ft_printf("+--------------------+\n| Starting at (%d, %d) |\n+--------------------+\n\n", queue[head].row, queue[head].col);
 
 	// Add all neighbours
 	add_neighbours(game, queue, head, &tail);
-	//head += 1;
 
-	// ft_printf("in q:\n");
-	// ft_printf("(%d, %d)\n", queue[1].row, queue[1].col);
-	// for (int i = head; i <= tail; i++)
-	// 	ft_printf("----- %c at (%d,%d)\n", game->map[queue[i].row][queue[i].col], queue[i].row, queue[i].col);
-	// Add all of this person's friends to the queue
 	// While the queue isn't empty
 	while (head <= tail && tail < q_size)
 	{
 		// Grab first person off the queue
 		current = queue[head];
-		ft_printf("\ncurrent (%d, %d)\n", current.row, current.col);
+		ft_printf("\n\033[34mchecking\033[0m (%d, %d)\n", current.row, current.col);
 		// Check whether node is an exit
 		if (found_exit(game, current))
 		{
 			// You're done!
-			ft_printf("\033[32mFound exit\033[0m at (%d, %d)\n", current.row, current.col);
+			ft_printf("\n\033[32mFound exit\033[0m at (%d, %d)\n", current.row, current.col);
 			return (1);
 		}
 		else
 		{
 			// Add all of this person's friends to the queue
-			//ft_printf("Adding \033[30m(%d, %d)\033[0m's neighbours\n", current.row, current.col);
 			add_neighbours(game, queue, head, &tail);
 		}
 		head += 1;
+		ft_printf("-- In queue: ");
+		for (int i = head; i < tail; i++)
+			ft_printf("(%d, %d) ", queue[i].row, queue[i].col);
+		ft_printf("\n");
 	}
 	// If you reached here, no one was a mango seller
 	ft_printf("\n\033[31mNo EXIT found\033[0m");
