@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 10:13:21 by arurangi          #+#    #+#             */
-/*   Updated: 2022/11/28 15:11:31 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/11/28 16:08:34 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,9 +57,9 @@ void	add_neighbours(t_game *game, t_node *queue, int head, int *tail)
 	int		row;
 	int		col;
 
+	pos = *tail;
 	current = queue[head];
 	//ft_printf("Current at [%d][%d]\n", current.row, current.col);
-	pos = head + 1;
 	row = current.row - 1;
 	while (row <= current.row + 1)
 	{

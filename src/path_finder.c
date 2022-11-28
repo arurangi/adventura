@@ -28,26 +28,29 @@ int	path_finder(t_game *game)
 	int			tail;
 	t_node		current;
 
+	head = 0;
+	tail = 0;
 	// Create new queue
 	q_size = (game->map_height * game->map_width) + 1;
 	t_node	queue[q_size];
-	queue[0] = game->starting_pos;
-	ft_printf("'P' at (%d, %d)\n", queue[0].row, queue[0].col);
+	queue[head] = game->starting_pos;
+	ft_printf("Starting at (%d, %d)\n", queue[head].row, queue[head].col);
 
 	// Add all neighbours
-	head = 0;
-	tail = 0;
 	add_neighbours(game, queue, head, &tail);
 	head += 1;
 
+	ft_printf("in q:\n");
+	ft_printf("(%d, %d)\n", queue[head].row, queue[head].col);
 	for (int i = head; i <= tail; i++)
-		ft_printf("%c at (%d,%d)\n", game->map[queue[i].row][queue[i].col], queue[i].row, queue[i].col);
+		ft_printf("----- %c at (%d,%d)\n", game->map[queue[i].row][queue[i].col], queue[i].row, queue[i].col);
 	// Add all of this person's friends to the queue
 	// While the queue isn't empty
 	while (head <= tail && tail < q_size)
 	{
 		// Grab first person off the queue
 		current = queue[head];
+		ft_printf("current (%d, %d)\n", current.row, current.col);
 		// Check whether node is an exit
 		if (found_exit(game, current))
 		{
