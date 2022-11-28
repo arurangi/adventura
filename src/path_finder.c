@@ -29,56 +29,42 @@ int	path_finder(t_game *game)
 	t_node		current;
 
 	// Create new queue
-	q_size = game->map_height * game->map_width;
+	q_size = (game->map_height * game->map_width) + 1;
 	t_node	queue[q_size];
-	for (int i = 0; i < q_size; i++)
-		queue[i] = add_node(-1, -1);
+	queue[0] = game->starting_pos;
+	ft_printf("'P' at (%d, %d)\n", queue[0].row, queue[0].col);
+	// Add all neighbours
 	head = 0;
 	tail = 0;
-	// Add initial position
-	queue[head] = game->starting_pos;
+	add_neighbours(game, queue, head, &tail);
+	head += 1;
+
 	// Add all of this person's friends to the queue
-	//add_neighbours(game, queue, head, &tail);
-	//head += 1;
 	// While the queue isn't empty
-	while (head < q_size && queue[head].row != -1)
+	while (head <= tail && tail < q_size)
 	{
 		// Grab first person off the queue
 		current = queue[head];
 		// Check whether node is an exit
-		if (not_visited(queue, head))
+		if (!visited(queue, head))
 		{
 			if (found_exit(game, current))
 			{
 				// You're done!
-				ft_printf("\nFound an exit at [%d][%d]\n", current.row, current.col);
+				ft_printf("\033[32mFound exit\033[0m at (%d, %d)\n", current.row, current.col);
+				ft_printf("\nhead: %d, tail: %d\n", head, tail);
 				return (1);
 			}
 			else
 			{
 				// Add all of this person's friends to the queue
 				add_neighbours(game, queue, head, &tail);
-				int i = head;
-				ft_printf("tail = %d\n", tail);
-				while (i < tail - 1)
-				{
-					ft_printf("\033[32mnode [%d]: [%d][%d]\033[0m => '%c'\n", i, queue[i].row, queue[i].col, game->map[queue[i].row][queue[i].col]);
-					i++;
-				}
 			}
 		}
-		head++;
+		head += 1;
 	}
 	// If you reached here, no one was a mango seller
-	// int i;
-
-	// i = head;
-	// while (i < tail)
-	// {
-	// 	ft_printf("node [%d]: [%d][%d] => '%c'\n", i, queue[i].row, queue[i].col, game->map[queue[i].row][queue[i].col]);
-	// 	i++;
-	// }
-	ft_printf("No EXIT found!");
+	ft_printf("\n\033[31mNo EXIT found\033[0m");
 
 	return (0);
 }
