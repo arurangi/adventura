@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 14:01:48 by arurangi          #+#    #+#             */
-/*   Updated: 2022/11/29 12:29:24 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/11/29 14:56:09 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,7 @@ typedef struct s_node{
 typedef struct s_game {
 	void	*mlx;
 	void	*window;
-	char	**map;
-	char	**map_copy;
+	char	**map; // Free
 	char	*map_filepath;
 	int		map_height;
 	int		map_width;
@@ -53,7 +52,6 @@ typedef struct s_game {
 	int		e_credit;
 	int		p_credit;
 	t_node	starting_pos;
-	char	*path;
 	void	*empty_space;
 	void	*wall;
 	void	*collectible;
@@ -101,6 +99,7 @@ int			tab_height(char **tab);
 
 /*     ERROR HANDLING        */
 int			map_error(char *message, ...);
+void		free_matrix(char **matrix);
 
 /*     PATH FINDER        */
 int			in_queue(t_node current, t_node *queue, int head, int tail);

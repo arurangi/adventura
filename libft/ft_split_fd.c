@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 09:43:09 by arurangi          #+#    #+#             */
-/*   Updated: 2022/11/26 14:51:40 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/11/29 14:50:47 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,9 @@ static char	*read_and_save(int fd);
 char	**ft_split_fd(char *filepath, char seperator)
 {
 	char	*extracted_text;
+	char	**matrix;
 	int		fd;
-	
+
 	fd = open(filepath, O_RDONLY);
 	if (fd < 0 || fd > FOPEN_MAX || !seperator)
 	{
@@ -43,7 +44,9 @@ char	**ft_split_fd(char *filepath, char seperator)
 		return (NULL);
 	}
 	close(fd);
-	return (ft_split(extracted_text, seperator));
+	matrix = ft_split(extracted_text, seperator);
+	free(extracted_text);
+	return (matrix);
 }
 
 // Reads a file and returns its content

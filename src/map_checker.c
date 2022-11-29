@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 11:05:41 by arurangi          #+#    #+#             */
-/*   Updated: 2022/11/29 12:37:46 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/11/29 14:54:38 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,11 @@ int	map_is_valid(t_game *game)
 
 	// Parsing: save each map line into a table for easy access
 	game->map = ft_split_fd(game->map_filepath, '\n');
-	if (!game->map)
+	if (game->map == NULL)
 	{
-		write(1, "Error: couldn't parse the map", 29);
-		return (0);
+		free_matrix(game->map);
+		return (map_error("couldn't store the map in the matrix"));
 	}
-	for (int i = 0; game->map[i]; i++)
-		ft_printf("[%d] \"%s\"\n", i, game->map[i]);
 	// Analyze the map further
 	map_init(game);
 	game->map_height = tab_height(game->map);

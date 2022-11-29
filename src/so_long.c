@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 11:36:54 by arurangi          #+#    #+#             */
-/*   Updated: 2022/11/26 17:45:30 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/11/29 15:02:31 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,11 @@ int	main(int argc, char **argv)
 		return (1);
 	}
 	game.map_filepath = argv[1];
-	//game.mlx = mlx_init();
-	//if (game.mlx)
-	draw_map(&game);
+	game.mlx = mlx_init();
+	if (game.mlx)
+	{
+		draw_map(&game);
+	}
+	
 	return (0);
 }

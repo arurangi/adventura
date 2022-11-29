@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 11:38:48 by arurangi          #+#    #+#             */
-/*   Updated: 2022/11/29 12:35:33 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/11/29 14:55:39 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,19 @@ int	error_found(char *str)
 {
 	ft_printf("%s\n", str);
 	return (0);
+}
+
+void	free_matrix(char **matrix)
+{
+	int	i;
+	
+	i = 0;
+	while (matrix[i])
+	{
+		free(matrix[i]);
+		i++;
+	}
+	free(matrix);
 }
 
 int	map_error(char *message, ...)
