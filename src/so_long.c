@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 11:36:54 by arurangi          #+#    #+#             */
-/*   Updated: 2022/11/29 16:42:36 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/11/29 21:29:59 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
  * 
 */
 
-#define ESC 53
+#define ESC 65307
 #define UP 126
 #define DOWN 125
 #define LEFT 123
@@ -30,7 +30,7 @@ int	handle_input(int keysym, t_game *game)
 	if (keysym == ESC)
 	{
 		mlx_destroy_window(game->mlx, game->window);
-		//mlx_destroy_display(game->mlx);
+		mlx_destroy_display(game->mlx);
 		free(game->mlx);
 	}
 	ft_printf("%d\n", keysym);
