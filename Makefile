@@ -6,7 +6,7 @@
 #    By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/19 13:37:59 by arurangi          #+#    #+#              #
-#    Updated: 2022/11/28 15:59:59 by arurangi         ###   ########.fr        #
+#    Updated: 2022/11/29 12:31:29 by arurangi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,10 +17,12 @@ SRCS	= 	src/so_long.c \
 			src/map_checker_utils.c \
 			src/path_finder.c \
 			src/path_finder_utils.c \
+			src/error_handling.c \
 			libft/ft_strlen.c \
 			libft/ft_putchar.c \
 			libft/ft_putstr.c \
 			libft/ft_putnbr.c \
+			libft/ft_putnbr_mod.c \
 			libft/ft_putnbr_u.c \
 			libft/ft_isalpha.c \
 			libft/ft_puthex.c \
@@ -49,7 +51,7 @@ $(NAME): 	$(OBJ)
 all:		${NAME}
 
 map:		${NAME}
-				@./${NAME} assets/maps/002.ber
+				@./${NAME} assets/maps/003.ber
 
 clean:		
 			@rm ${OBJ}

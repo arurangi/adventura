@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 13:17:08 by arurangi          #+#    #+#             */
-/*   Updated: 2022/11/26 12:39:16 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/11/29 12:30:06 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	ft_putfs(char ch, va_list args, int *counter)
 	else if (ch == 's')
 		*counter += ft_putstr(va_arg(args, char *));
 	else if (ch == 'i' || ch == 'd')
-		*counter = ft_putnbr(va_arg(args, int), counter);
+		*counter = ft_putnbr_mod(va_arg(args, int), counter);
 	else if (ch == 'u')
 		*counter = ft_putnbr_u(va_arg(args, unsigned int), counter);
 	else if (ch == '%')

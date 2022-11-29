@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 11:05:41 by arurangi          #+#    #+#             */
-/*   Updated: 2022/11/27 11:41:29 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/11/29 12:37:46 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,8 @@ int	map_is_valid(t_game *game)
 		write(1, "Error: couldn't parse the map", 29);
 		return (0);
 	}
-
+	for (int i = 0; game->map[i]; i++)
+		ft_printf("[%d] \"%s\"\n", i, game->map[i]);
 	// Analyze the map further
 	map_init(game);
 	game->map_height = tab_height(game->map);
@@ -46,18 +47,12 @@ int	map_is_valid(t_game *game)
 		{
 			// Valid characters (0, 1, C, E, P)
 			if (not_valid_character(game->map[row][col]))
-			{
-				ft_printf("Not valid character at [%d][%d]\n", row, col);
-				return (0);
-			}
+				return (map_error("invalid character at [%d][%d]", row, col));
 			// Surrounded by walls
 			if (row == 0 || row == game->map_height - 1 || col == 0	|| game->map[row][col + 1] == '\0') 
 			{
 				if (game->map[row][col] != '1')
-				{
-					ft_printf("Not surrounded by walls at [%d][%d]\n", row, col);
-					return (0);
-				}
+					return (map_error("Not surrounded by walls at [%d][%d]\n", row, col));
 			}
 			// At least one : C, E, P
 			if (game->map[row][col] == 'C')
@@ -72,10 +67,7 @@ int	map_is_valid(t_game *game)
 			}
 			// Map is rectangular
 			if ((game->map[row][col + 1] == '\0') && (col + 1 != game->map_width))
-			{
-					ft_printf("Not rectangular at row %d\n", row);
-					return (0);
-			}
+					return (map_error("not rectangular at row %d", row));
 			col++;
 		}
 		row++;
@@ -83,22 +75,12 @@ int	map_is_valid(t_game *game)
 	
 	// Check credits
 	if ((game->c_credit * game->e_credit * game->p_credit) == 0)
-	{
-		if (game->c_credit == 0)
-			ft_printf("Your map needs a COLLECTIBLE\n");
-		if (game->e_credit == 0)
-			ft_printf("Your map needs an EXIT\n");
-		if (game->p_credit == 0)
-			ft_printf("Your map needs a PLAYER position\n");
-		return (0);
-	}
-
+		return (map_error("missing Collectible (C), Exit (E) or Starting position (P)."));
+	// Check for duplicates
+	if (game->e_credit > 1 || game->p_credit > 1)
+		return (map_error("duplicates of Exit/Start"));
 	// Check for valid path
 	if (path_finder(game))
-	{
-		//ft_printf("Found a valid path!!!!!\n");
 		return (1);
-	}
-
 	return (0);
 }

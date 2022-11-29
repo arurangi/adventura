@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 14:01:48 by arurangi          #+#    #+#             */
-/*   Updated: 2022/11/28 15:32:59 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/11/29 12:29:24 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,8 @@ int			ft_printf(const char *str, ...);
 int			ft_strlen(const char *s);
 int			ft_putchar(char c);
 int			ft_putstr(char *str);
-int			ft_putnbr(int nbr, int *counter);
+void		ft_putnbr(int nbr);
+int			ft_putnbr_mod(int nbr, int *counter);
 int			ft_putnbr_u(unsigned int nbr, int *counter);
 int			ft_puthex(unsigned long nbr, char format, int *counter);
 int			ft_isalpha(int c);
@@ -97,6 +98,9 @@ void		map_init(t_game *game); // Initialize credits for C, E and P
 int			invalid_extension(char *filepath);
 int			path_finder(t_game *game);
 int			tab_height(char **tab);
+
+/*     ERROR HANDLING        */
+int			map_error(char *message, ...);
 
 /*     PATH FINDER        */
 int			in_queue(t_node current, t_node *queue, int head, int tail);
