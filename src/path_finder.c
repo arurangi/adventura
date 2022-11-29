@@ -51,7 +51,6 @@ int	path_finder(t_game *game)
 		if (found_exit(game, current))
 		{
 			// You're done!
-			ft_printf("\n\033[32mFound exit\033[0m at (%d, %d)\n", current.row, current.col);
 			return (1);
 		}
 		else
