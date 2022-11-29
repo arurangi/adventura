@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 11:38:48 by arurangi          #+#    #+#             */
-/*   Updated: 2022/11/29 14:55:39 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/11/29 15:59:14 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	map_error(char *message, ...)
 
 	index = 0;
 	va_start(args, message);
-	write(1, "\033[31m✖ Map_error\033[0m ", 23);
+	printf("\033[31m✖ Map error: \033[0m ");
 	while (message[index])
 	{
 		

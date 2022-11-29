@@ -6,13 +6,14 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 14:01:48 by arurangi          #+#    #+#             */
-/*   Updated: 2022/11/29 14:56:09 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/11/29 15:58:18 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
+// Libraries
 # include <stdlib.h> // malloc
 # include <unistd.h> // write
 # include <limits.h> // INT_MAX, INT_MIN
@@ -21,21 +22,12 @@
 # include <fcntl.h> // 
 # include <stdio.h> // FOPEN_MAX
 
-# define BUFFER_SIZE 1
-
-# define CRED     "\x1b[31m"
-# define CGREEN   "\x1b[32m"
-# define CYELLOW  "\x1b[33m"
-# define CBLUE    "\x1b[34m"
-# define CMAGENTA "\x1b[35m"
-# define CCYAN    "\x1b[36m"
-# define CRESET   "\x1b[0m"
-
 // Macros
+# define BUFFER_SIZE 1
+# define W_WIDTH 1920
+# define W_HEIGHT 1080
 
-
-// Gobal informations
-
+// Structures
 typedef struct s_node{
 	int		row;
 	int		col;
@@ -103,6 +95,7 @@ void		free_matrix(char **matrix);
 
 /*     PATH FINDER        */
 int			in_queue(t_node current, t_node *queue, int head, int tail);
+void		q_init(t_node *queue, int q_size);
 int			found_exit(t_game *game, t_node node);
 t_node		add_node(int row, int col);
 void		add_neighbours(t_game *game, t_node *queue, int head, int *tail);
