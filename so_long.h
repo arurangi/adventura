@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 14:01:48 by arurangi          #+#    #+#             */
-/*   Updated: 2022/11/29 15:58:18 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/11/30 13:33:51 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,28 @@
 
 // Macros
 # define BUFFER_SIZE 1
-# define W_WIDTH 1920
-# define W_HEIGHT 1080
+# define W_WIDTH 800
+# define W_HEIGHT 640
+# define ESC 65307
+# define UP 126
+# define DOWN 125
+# define LEFT 123
+# define RIGHT 124
 
-// Structures
+/*         STRUCTURES         */
 typedef struct s_node{
 	int		row;
 	int		col;
 } t_node;
+
+typedef struct s_img
+{
+	void	*mlx_img;
+	char	*addr;
+	int		bpp; /* bits per pixel */
+	int		line_len;
+	int		endian;
+}	t_img;
 
 typedef struct s_game {
 	void	*mlx;
@@ -44,13 +58,26 @@ typedef struct s_game {
 	int		e_credit;
 	int		p_credit;
 	t_node	starting_pos;
-	void	*empty_space;
-	void	*wall;
-	void	*collectible;
-	void	*exit;
+	t_img	img;
+	t_img	player;
+	t_img	collectible;
+	t_img	exit;
+	t_img	empty_space;
+	t_img	wall;
 }	t_game;
 
-/*  BASIC & PRINT_F  */
+typedef struct s_rect {
+	int x;
+	int y;
+	int width;
+	int height;
+	int color;
+} t_rect;
+
+/* *********************** */
+/*     BASIC & PRINT_F     */
+/* *********************** */
+
 int			ft_printf(const char *str, ...);
 
 int			ft_strlen(const char *s);
@@ -99,5 +126,12 @@ void		q_init(t_node *queue, int q_size);
 int			found_exit(t_game *game, t_node node);
 t_node		add_node(int row, int col);
 void		add_neighbours(t_game *game, t_node *queue, int head, int *tail);
+
+/*     RENDERING          */
+int			render(t_game *game);
+void		img_pix_put(t_img *img, int x, int y, int color);
+int			encode_rgb(uint8_t red, uint8_t green, uint8_t blue);
+void		render_background(t_img *img, int color);
+int			render_rect(t_img *img, t_rect rect);
 
 #endif

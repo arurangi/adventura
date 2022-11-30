@@ -6,7 +6,7 @@
 #    By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/19 13:37:59 by arurangi          #+#    #+#              #
-#    Updated: 2022/11/29 19:25:20 by Arsene           ###   ########.fr        #
+#    Updated: 2022/11/30 16:20:26 by Arsene           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,8 +51,8 @@ $(NAME): 	$(OBJ)
 all:		${NAME}
 
 local:
-			gcc src/*.c libft/*.c -lX11 -lXext -lmlx -o so_long
-			././${NAME} assets/maps/000.ber
+			@gcc src/*.c libft/*.c -lX11 -lXext -lmlx -o so_long
+			@./${NAME} assets/maps/000.ber
 
 map:		${NAME}
 				@./${NAME} assets/maps/000.ber

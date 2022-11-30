@@ -6,7 +6,7 @@
 /*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 11:36:54 by arurangi          #+#    #+#             */
-/*   Updated: 2022/11/29 21:29:59 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/11/30 13:39:57 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,6 @@
  * Creating a 2D game
  * 
 */
-
-#define ESC 65307
-#define UP 126
-#define DOWN 125
-#define LEFT 123
-#define RIGHT 124
 
 #include "../so_long.h"
 
@@ -37,12 +31,7 @@ int	handle_input(int keysym, t_game *game)
 	return (0);
 }
 
-int	handle_no_event(void *game)
-{
-	(void)game;
-	// This function needs to exist, but it is useless for the moment
-	return (0);
-}
+
 
 int	main(int argc, char **argv)
 {
@@ -55,30 +44,37 @@ int	main(int argc, char **argv)
 		return (1);
 	}
 	game.map_filepath = argv[1];
+	
 	game.mlx = mlx_init();
 	if (game.mlx == NULL)
 	{
 		ft_printf("Lib error: can't initialize minilibx");
 		return (1);
 	}
+
+	game.window = mlx_new_window(game.mlx, W_WIDTH, W_HEIGHT, "Adventura");
+	if (game.window == NULL)
+	{
+		free(game.window);
+		return (1);
+	}
+
 	// Launch game
 	if (map_is_valid(&game))
 	{
-		game.window = mlx_new_window(game.mlx, W_WIDTH, W_HEIGHT, "Adventura");
-		if (game.window == NULL)
-		{
-			free(game.window);
-			return (1);
-		}
+		/* Setup hooks */
+		game.img.mlx_img = mlx_new_image(game.mlx, W_WIDTH, W_HEIGHT);
+		game.img.addr = mlx_get_data_addr(game.img.mlx_img, &game.img.bpp,
+			&game.img.line_len, &game.img.endian);
 		
-		mlx_loop_hook(game.mlx, &handle_no_event, &game);
+		mlx_loop_hook(game.mlx, &render, &game);
 		mlx_hook(game.window, 2, 1L<<0, &handle_input, &game);
 		
 		mlx_loop(game.mlx);
 	}
-	// End Game
-	//mlx_destroy_window(game.mlx, game.window);
-	//mlx_destroy_display(game.mlx);
+	/* Execute this if all window closed */
+	mlx_destroy_image(game.mlx, game.img.mlx_img);
+	mlx_destroy_display(game.mlx);
 	free(game.mlx);
 	
 	return (0);
