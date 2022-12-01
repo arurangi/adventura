@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 12:30:28 by Arsene            #+#    #+#             */
-/*   Updated: 2022/12/01 11:16:43 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/01 14:53:30 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	render_background(t_img *img, int color)
 	}
 }
 
-int render_rect(t_img *img, t_rect rect)
+int render_rect(t_img *img, t_shape rect)
 {
 	int	i;
 	int j;

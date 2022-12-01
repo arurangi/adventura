@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 11:36:54 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/01 11:25:37 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/01 15:31:13 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,15 @@ int	handle_input(int keysym, t_game *game)
 		//mlx_destroy_display(game->mlx);
 		free(game->mlx);
 	}
+	if (keysym == LEFT)
+		game->x_shift -= 40;
+	if (keysym == RIGHT)
+		game->x_shift += 40;
+	if (keysym == DOWN)
+		game->y_shift += 40;
+	if (keysym == UP)
+		game->y_shift -= 40;
+		
 	ft_printf("%d\n", keysym);
 	return (0);
 }

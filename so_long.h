@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 14:01:48 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/01 11:28:43 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/01 15:27:22 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@
 # define DOWN 125
 # define LEFT 123
 # define RIGHT 124
+
+# define PLR_WIDTH 140
 
 /*         STRUCTURES         */
 typedef struct s_node{
@@ -64,15 +66,17 @@ typedef struct s_game {
 	t_img	exit;
 	t_img	empty_space;
 	t_img	wall;
+	int		x_shift;
+	int		y_shift;
 }	t_game;
 
-typedef struct s_rect {
+typedef struct s_shape {
 	int x;
 	int y;
 	int width;
 	int height;
 	int color;
-} t_rect;
+} t_shape;
 
 /* *********************** */
 /*     BASIC & PRINT_F     */
@@ -132,6 +136,6 @@ int			render(t_game *game);
 void		img_pix_put(t_img *img, int x, int y, int color);
 int			encode_rgb(uint8_t red, uint8_t green, uint8_t blue);
 void		render_background(t_img *img, int color);
-int			render_rect(t_img *img, t_rect rect);
+int			render_rect(t_img *img, t_shape rect);
 
 #endif
