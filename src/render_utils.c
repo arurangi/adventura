@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 12:30:28 by Arsene            #+#    #+#             */
-/*   Updated: 2022/12/01 14:53:30 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/01 15:59:51 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,15 @@ void	render_background(t_img *img, int color)
 			img_pix_put(img, j++, i, color);
 		++i;
 	}
+}
+
+int	render_emptyspace(t_game *game)
+{
+	t_asset	img;
+
+	img.ptr = mlx_xpm_file_to_image(game->mlx, "../assets/sprites/floor_1.xpm", &img.width, &img.height);
+	if (img.ptr == NULL)
+		return ;
 }
 
 int render_rect(t_img *img, t_shape rect)
@@ -75,4 +84,3 @@ void	img_pix_put(t_img *img, int x, int y, int color)
 		i -= 8;
 	}
 }
-

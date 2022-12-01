@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 14:01:48 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/01 15:27:22 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/01 15:48:09 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,15 +24,17 @@
 
 // Macros
 # define BUFFER_SIZE 1
+
 # define W_WIDTH 800
 # define W_HEIGHT 640
+
 # define ESC 53
 # define UP 126
 # define DOWN 125
 # define LEFT 123
 # define RIGHT 124
 
-# define PLR_WIDTH 140
+# define TILE_SIZE 40
 
 /*         STRUCTURES         */
 typedef struct s_node{
@@ -49,6 +51,12 @@ typedef struct s_img
 	int		endian;
 }	t_img;
 
+typedef struct s_asset {
+	void	*ptr;
+	int		width;
+	int		height;
+} t_asset;
+
 typedef struct s_game {
 	void	*mlx;
 	void	*window;
@@ -61,13 +69,13 @@ typedef struct s_game {
 	int		p_credit;
 	t_node	starting_pos;
 	t_img	img;
-	t_img	player;
-	t_img	collectible;
-	t_img	exit;
-	t_img	empty_space;
-	t_img	wall;
+	t_asset	empty_space;
 	int		x_shift;
 	int		y_shift;
+	// t_img	player;
+	// t_img	collectible;
+	// t_img	exit;
+	// t_img	wall;
 }	t_game;
 
 typedef struct s_shape {
