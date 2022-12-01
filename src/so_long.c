@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
+/*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 11:36:54 by arurangi          #+#    #+#             */
-/*   Updated: 2022/11/30 13:39:57 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/01 11:25:37 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	handle_input(int keysym, t_game *game)
 	if (keysym == ESC)
 	{
 		mlx_destroy_window(game->mlx, game->window);
-		mlx_destroy_display(game->mlx);
+		//mlx_destroy_display(game->mlx);
 		free(game->mlx);
 	}
 	ft_printf("%d\n", keysym);
@@ -74,7 +74,7 @@ int	main(int argc, char **argv)
 	}
 	/* Execute this if all window closed */
 	mlx_destroy_image(game.mlx, game.img.mlx_img);
-	mlx_destroy_display(game.mlx);
+	mlx_destroy_window(game.mlx, game.window);
 	free(game.mlx);
 	
 	return (0);

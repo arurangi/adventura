@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
+/*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 14:01:48 by arurangi          #+#    #+#             */
-/*   Updated: 2022/11/30 13:33:51 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/01 11:28:43 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@
 # define BUFFER_SIZE 1
 # define W_WIDTH 800
 # define W_HEIGHT 640
-# define ESC 65307
+# define ESC 53
 # define UP 126
 # define DOWN 125
 # define LEFT 123

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
+/*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 12:30:28 by Arsene            #+#    #+#             */
-/*   Updated: 2022/11/30 16:33:10 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/01 11:16:43 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,6 @@ void	img_pix_put(t_img *img, int x, int y, int color)
 	while (i >= 0)
 	{
 		/* big endian, MSB is the leftmost bit */
-        ft_printf("\033[32m✓\033[0m Inside img_pix_put()\n");
 		if (img->endian != 0)
 			*pixel++ = (color >> i) & 0xFF;
 		/* little endian, LSB is the leftmost bit */
