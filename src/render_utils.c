@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 12:30:28 by Arsene            #+#    #+#             */
-/*   Updated: 2022/12/01 15:59:51 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/01 19:42:36 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,8 @@ int	render_emptyspace(t_game *game)
 
 	img.ptr = mlx_xpm_file_to_image(game->mlx, "../assets/sprites/floor_1.xpm", &img.width, &img.height);
 	if (img.ptr == NULL)
-		return ;
+		return (1);
+	return (0);
 }
 
 int render_rect(t_img *img, t_shape rect)
