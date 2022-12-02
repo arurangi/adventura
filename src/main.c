@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 11:36:54 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/02 12:19:56 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/02 16:30:25 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,30 +23,32 @@ int	main(int argc, char **argv)
 {
 	t_game		game;
 	int			status;
+	t_img		image;
 
-	// Initialize environment
+	// Initialize environment (args, map, minilibx, window)
 	status = init_game_environment(&game, argc, argv);
 	if (status == 1)
 		return (game_error("couldn't initialize the environment."));
 
-	// Launch game
-	if (map_is_valid(&game))
+	// Print an image
+	char *path = "assets/sprites/empty_space.xpm";
+
+	image.img = mlx_xpm_file_to_image(game.mlx, path, &image.width, &image.height);
+	if (image.img == NULL)
+		return (game_error("couldn't create image"));
+	image.addr = mlx_get_data_addr(image.img, &image.bpp, &image.line_len, &image.endian);
+
+	int y = 0;
+	while (y < game.map_height)
 	{
-		/* Initialize Image */
-		game.image.img = mlx_new_image(game.mlx, W_WIDTH, W_HEIGHT);
-		game.image.data = mlx_get_data_addr(game.image.img, &game.image.bpp, &game.image.line_len, &game.image.endian);
-
-		/* Loop & update rendering */
-		mlx_loop_hook(game.mlx, &render, &game);
-		/* Take user input */
-		mlx_hook(game.window, 2, 1L<<0, &handle_input, &game);
-		/* Loop the game */
-		mlx_loop(game.mlx);
+		int x = 0;
+		while (x < game.map_width)
+		{
+			mlx_put_image_to_window(game.mlx, game.window, image.img, x * TILE, y * TILE);
+			x++;
+		}
+		y++;
 	}
-	/* Execute this if all window closed */
-	mlx_destroy_image(game.mlx, game.image.img);
-	mlx_destroy_window(game.mlx, game.window);
-	free(game.mlx);
-
+	mlx_loop(game.mlx);
 	return (0);
 }

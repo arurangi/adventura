@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 11:05:41 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/02 10:35:03 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/02 14:10:48 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 
 #include "../so_long.h"
 
-int	map_is_valid(t_game *game)
+int	map_checker(t_game *game)
 {
 	int		row;
 	int		col;
@@ -78,7 +78,7 @@ int	map_is_valid(t_game *game)
 	if (game->e_credit > 1 || game->p_credit > 1)
 		return (map_error("duplicates of Exit/Start"));
 	// Check for valid path
-	if (path_finder(game))
+	if (path_finder(game) == 1)
 		return (1);
-	return (success_msg(1, "map is valid"));
+	return (map_error("invalid map"));
 }

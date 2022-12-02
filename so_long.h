@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 14:01:48 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/02 12:20:06 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/02 16:02:46 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@
 # define LEFT 123
 # define RIGHT 124
 
-# define TILE_SIZE 40
+# define TILE 40
 
 /*         STRUCTURES         */
 typedef struct s_node{
@@ -51,7 +51,9 @@ typedef struct s_node{
 typedef struct s_img
 {
 	void	*img;
-	char	*data; // addr
+	int		width;
+	int		height;
+	char	*addr; // addr
 	int		bpp; /* bits per pixel */
 	int		line_len;
 	int		endian;
@@ -124,8 +126,7 @@ char		*trim_right(char *raw_line);
 char		*trim_left(char *stash);
 char		*free_stash(char *stash);
 
-void		draw_map(t_game *game);
-int			map_is_valid(t_game *game);
+int			map_checker(t_game *game);
 int			not_valid_character(char ch); // Check map for valid characters
 void		map_init(t_game *game); // Initialize credits for C, E and P
 

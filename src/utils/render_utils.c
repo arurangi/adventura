@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 12:30:28 by Arsene            #+#    #+#             */
-/*   Updated: 2022/12/02 12:21:24 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/02 15:28:03 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ void	img_pix_put(t_img *image, int x, int y, int color)
 	int		i;
 
 	i = image->bpp - 8;
-    pixel = image->data + (y * image->line_len + x * (image->bpp / 8));
+    pixel = image->addr + (y * image->line_len + x * (image->bpp / 8));
 	while (i >= 0)
 	{
 		/* big endian, MSB is the leftmost bit */

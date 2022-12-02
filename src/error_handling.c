@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 11:38:48 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/02 10:37:26 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/02 14:09:37 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ int success_msg(int code, char *message, ...)
 
 	index = 0;
 	va_start(args, message);
-	ft_printf("\033[33m✓\033[0m ");
+	ft_printf("\033[32m✓\033[0m ");
 	while (message[index])
 	{
 		

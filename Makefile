@@ -6,12 +6,12 @@
 #    By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/19 13:37:59 by arurangi          #+#    #+#              #
-#    Updated: 2022/12/02 11:01:09 by arurangi         ###   ########.fr        #
+#    Updated: 2022/12/02 16:13:05 by arurangi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # SOURCES
-SRCS	= 	src/so_long.c \
+SRCS	= 	src/main.c \
 			src/map_checker.c \
 			src/utils/map_checker_utils.c \
 			src/path_finder.c \
@@ -19,7 +19,7 @@ SRCS	= 	src/so_long.c \
 			src/error_handling.c \
 			src/render.c \
 			src/utils/render_utils.c \
-			src/input.c \
+			src/control.c \
 			src/initializer.c \
 			libft/ft_strlen.c \
 			libft/ft_putchar.c \
@@ -54,7 +54,7 @@ all:		${NAME}
 
 local:
 			@gcc src/*.c libft/*.c -lX11 -lXext -lmlx -o so_long
-			@./${NAME} assets/maps/000.ber
+			@./${NAME} assets/maps/001.ber
 
 map:		${NAME}
 				@./${NAME} assets/maps/000.ber
