@@ -6,11 +6,11 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 10:13:21 by arurangi          #+#    #+#             */
-/*   Updated: 2022/11/29 15:37:59 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/02 09:42:15 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "../../so_long.h"
 
 // Check if node has neem visited, based on coordinates
 int	in_queue(t_node current, t_node *queue, int head, int tail)

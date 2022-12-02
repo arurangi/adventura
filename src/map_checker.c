@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 11:05:41 by arurangi          #+#    #+#             */
-/*   Updated: 2022/11/29 15:56:49 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/02 10:35:03 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,5 +80,5 @@ int	map_is_valid(t_game *game)
 	// Check for valid path
 	if (path_finder(game))
 		return (1);
-	return (0);
+	return (success_msg(1, "map is valid"));
 }

@@ -6,20 +6,21 @@
 #    By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/19 13:37:59 by arurangi          #+#    #+#              #
-#    Updated: 2022/12/01 11:12:32 by arurangi         ###   ########.fr        #
+#    Updated: 2022/12/02 11:01:09 by arurangi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # SOURCES
 SRCS	= 	src/so_long.c \
-			src/draw_map.c \
 			src/map_checker.c \
-			src/map_checker_utils.c \
+			src/utils/map_checker_utils.c \
 			src/path_finder.c \
-			src/path_finder_utils.c \
+			src/utils/path_finder_utils.c \
 			src/error_handling.c \
 			src/render.c \
-			src/render_utils.c \
+			src/utils/render_utils.c \
+			src/input.c \
+			src/initializer.c \
 			libft/ft_strlen.c \
 			libft/ft_putchar.c \
 			libft/ft_putstr.c \
@@ -35,7 +36,6 @@ SRCS	= 	src/so_long.c \
 			libft/ft_split.c \
 			libft/ft_strjoin.c \
 			libft/ft_split_fd.c \
-			
 
 # VARIABLES
 NAME	= 	so_long

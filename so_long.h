@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
+/*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 14:01:48 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/01 19:47:07 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/02 12:20:06 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,17 +28,17 @@
 # define W_WIDTH 800
 # define W_HEIGHT 640
 
-# define ESC 65307
-# define UP 65362
-# define DOWN 65364
-# define LEFT 65361
-# define RIGHT 65363
+// # define ESC 65307
+// # define UP 65362
+// # define DOWN 65364
+// # define LEFT 65361
+// # define RIGHT 65363
 
-// # define ESC_PC 53
-// # define UP_PC 126
-// # define DOWN_PC 125
-// # define LEFT_PC 123
-// # define RIGHT_PC 124
+# define ESC 53
+# define UP 126
+# define DOWN 125
+# define LEFT 123
+# define RIGHT 124
 
 # define TILE_SIZE 40
 
@@ -50,8 +50,8 @@ typedef struct s_node{
 
 typedef struct s_img
 {
-	void	*mlx_img;
-	char	*addr;
+	void	*img;
+	char	*data; // addr
 	int		bpp; /* bits per pixel */
 	int		line_len;
 	int		endian;
@@ -74,7 +74,7 @@ typedef struct s_game {
 	int		e_credit;
 	int		p_credit;
 	t_node	starting_pos;
-	t_img	img;
+	t_img	image;
 	t_asset	empty_space;
 	int		x_shift;
 	int		y_shift;
@@ -136,7 +136,12 @@ int			tab_height(char **tab);
 
 /*     ERROR HANDLING        */
 int			map_error(char *message, ...);
+int			game_error(char *message, ...);
 void		free_matrix(char **matrix);
+int			success_msg(int code, char *message, ...);
+
+/*      INPUT             */
+int			handle_input(int keysym, t_game *game);
 
 /*     PATH FINDER        */
 int			in_queue(t_node current, t_node *queue, int head, int tail);
@@ -151,5 +156,8 @@ void		img_pix_put(t_img *img, int x, int y, int color);
 int			encode_rgb(uint8_t red, uint8_t green, uint8_t blue);
 void		render_background(t_img *img, int color);
 int			render_rect(t_img *img, t_shape rect);
+
+/*       INITIALIZER       */
+int			init_game_environment(t_game *game, int ac, char **av);
 
 #endif

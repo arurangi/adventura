@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   render_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
+/*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 12:30:28 by Arsene            #+#    #+#             */
-/*   Updated: 2022/12/01 19:42:36 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/02 12:21:24 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "../../so_long.h"
 
 int	encode_rgb(uint8_t red, uint8_t green, uint8_t blue)
 {
@@ -67,21 +67,21 @@ int render_rect(t_img *img, t_shape rect)
 //     ft_printf("\033[32m✓\033[0m Inside img_pix_put()\n");
 // }
 
-void	img_pix_put(t_img *img, int x, int y, int color)
+void	img_pix_put(t_img *image, int x, int y, int color)
 {
 	char    *pixel;
 	int		i;
 
-	i = img->bpp - 8;
-    pixel = img->addr + (y * img->line_len + x * (img->bpp / 8));
+	i = image->bpp - 8;
+    pixel = image->data + (y * image->line_len + x * (image->bpp / 8));
 	while (i >= 0)
 	{
 		/* big endian, MSB is the leftmost bit */
-		if (img->endian != 0)
+		if (image->endian != 0)
 			*pixel++ = (color >> i) & 0xFF;
 		/* little endian, LSB is the leftmost bit */
 		else
-			*pixel++ = (color >> (img->bpp - 8 - i)) & 0xFF;
+			*pixel++ = (color >> (image->bpp - 8 - i)) & 0xFF;
 		i -= 8;
 	}
 }
