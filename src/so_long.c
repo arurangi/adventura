@@ -6,7 +6,7 @@
 /*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 11:36:54 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/01 19:48:16 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/02 07:08:53 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ int	main(int argc, char **argv)
 		return (1);
 	}
 
+	//game_init();
 	game.x_shift = 0;
   	game.y_shift = 0;
 
