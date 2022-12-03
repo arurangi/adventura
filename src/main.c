@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 11:36:54 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/02 16:30:25 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/03 11:35:12 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	main(int argc, char **argv)
 	if (image.img == NULL)
 		return (game_error("couldn't create image"));
 	image.addr = mlx_get_data_addr(image.img, &image.bpp, &image.line_len, &image.endian);
-
+	
 	int y = 0;
 	while (y < game.map_height)
 	{
