@@ -65,7 +65,7 @@ an error.
 exit in a clean way, and return "Error\n" followed by an explicit error message of
 your choice.
 
-### Bonus (only evaluated if mandatory part is perfect)
+### Bonus
 You are allowed to use other functions to complete the bonus part as long as their
 use is justified during your evaluation. Be smart!
 
