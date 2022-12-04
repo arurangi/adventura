@@ -6,7 +6,7 @@
 /*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 09:40:40 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/04 07:37:15 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/04 11:57:41 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,11 @@ int	init_game_environment(t_game *game, int ac, char **av)
 	game->map_filepath = av[1];
 	if (map_checker(game) == 0)
 		return (0);
-	success_msg(1, "valid arguments and file extension & map");
 
 	// Launch minilibx library
 	game->mlx = mlx_init();
 	if (game->mlx == NULL)
 		return (game_error("can't initialize minilibx"));
-	success_msg(1, "minilibx initialized");
 
 	// Get window's pointer
 	game->window = mlx_new_window(game->mlx, game->map_width * TILE, 
@@ -48,15 +46,13 @@ int	init_game_environment(t_game *game, int ac, char **av)
 		free(game->window);
 		return (game_error("can't initialize window"));
 	}
-	success_msg(1, "window initialized");
 
 	// Load assets
 	load_assets(game);
-	success_msg(1, "assets loaded");
 
 	// Initialize player position
-	game->x_shift = 0;
-  	game->y_shift = 0;
+	game->x_shift = game->starting_pos.col;
+	game->y_shift = game->starting_pos.row;
 	
 	return (0);
 }

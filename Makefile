@@ -6,7 +6,7 @@
 #    By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/19 13:37:59 by arurangi          #+#    #+#              #
-#    Updated: 2022/12/04 07:44:20 by Arsene           ###   ########.fr        #
+#    Updated: 2022/12/04 11:30:52 by Arsene           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ SRCS	= 	src/main.c \
 			src/utils/error_handling.c \
 			src/render.c \
 			src/utils/render_utils.c \
-			src/control.c \
+			src/input.c \
 			src/initializer.c \
 			src/load_assets.c \
 			libft/ft_strlen.c \

@@ -6,36 +6,39 @@
 /*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 12:29:26 by Arsene            #+#    #+#             */
-/*   Updated: 2022/12/04 10:03:33 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/04 13:41:36 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-void    render(t_game game)
+int    render(t_game *game)
 {
     int y;
     int x;
-
+	
 	y = 0;
-	while (y < game.map_height)
+	while (y < game->map_height)
 	{
 		x = 0;
-		while (x < game.map_width)
+		while (x < game->map_width)
 		{
 			render_sprite(game, '0', x, y);
-			if (game.map[y][x] == '1')
+			if (game->map[y][x] == '1')
 				render_sprite(game, '1', x, y);
-			if (game.map[y][x] == 'C')
+			if (game->map[y][x] == 'C')
 				render_sprite(game, 'C', x, y);
-			if (game.map[y][x] == 'E')
+			if (game->map[y][x] == 'E')
 				render_sprite(game, 'E', x, y);
 			x++;
 		}
 		y++;
 	}
-    render_sprite(game, 'P', game.starting_pos.col, game.starting_pos.row);
+    render_sprite(game, 'P', game->x_shift, game->y_shift);
+	return (0);
 }
+
+
 
 // int	render(t_game *game)
 // {

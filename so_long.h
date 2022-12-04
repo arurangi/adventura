@@ -6,7 +6,7 @@
 /*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 14:01:48 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/04 10:03:35 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/04 13:38:36 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,17 +28,19 @@
 # define W_WIDTH 800
 # define W_HEIGHT 640
 
-// # define ESC 65307
-// # define UP 65362
-// # define DOWN 65364
-// # define LEFT 65361
-// # define RIGHT 65363
+/* HOME SETUP */
+# define ESC 65307
+# define UP 65362
+# define DOWN 65364
+# define LEFT 65361
+# define RIGHT 65363
 
-# define ESC 53
-# define UP 126
-# define DOWN 125
-# define LEFT 123
-# define RIGHT 124
+/* SCHOOL SETUP */
+// # define ESC 53
+// # define UP 126
+// # define DOWN 125
+// # define LEFT 123
+// # define RIGHT 124
 
 # define TILE 40
 
@@ -140,6 +142,7 @@ int			success_msg(int code, char *message, ...);
 
 /*      INPUT             */
 int			handle_input(int keysym, t_game *game);
+int			handle_no_event(void *game);
 
 /*     PATH FINDER        */
 int			in_queue(t_node current, t_node *queue, int head, int tail);
@@ -149,14 +152,14 @@ t_node		add_node(int row, int col);
 void		add_neighbours(t_game *game, t_node *queue, int head, int *tail);
 
 /*     RENDERING          */
-void		render(t_game game);
+int			render(t_game *game);
 void		img_pix_put(t_asset *img, int x, int y, int color);
 int			encode_rgb(uint8_t red, uint8_t green, uint8_t blue);
 void		render_background(t_asset *img, int color);
 int			render_rect(t_asset *img, t_shape rect);
 
 void		load_assets(t_game *game);
-void		render_sprite(t_game game, char asset, int x, int y);
+void		render_sprite(t_game *game, char asset, int x, int y);
 
 /*       INITIALIZER       */
 int			init_game_environment(t_game *game, int ac, char **av);
