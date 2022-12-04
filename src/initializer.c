@@ -6,7 +6,7 @@
 /*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 09:40:40 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/04 11:57:41 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/04 16:57:31 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ int	init_game_environment(t_game *game, int ac, char **av)
 	// Initialize player position
 	game->x_shift = game->starting_pos.col;
 	game->y_shift = game->starting_pos.row;
+	game->movements = 0;
 	
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 09:34:07 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/04 14:10:02 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/04 17:00:27 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,31 +28,61 @@ int	handle_input(int keysym, t_game *game)
 	if (keysym == ESC)
 	{
 		mlx_destroy_window(game->mlx, game->window);
-		//mlx_destroy_display(game->mlx);
+		mlx_destroy_display(game->mlx);
 		free(game->mlx);
 	}
-	if (keysym == LEFT)
+	if (keysym == LEFT || keysym == RIGHT || keysym == UP || keysym == DOWN)
 	{
-		if (is_walkable(game->map[game->y_shift][game->x_shift - 1]))
-			game->x_shift -= 1;
+		if (keysym == LEFT)
+		{
+			if (is_walkable(game->map[game->y_shift][game->x_shift - VELOCITY]))
+			{
+				game->x_shift -= VELOCITY;
+				game->movements += 1;
+			}
+		}
+		if (keysym == RIGHT)
+		{
+			if (is_walkable(game->map[game->y_shift][game->x_shift + VELOCITY]))
+			{
+				game->x_shift += VELOCITY;
+				game->movements += 1;
+			}
+		}
+		if (keysym == DOWN)
+		{
+			if (is_walkable(game->map[game->y_shift + VELOCITY][game->x_shift]))
+			{
+				game->y_shift += VELOCITY;
+				game->movements += 1;
+			}
+		}
+		if (keysym == UP)
+		{
+			if (is_walkable(game->map[game->y_shift - VELOCITY][game->x_shift]))
+			{
+				game->y_shift -= VELOCITY;
+				game->movements += 1;
+			}
+		}
 	}
-	if (keysym == RIGHT)
+	// Handle collectibles
+	if (game->map[game->y_shift][game->x_shift] == 'C')
 	{
-		if (is_walkable(game->map[game->y_shift][game->x_shift + 1]))
-			game->x_shift += 1;
+		game->map[game->y_shift][game->x_shift] = '0';
+		game->c_credit -= 1;
 	}
-	if (keysym == DOWN)
+	// Handle exit
+	if (game->map[game->y_shift][game->x_shift] == 'E' && game->c_credit == 0)
 	{
-		if (is_walkable(game->map[game->y_shift + 1][game->x_shift]))
-			game->y_shift += 1;
-	}
-	if (keysym == UP)
-	{
-		if (is_walkable(game->map[game->y_shift - 1][game->x_shift]))
-			game->y_shift -= 1;
+		game->map[game->y_shift][game->x_shift] = '0';
+		mlx_destroy_window(game->mlx, game->window);
+		mlx_destroy_display(game->mlx);
+		free(game->mlx);
 	}
 		
-	ft_printf("%d => '%c'\n", keysym, keysym);
+	//ft_printf("%d => '%c'\n", keysym, keysym);
+	ft_printf("Moves: %d\n", game->movements);
 	return (0);
 }
 

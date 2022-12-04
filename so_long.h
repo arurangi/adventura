@@ -6,7 +6,7 @@
 /*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 14:01:48 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/04 14:04:24 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/04 16:52:58 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,27 +22,33 @@
 # include <fcntl.h> // 
 # include <stdio.h> // FOPEN_MAX
 
-// Macros
+/* PARSING */
 # define BUFFER_SIZE 1
 
+/* WINDOW SIZE */
 # define W_WIDTH 800
 # define W_HEIGHT 640
 
-/* HOME SETUP */
-# define ESC 65307
-# define UP 65362
-# define DOWN 65364
-# define LEFT 65361
-# define RIGHT 65363
+/* TILESET SIZE */
+# define TILE 40
 
-/* SCHOOL SETUP */
+/* VELOCITY */
+# define VELOCITY 1
+
+/* INPUT KEYS (HOME SETUP) */
+# define ESC 65307
+# define UP 119 // 65362
+# define DOWN 115 //65364
+# define LEFT 97 //65361
+# define RIGHT 100 //65363
+
+/* INPUT KEYS (SCHOOL SETUP) */
 // # define ESC 53
 // # define UP 126
 // # define DOWN 125
 // # define LEFT 123
 // # define RIGHT 124
 
-# define TILE 40
 
 /*         STRUCTURES         */
 typedef struct s_node{
@@ -83,6 +89,7 @@ typedef struct s_game {
 	//t_asset		empty_space;
 	int			x_shift;
 	int			y_shift;
+	int			movements;
 }	t_game;
 
 typedef struct s_shape {

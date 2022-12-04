@@ -6,7 +6,7 @@
 /*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 12:29:26 by Arsene            #+#    #+#             */
-/*   Updated: 2022/12/04 13:41:36 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/04 15:50:17 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,36 @@ int    render(t_game *game)
 	return (0);
 }
 
+/*
+ * Display a given sprite based on character input
+ */
+
+void	render_sprite(t_game *game, char asset, int x, int y)
+{
+	void	*img_ptr;
+	
+	if (asset == 'P')
+	{
+		img_ptr = game->sprites[4].img;
+		mlx_put_image_to_window(game->mlx, game->window, img_ptr, x * TILE, y * TILE);
+	}
+	else
+	{
+		if (asset == '1')
+			img_ptr = game->sprites[1].img;
+		else if (asset == '0')
+			img_ptr = game->sprites[0].img;
+		else if (asset == 'C')
+			img_ptr = game->sprites[3].img;
+		else if (asset == 'E')
+			img_ptr = game->sprites[2].img;
+		else if (asset == 'N')
+			img_ptr = game->sprites[7].img;
+		else
+			return ;
+		mlx_put_image_to_window(game->mlx, game->window, img_ptr, x * TILE, y * TILE);
+	}
+}
 
 
 // int	render(t_game *game)
