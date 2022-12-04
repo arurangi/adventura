@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 12:30:28 by Arsene            #+#    #+#             */
-/*   Updated: 2022/12/02 15:28:03 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/04 06:55:00 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	encode_rgb(uint8_t red, uint8_t green, uint8_t blue)
 	return (red << 16 | green << 8 | blue);
 }
 
-void	render_background(t_img *img, int color)
+void	render_background(t_asset *img, int color)
 {
 	int	i;
 	int	j;
@@ -36,13 +36,13 @@ int	render_emptyspace(t_game *game)
 {
 	t_asset	img;
 
-	img.ptr = mlx_xpm_file_to_image(game->mlx, "../assets/sprites/floor_1.xpm", &img.width, &img.height);
-	if (img.ptr == NULL)
+	img.img = mlx_xpm_file_to_image(game->mlx, "../assets/sprites/floor_1.xpm", &img.width, &img.height);
+	if (img.img == NULL)
 		return (1);
 	return (0);
 }
 
-int render_rect(t_img *img, t_shape rect)
+int render_rect(t_asset *img, t_shape rect)
 {
 	int	i;
 	int j;
@@ -58,7 +58,7 @@ int render_rect(t_img *img, t_shape rect)
 	return (0);
 }
 
-// void	img_pix_put(t_img *img, int x, int y, int color)
+// void	img_pix_put(t_asset *img, int x, int y, int color)
 // {
 // 	char    *pixel;
 
@@ -67,7 +67,7 @@ int render_rect(t_img *img, t_shape rect)
 //     ft_printf("\033[32m✓\033[0m Inside img_pix_put()\n");
 // }
 
-void	img_pix_put(t_img *image, int x, int y, int color)
+void	img_pix_put(t_asset *image, int x, int y, int color)
 {
 	char    *pixel;
 	int		i;

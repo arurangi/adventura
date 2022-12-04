@@ -6,7 +6,7 @@
 #    By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/19 13:37:59 by arurangi          #+#    #+#              #
-#    Updated: 2022/12/02 18:40:34 by Arsene           ###   ########.fr        #
+#    Updated: 2022/12/04 07:44:20 by Arsene           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,11 +16,12 @@ SRCS	= 	src/main.c \
 			src/utils/map_checker_utils.c \
 			src/path_finder.c \
 			src/utils/path_finder_utils.c \
-			src/error_handling.c \
+			src/utils/error_handling.c \
 			src/render.c \
 			src/utils/render_utils.c \
 			src/control.c \
 			src/initializer.c \
+			src/load_assets.c \
 			libft/ft_strlen.c \
 			libft/ft_putchar.c \
 			libft/ft_putstr.c \
@@ -54,7 +55,7 @@ all:		${NAME}
 
 local:
 			@gcc src/*.c libft/*.c src/utils/*.c -lX11 -lXext -lmlx -o so_long
-			@./${NAME} assets/maps/001.ber
+			@./${NAME} assets/maps/000.ber
 
 map:		${NAME}
 				@./${NAME} assets/maps/000.ber

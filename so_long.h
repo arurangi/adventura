@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 14:01:48 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/02 16:02:46 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/04 07:42:31 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ typedef struct s_node{
 	int		col;
 } t_node;
 
-typedef struct s_img
+typedef struct s_asset
 {
 	void	*img;
 	int		width;
@@ -57,33 +57,30 @@ typedef struct s_img
 	int		bpp; /* bits per pixel */
 	int		line_len;
 	int		endian;
-}	t_img;
+	char	*filepath;
+}	t_asset;
 
-typedef struct s_asset {
-	void	*ptr;
-	int		width;
-	int		height;
-} t_asset;
+// typedef struct s_asset {
+// 	void	*ptr;
+// 	int		width;
+// 	int		height;
+// } t_asset;
 
 typedef struct s_game {
-	void	*mlx;
-	void	*window;
-	char	**map; // Free
-	char	*map_filepath;
-	int		map_height;
-	int		map_width;
-	int		c_credit;
-	int		e_credit;
-	int		p_credit;
-	t_node	starting_pos;
-	t_img	image;
-	t_asset	empty_space;
-	int		x_shift;
-	int		y_shift;
-	// t_img	player;
-	// t_img	collectible;
-	// t_img	exit;
-	// t_img	wall;
+	void		*mlx;
+	void		*window;
+	char		**map; // Free
+	char		*map_filepath;
+	int			map_height;
+	int			map_width;
+	int			c_credit;
+	int			e_credit;
+	int			p_credit;
+	t_node		starting_pos;
+	t_asset		sprites[10];
+	//t_asset		empty_space;
+	int			x_shift;
+	int			y_shift;
 }	t_game;
 
 typedef struct s_shape {
@@ -152,11 +149,14 @@ t_node		add_node(int row, int col);
 void		add_neighbours(t_game *game, t_node *queue, int head, int *tail);
 
 /*     RENDERING          */
-int			render(t_game *game);
-void		img_pix_put(t_img *img, int x, int y, int color);
+void		render(t_game game);
+void		img_pix_put(t_asset *img, int x, int y, int color);
 int			encode_rgb(uint8_t red, uint8_t green, uint8_t blue);
-void		render_background(t_img *img, int color);
-int			render_rect(t_img *img, t_shape rect);
+void		render_background(t_asset *img, int color);
+int			render_rect(t_asset *img, t_shape rect);
+
+void		load_assets(t_game *game);
+void		render_sprite(t_game game, char ch, int x, int y);
 
 /*       INITIALIZER       */
 int			init_game_environment(t_game *game, int ac, char **av);
