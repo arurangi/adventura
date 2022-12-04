@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_checker.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 11:05:41 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/02 14:10:48 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/04 14:03:54 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int	map_checker(t_game *game)
 		while(game->map[row][col])
 		{
 			// Valid characters (0, 1, C, E, P)
-			if (not_valid_character(game->map[row][col]))
+			if (!valid_character(game->map[row][col]))
 				return (map_error("invalid character at [%d][%d]", row, col));
 			// Surrounded by walls
 			if (row == 0 || row == game->map_height - 1 || col == 0	|| game->map[row][col + 1] == '\0') 

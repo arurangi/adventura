@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_checker_utils.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 15:15:12 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/02 09:42:02 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/04 14:03:35 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,15 +30,15 @@ int	invalid_extension(char *filepath)
 	return (1);
 }
 
-int	not_valid_character(char ch)
+int	valid_character(char ch)
 {
 	if (ch == '0'
 		|| ch == '1'
 		|| ch == 'C'
 		|| ch == 'E'
 		|| ch == 'P')
-		return (0);
-	return (1);
+		return (1);
+	return (0);
 }
 
 // Initialize credits and width

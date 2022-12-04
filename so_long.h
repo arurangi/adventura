@@ -6,7 +6,7 @@
 /*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 14:01:48 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/04 13:38:36 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/04 14:04:24 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,7 +126,7 @@ char		*trim_left(char *stash);
 char		*free_stash(char *stash);
 
 int			map_checker(t_game *game);
-int			not_valid_character(char ch); // Check map for valid characters
+int			valid_character(char ch); // Check map for valid characters
 void		map_init(t_game *game); // Initialize credits for C, E and P
 
 /*     CHECK VALID MAP     */

@@ -6,7 +6,7 @@
 /*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 09:34:07 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/04 13:53:53 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/04 14:10:02 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,13 @@
 */
 
 #include "../so_long.h"
+
+int	is_walkable(char ch)
+{
+	if (ch == '0' || ch == 'C' || ch == 'E' || ch == 'P' || ch == 'N')
+		return (1);
+	return (0);	
+}
 
 int	handle_input(int keysym, t_game *game)
 {
@@ -25,15 +32,27 @@ int	handle_input(int keysym, t_game *game)
 		free(game->mlx);
 	}
 	if (keysym == LEFT)
-		game->x_shift -= 1;
+	{
+		if (is_walkable(game->map[game->y_shift][game->x_shift - 1]))
+			game->x_shift -= 1;
+	}
 	if (keysym == RIGHT)
-		game->x_shift += 1;
+	{
+		if (is_walkable(game->map[game->y_shift][game->x_shift + 1]))
+			game->x_shift += 1;
+	}
 	if (keysym == DOWN)
-		game->y_shift += 1;
+	{
+		if (is_walkable(game->map[game->y_shift + 1][game->x_shift]))
+			game->y_shift += 1;
+	}
 	if (keysym == UP)
-		game->y_shift -= 1;
+	{
+		if (is_walkable(game->map[game->y_shift - 1][game->x_shift]))
+			game->y_shift -= 1;
+	}
 		
-	ft_printf("%d\n", keysym);
+	ft_printf("%d => '%c'\n", keysym, keysym);
 	return (0);
 }
 
