@@ -6,7 +6,7 @@
 /*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 14:01:48 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/04 07:42:31 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/04 10:03:35 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -156,7 +156,7 @@ void		render_background(t_asset *img, int color);
 int			render_rect(t_asset *img, t_shape rect);
 
 void		load_assets(t_game *game);
-void		render_sprite(t_game game, char ch, int x, int y);
+void		render_sprite(t_game game, char asset, int x, int y);
 
 /*       INITIALIZER       */
 int			init_game_environment(t_game *game, int ac, char **av);

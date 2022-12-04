@@ -6,7 +6,7 @@
 /*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 22:00:20 by Arsene            #+#    #+#             */
-/*   Updated: 2022/12/04 07:30:15 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/04 10:03:49 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,21 +46,23 @@ void	load_assets(t_game *game)
 	}
 }
 
-void	render_sprite(t_game game, char ch, int x, int y)
+void	render_sprite(t_game game, char asset, int x, int y)
 {
 	void	*img_ptr;
 	
-	if (ch == '1')
+	if (asset == '1')
 		img_ptr = game.sprites[1].img;
-	else if (ch == '0')
+	else if (asset == '0')
 		img_ptr = game.sprites[0].img;
-	else if (ch == 'C')
+	else if (asset == 'C')
 		img_ptr = game.sprites[3].img;
-	else if (ch == 'P')
+	else if (asset == 'P')
 		img_ptr = game.sprites[4].img;
-	else if (ch == 'E')
+	else if (asset == 'E')
 		img_ptr = game.sprites[2].img;
-	else if (ch == 'N')
+	else if (asset == 'N')
 		img_ptr = game.sprites[7].img;
+	else
+		return ;
 	mlx_put_image_to_window(game.mlx, game.window, img_ptr, x * TILE, y * TILE);
 }

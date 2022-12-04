@@ -6,7 +6,7 @@
 /*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 11:38:48 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/04 07:45:08 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/04 07:56:31 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,9 @@ int	map_error(char *message, ...)
 	va_list	args;
 	int index;
 
-	index = 0;
-	va_start(args, message);
 	ft_printf("\033[31m✖ Map error: \033[0m ");
+	va_start(args, message);
+	index = 0;
 	while (message[index])
 	{
 		
@@ -63,9 +63,9 @@ int	game_error(char *message, ...)
 	va_list	args;
 	int index;
 
-	index = 0;
-	va_start(args, message);
 	ft_printf("\033[31m✖ Game error: \033[0m ");
+	va_start(args, message);
+	index = 0;
 	while (message[index])
 	{
 		
@@ -90,9 +90,9 @@ int success_msg(int code, char *message, ...)
 	va_list	args;
 	int index;
 
-	index = 0;
-	va_start(args, message);
 	ft_printf("\033[32m✓\033[0m ");
+	va_start(args, message);
+	index = 0;
 	while (message[index])
 	{
 		
