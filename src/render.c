@@ -6,7 +6,7 @@
 /*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 12:29:26 by Arsene            #+#    #+#             */
-/*   Updated: 2022/12/05 05:46:23 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/05 05:52:59 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,22 +73,3 @@ void	render_sprite(t_game *game, char asset, int x, int y)
 		mlx_put_image_to_window(game->mlx, game->window, img_ptr, x * TILE, y * TILE);
 	}
 }
-
-
-// int	render(t_game *game)
-// {
-// 	if (game->window == NULL)
-//         return (1);
-        
-//   render_rect(&game->image, (t_shape)
-//       {0, 0, W_WIDTH, W_HEIGHT, encode_rgb(255, 255, 255)});
-//   render_rect(&game->image, (t_shape)
-//       { game->x_shift, game->y_shift, 100, 100, encode_rgb(85, 208, 81)});
-
-//     return (0);
-// }
-
-// render_rect(&game->image, (t_shape)
-//       {0, 0, W_WIDTH, W_HEIGHT, encode_rgb(255, 255, 255)});
-// render_rect(&game->image, (t_shape)
-//       { game->x_shift, game->y_shift, 100, 100, encode_rgb(85, 208, 81)});

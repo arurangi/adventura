@@ -6,7 +6,7 @@
 /*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 09:34:07 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/05 05:48:43 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/05 05:53:41 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,14 +82,6 @@ int	handle_input(int keysym, t_game *game)
 		free(game->mlx);
 	}
 		
-	//ft_printf("%d => '%c'\n", keysym, keysym);
 	ft_printf("Moves: %d\n", game->movements);
-	return (0);
-}
-
-int	handle_no_event(void *data)
-{
-	/* This function needs to exist, but it is useless for the moment */
-	(void)data;
 	return (0);
 }

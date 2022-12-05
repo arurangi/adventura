@@ -6,7 +6,7 @@
 /*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 14:01:48 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/04 16:52:58 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/05 05:54:28 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -149,7 +149,7 @@ int			success_msg(int code, char *message, ...);
 
 /*      INPUT             */
 int			handle_input(int keysym, t_game *game);
-int			handle_no_event(void *game);
+int			is_walkable(char ch);
 
 /*     PATH FINDER        */
 int			in_queue(t_node current, t_node *queue, int head, int tail);
