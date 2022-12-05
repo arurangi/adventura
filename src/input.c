@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 09:34:07 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/05 14:41:28 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/05 16:06:19 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,19 +17,17 @@
 
 #include "../so_long.h"
 
-int	is_walkable(char ch)
-{
-	if (ch == '0' || ch == 'C' || ch == 'E' || ch == 'P' || ch == 'N')
-		return (1);
-	return (0);	
-}
+
+
+
 
 int	handle_input(int keysym, t_game *game)
 {
 	if (keysym == ESC)
 	{
+		destroy_sprites_images(game);
+		mlx_destroy_image(game->mlx, game->window);
 		mlx_destroy_window(game->mlx, game->window);
-		//mlx_destroy_display(game->mlx);
 		free(game->mlx);
 	}
 	if (keysym == LEFT || keysym == RIGHT || keysym == UP || keysym == DOWN)

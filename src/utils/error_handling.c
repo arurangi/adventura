@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error_handling.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
+/*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 11:38:48 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/04 07:56:31 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/05 16:03:53 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,4 +110,24 @@ int success_msg(int code, char *message, ...)
 	}
 	write(1, "\n", 1);
 	return (code);
+}
+
+void	destroy_sprites_images(t_game *game)
+{
+	int i = 0;
+	
+	while (i < 16)
+	{
+		mlx_destroy_image(game->mlx, game->sprites[i].img);
+		i++;
+	}
+}
+
+int	windown_close(t_game *game)
+{
+	destroy_sprites_images(game);
+	mlx_destroy_window(game->mlx, game->window);
+	free(game->mlx);
+	exit(1);
+	return (0);
 }

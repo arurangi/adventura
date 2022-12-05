@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 12:29:26 by Arsene            #+#    #+#             */
-/*   Updated: 2022/12/05 15:24:06 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/05 16:37:46 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,8 @@ int    render(t_game *game)
 	}
     render_sprite(game, 'P', game->x_shift, game->y_shift);
 	// Render new window: HUD
-	mlx_string_put(game->mlx, game->window, W_WIDTH / 2, 10, encode_rgb(255, 145, 134), ft_itoa(game->movements));
+	mlx_string_put(game->mlx, game->window, 150, 12, encode_rgb(255, 255, 255), ft_itoa(game->movements));
+	mlx_string_put(game->mlx, game->window, 15, 12, encode_rgb(255, 255, 255), "Steps count: ");
 	return (0);
 }
 

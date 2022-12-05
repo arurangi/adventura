@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 14:01:48 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/05 15:12:48 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/05 16:35:23 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,11 @@
 # define W_WIDTH 800
 # define W_HEIGHT 640
 
-# define HUD 80
+# define HUD 40
+
+// HOOK MACROS
+# define LeaveWindowMask (1L<<5)
+# define DestroyNotify	17
 
 /* TILESET SIZE */
 # define TILE 40
@@ -154,6 +158,8 @@ int			success_msg(int code, char *message, ...);
 /*      INPUT             */
 int			handle_input(int keysym, t_game *game);
 int			is_walkable(char ch);
+int			windown_close(t_game *game);
+
 
 /*     PATH FINDER        */
 int			in_queue(t_node current, t_node *queue, int head, int tail);
@@ -172,7 +178,10 @@ int			render_rect(t_asset *img, t_shape rect);
 void		load_assets(t_game *game);
 void		render_sprite(t_game *game, char asset, int x, int y);
 
+void		destroy_sprites_images(t_game *game);
+
 /*       INITIALIZER       */
 int			init_game_environment(t_game *game, int ac, char **av);
+
 
 #endif

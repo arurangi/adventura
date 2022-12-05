@@ -6,7 +6,7 @@
 #    By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/19 13:37:59 by arurangi          #+#    #+#              #
-#    Updated: 2022/12/05 14:58:29 by arurangi         ###   ########.fr        #
+#    Updated: 2022/12/05 16:07:04 by arurangi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,7 @@ SRCS	= 	src/main.c \
 			src/render.c \
 			src/utils/render_utils.c \
 			src/input.c \
+			src/utils/input_utils.c \
 			src/initializer.c \
 			src/load_assets.c \
 			libft/ft_strlen.c \
