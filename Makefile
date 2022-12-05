@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+         #
+#    By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/19 13:37:59 by arurangi          #+#    #+#              #
-#    Updated: 2022/12/04 11:30:52 by Arsene           ###   ########.fr        #
+#    Updated: 2022/12/05 14:58:29 by arurangi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,6 +37,7 @@ SRCS	= 	src/main.c \
 			libft/ft_split.c \
 			libft/ft_strjoin.c \
 			libft/ft_split_fd.c \
+			libft/ft_itoa.c \
 
 # VARIABLES
 NAME	= 	so_long

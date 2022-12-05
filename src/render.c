@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 12:29:26 by Arsene            #+#    #+#             */
-/*   Updated: 2022/12/05 14:37:37 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/05 15:24:06 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,9 @@ int    render(t_game *game)
     int y;
     int x;
 	
+	// Clear previous window
+	mlx_clear_window(game->mlx, game->window);
+	// Render new window: sprites
 	y = 0;
 	while (y < game->map_height)
 	{
@@ -35,11 +38,15 @@ int    render(t_game *game)
 				render_sprite(game, 'C', x, y);
 			if (game->map[y][x] == 'E')
 				render_sprite(game, 'E', x, y);
+			if (y == 0)
+				render_sprite(game, 'L', x, y);
 			x++;
 		}
 		y++;
 	}
     render_sprite(game, 'P', game->x_shift, game->y_shift);
+	// Render new window: HUD
+	mlx_string_put(game->mlx, game->window, W_WIDTH / 2, 10, encode_rgb(255, 145, 134), ft_itoa(game->movements));
 	return (0);
 }
 
@@ -55,6 +62,11 @@ void	render_sprite(t_game *game, char asset, int x, int y)
 	{
 		img_ptr = game->sprites[game->angle].img;
 		mlx_put_image_to_window(game->mlx, game->window, img_ptr, x * TILE, y * TILE + HUD);
+	}
+	else if (asset == 'L')
+	{
+		img_ptr = game->sprites[15].img;
+		mlx_put_image_to_window(game->mlx, game->window, img_ptr, x * TILE, y * TILE);
 	}
 	else
 	{

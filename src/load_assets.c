@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 22:00:20 by Arsene            #+#    #+#             */
-/*   Updated: 2022/12/05 14:02:50 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/05 15:23:38 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 
 void	load_assets(t_game *game)
 {
-	char	*path[15];
+	char	*path[16];
 	int		i;
 
 	// Empty space
@@ -43,9 +43,11 @@ void	load_assets(t_game *game)
 	path[12] = "assets/sprites/enemy_up.xpm";
 	path[13] = "assets/sprites/enemy_left.xpm";
 	path[14] = "assets/sprites/enemy_right.xpm";
+	// HUD
+	path[15] = "assets/sprites/board.xpm";
 
 	i = 0;
-	while (i < 15)
+	while (i < 16)
 	{
 		game->sprites[i].img = mlx_xpm_file_to_image(game->mlx, path[i],
 			&game->sprites[i].width, &game->sprites[i].height);

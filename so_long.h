@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 14:01:48 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/05 14:37:14 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/05 15:12:48 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ typedef struct s_game {
 	int			e_credit;
 	int			p_credit;
 	t_node		starting_pos;
-	t_asset		sprites[15];
+	t_asset		sprites[16];
 	//t_asset		empty_space;
 	int			x_shift;
 	int			y_shift;
@@ -123,6 +123,7 @@ char		*ft_strjoin_mod(char *old_stash, char *buff);
 char		*ft_strdup(const char *str);
 int			ft_strchr_mod(const char *s, char ch);
 
+char		*ft_itoa(int nbr);
 char		**ft_split(char const *str, char ch);
 char		*ft_strjoin(char const *s1, char const *s2);
 char		**ft_split_fd(char *filepath, char seperator);
