@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
+/*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 14:01:48 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/05 05:54:28 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/05 10:49:35 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,18 +36,18 @@
 # define VELOCITY 1
 
 /* INPUT KEYS (HOME SETUP) */
-# define ESC 65307
-# define UP 119 // 65362
-# define DOWN 115 //65364
-# define LEFT 97 //65361
-# define RIGHT 100 //65363
+// # define ESC 
+// # define UP 
+// # define DOWN 
+// # define LEFT
+// # define RIGHT 
 
 /* INPUT KEYS (SCHOOL SETUP) */
-// # define ESC 53
-// # define UP 126
-// # define DOWN 125
-// # define LEFT 123
-// # define RIGHT 124
+# define ESC 53
+# define UP 126
+# define DOWN 125
+# define LEFT 123
+# define RIGHT 124
 
 
 /*         STRUCTURES         */

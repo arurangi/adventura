@@ -38,14 +38,13 @@ int	path_finder(t_game *game)
 	tail = 0;
 	add_neighbours(game, queue, head, &tail);
 
-	// While the queue isn't empty
+	// Check every node while queue is not empty
 	while (queue[head].row != -1)
 	{
 		current = queue[head];
 		if (found_exit(game, current))
 			return (1);
-		else
-			add_neighbours(game, queue, head, &tail);
+		add_neighbours(game, queue, head, &tail);
 		head += 1;
 	}
 	return (map_error("no EXIT found"));

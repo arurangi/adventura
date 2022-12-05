@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   input.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
+/*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 09:34:07 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/05 05:53:41 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/05 10:48:24 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	handle_input(int keysym, t_game *game)
 	if (keysym == ESC)
 	{
 		mlx_destroy_window(game->mlx, game->window);
-		mlx_destroy_display(game->mlx);
+		//mlx_destroy_display(game->mlx);
 		free(game->mlx);
 	}
 	if (keysym == LEFT || keysym == RIGHT || keysym == UP || keysym == DOWN)
@@ -78,10 +78,11 @@ int	handle_input(int keysym, t_game *game)
 	{
 		game->map[game->y_shift][game->x_shift] = '0';
 		mlx_destroy_window(game->mlx, game->window);
-		mlx_destroy_display(game->mlx);
+		//mlx_destroy_display(game->mlx);
 		free(game->mlx);
 	}
 		
 	ft_printf("Moves: %d\n", game->movements);
+	ft_printf("Key: %d\n", keysym);
 	return (0);
 }
