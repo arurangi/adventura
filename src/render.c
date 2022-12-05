@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 12:29:26 by Arsene            #+#    #+#             */
-/*   Updated: 2022/12/05 14:14:14 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/05 14:37:37 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	render_sprite(t_game *game, char asset, int x, int y)
 	if (asset == 'P')
 	{
 		img_ptr = game->sprites[game->angle].img;
-		mlx_put_image_to_window(game->mlx, game->window, img_ptr, x * TILE, y * TILE);
+		mlx_put_image_to_window(game->mlx, game->window, img_ptr, x * TILE, y * TILE + HUD);
 	}
 	else
 	{
@@ -70,6 +70,6 @@ void	render_sprite(t_game *game, char asset, int x, int y)
 			img_ptr = game->sprites[11].img;
 		else
 			return ;
-		mlx_put_image_to_window(game->mlx, game->window, img_ptr, x * TILE, y * TILE);
+		mlx_put_image_to_window(game->mlx, game->window, img_ptr, x * TILE, y * TILE + HUD);
 	}
 }

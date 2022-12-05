@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 14:01:48 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/05 14:10:55 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/05 14:37:14 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@
 /* WINDOW SIZE */
 # define W_WIDTH 800
 # define W_HEIGHT 640
+
+# define HUD 80
 
 /* TILESET SIZE */
 # define TILE 40

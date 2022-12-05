@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 09:40:40 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/05 14:13:56 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/05 14:40:38 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,13 @@ int	init_game_environment(t_game *game, int ac, char **av)
 		return (game_error("can't initialize minilibx"));
 
 	game->window = mlx_new_window(game->mlx, game->map_width * TILE, 
-		game->map_height * TILE, "Adventura");
+		game->map_height * TILE + HUD, "Adventura");
 	if (game->window == NULL)
 	{
 		free(game->window);
 		return (game_error("can't initialize window"));
 	}
-	
+
 	load_assets(game);
 
 	game->x_shift = game->starting_pos.col;

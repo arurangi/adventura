@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 09:34:07 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/05 14:13:42 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/05 14:41:28 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,38 +36,38 @@ int	handle_input(int keysym, t_game *game)
 	{
 		if (keysym == LEFT)
 		{
+			game->angle = 9;
 			if (is_walkable(game->map[game->y_shift][game->x_shift - VELOCITY]))
 			{
 				game->x_shift -= VELOCITY;
 				game->movements += 1;
-				game->angle = 9;
 			}
 		}
 		if (keysym == RIGHT)
 		{
+			game->angle = 10;
 			if (is_walkable(game->map[game->y_shift][game->x_shift + VELOCITY]))
 			{
 				game->x_shift += VELOCITY;
 				game->movements += 1;
-				game->angle = 10;
 			}
 		}
 		if (keysym == DOWN)
 		{
+			game->angle = 7;
 			if (is_walkable(game->map[game->y_shift + VELOCITY][game->x_shift]))
 			{
 				game->y_shift += VELOCITY;
 				game->movements += 1;
-				game->angle = 7;
 			}
 		}
 		if (keysym == UP)
 		{
+			game->angle = 8;
 			if (is_walkable(game->map[game->y_shift - VELOCITY][game->x_shift]))
 			{
 				game->y_shift -= VELOCITY;
 				game->movements += 1;
-				game->angle = 8;
 			}
 		}
 	}
