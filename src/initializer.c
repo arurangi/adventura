@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 09:40:40 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/05 13:40:46 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/05 14:13:56 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ int	init_game_environment(t_game *game, int ac, char **av)
 
 	game->x_shift = game->starting_pos.col;
 	game->y_shift = game->starting_pos.row;
+	game->angle = 7;
 	game->movements = 0;
 	
 	return (0);

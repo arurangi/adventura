@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 14:01:48 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/05 13:54:24 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/05 14:10:55 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,7 @@ typedef struct s_game {
 	//t_asset		empty_space;
 	int			x_shift;
 	int			y_shift;
+	int			angle;
 	int			movements;
 }	t_game;
 
