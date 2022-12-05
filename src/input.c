@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   input.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 09:34:07 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/05 16:06:19 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/05 21:39:46 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,6 @@
 */
 
 #include "../so_long.h"
-
-
-
-
 
 int	handle_input(int keysym, t_game *game)
 {
@@ -43,7 +39,7 @@ int	handle_input(int keysym, t_game *game)
 		}
 		if (keysym == RIGHT)
 		{
-			game->angle = 10;
+			game->angle = 10;	
 			if (is_walkable(game->map[game->y_shift][game->x_shift + VELOCITY]))
 			{
 				game->x_shift += VELOCITY;
@@ -69,7 +65,7 @@ int	handle_input(int keysym, t_game *game)
 			}
 		}
 	}
-	// Handle collectibles
+	//Handle collectibles
 	if (game->map[game->y_shift][game->x_shift] == 'C')
 	{
 		game->map[game->y_shift][game->x_shift] = '0';
@@ -80,7 +76,6 @@ int	handle_input(int keysym, t_game *game)
 	{
 		game->map[game->y_shift][game->x_shift] = '0';
 		mlx_destroy_window(game->mlx, game->window);
-		//mlx_destroy_display(game->mlx);
 		free(game->mlx);
 	}
 		
