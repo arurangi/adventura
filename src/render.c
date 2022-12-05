@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
+/*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 12:29:26 by Arsene            #+#    #+#             */
-/*   Updated: 2022/12/05 05:52:59 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/05 14:05:49 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,21 +53,21 @@ void	render_sprite(t_game *game, char asset, int x, int y)
 	
 	if (asset == 'P')
 	{
-		img_ptr = game->sprites[4].img;
+		img_ptr = game->sprites[8].img;
 		mlx_put_image_to_window(game->mlx, game->window, img_ptr, x * TILE, y * TILE);
 	}
 	else
 	{
-		if (asset == '1')
-			img_ptr = game->sprites[1].img;
-		else if (asset == '0')
+		if (asset == '0')
 			img_ptr = game->sprites[0].img;
+		else if (asset == '1')
+			img_ptr = game->sprites[1].img;
 		else if (asset == 'C')
-			img_ptr = game->sprites[3].img;
+			img_ptr = game->sprites[4].img;
 		else if (asset == 'E')
-			img_ptr = game->sprites[2].img;
+			img_ptr = game->sprites[5].img;
 		else if (asset == 'N')
-			img_ptr = game->sprites[7].img;
+			img_ptr = game->sprites[11].img;
 		else
 			return ;
 		mlx_put_image_to_window(game->mlx, game->window, img_ptr, x * TILE, y * TILE);
