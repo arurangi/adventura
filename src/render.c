@@ -6,9 +6,14 @@
 /*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 12:29:26 by Arsene            #+#    #+#             */
-/*   Updated: 2022/12/04 15:50:17 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/05 05:46:23 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/*
+ * Render/display every assets on the window
+ * based on their location on the map
+ */
 
 #include "../so_long.h"
 

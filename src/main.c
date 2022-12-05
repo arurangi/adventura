@@ -6,15 +6,16 @@
 /*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 11:36:54 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/04 16:27:49 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/05 05:50:15 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
- * so_long()
+ * Launch the game
  *
- * Creating a 2D game
- * 
+ * - initialize the environment
+ * - handle hooks
+ * - start the game loop
 */
 
 #include "../so_long.h"

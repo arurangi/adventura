@@ -6,17 +6,19 @@
 /*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 11:05:41 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/04 14:03:54 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/05 05:51:35 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
- * Check if the map is "valid":
+ * Verify whether the map check all necessary conditions
  *
- * valid .ber file
- * file exists
- * 
- * 
+ * - valid characters (0, 1, C, E, P)
+ * - surrounded by walls
+ * - at least one : C, E, P
+ * - map is rectangular
+ * - no duplicates of E or P
+ * - valid path
 */
 
 #include "../so_long.h"

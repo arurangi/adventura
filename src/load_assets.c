@@ -6,12 +6,13 @@
 /*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 22:00:20 by Arsene            #+#    #+#             */
-/*   Updated: 2022/12/04 15:44:40 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/05 05:48:57 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
- * Load all assets (10) so they're ready for use/call
+ * save every sprites and their data
+ * in an array for later use
 */
 
 #include "../so_long.h"

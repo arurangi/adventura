@@ -6,12 +6,13 @@
 /*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 09:34:07 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/04 18:14:49 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/05 05:48:43 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
- * Handle player input
+ * Handle user input {W, S, A, D} to have ability to
+ * move in all directions within the walls
 */
 
 #include "../so_long.h"

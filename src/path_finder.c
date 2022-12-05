@@ -11,12 +11,9 @@
 /* ************************************************************************** */
 
 /*
- * path_finder()
- *
- * finds a path to the exit, if any
- * based on a map, a starting position and the position of a 
- * depending on walls
- * 
+ * finds path to exit using 'breath-first search algorithm'
+ * an 'adjacency matrix' to represent the graph
+ * and a queue as data structure
 */
 
 #include "../so_long.h"
@@ -42,22 +39,14 @@ int	path_finder(t_game *game)
 	add_neighbours(game, queue, head, &tail);
 
 	// While the queue isn't empty
-	// head <= tail && tail < q_size && 
 	while (queue[head].row != -1)
 	{
-		// Grab first person off the queue
 		current = queue[head];
-		// Check whether node is an exit
 		if (found_exit(game, current))
-		{
-			// You're done!
 			return (1);
-		}
 		else
-			// Add all of this person's friends to the queue
 			add_neighbours(game, queue, head, &tail);
 		head += 1;
 	}
-	// If you reached here, no one was a mango seller
 	return (map_error("no EXIT found"));
 }
