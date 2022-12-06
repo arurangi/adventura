@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 14:01:48 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/06 15:07:20 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/06 17:00:30 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,16 @@
 # define DOWN 1
 # define LEFT 0
 # define RIGHT 2
+
+enum asset {
+	player = 0,
+	board = 1,
+	empty_space = 2,
+	wall = 3,
+	collectible = 4,
+	exit = 5,
+	enemy = 6,
+};
 
 /*         STRUCTURES         */
 typedef struct s_node{
@@ -166,6 +176,7 @@ void		add_neighbours(t_game *game, t_node *queue, int head, int *tail);
 /* INPUT */
 int			handle_input(int keysym, t_game *game);
 int			is_walkable(char ch);
+void		move(t_game *game, int keysym);
 
 /* ERROR HANDLING */
 int			error_msg(int return_code, char *message, ...);

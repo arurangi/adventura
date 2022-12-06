@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 09:34:07 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/06 10:48:48 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/06 16:02:49 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,44 +22,7 @@ int	handle_input(int keysym, t_game *game)
 	if (keysym == ESC)
 		game_over(game);
 	if (keysym == LEFT || keysym == RIGHT || keysym == UP || keysym == DOWN)
-	{
-		if (keysym == LEFT)
-		{
-			game->angle = 9;
-			if (is_walkable(game->map[game->y_shift][game->x_shift - VELOCITY]))
-			{
-				game->x_shift -= VELOCITY;
-				game->movements += 1;
-			}
-		}
-		if (keysym == RIGHT)
-		{
-			game->angle = 10;	
-			if (is_walkable(game->map[game->y_shift][game->x_shift + VELOCITY]))
-			{
-				game->x_shift += VELOCITY;
-				game->movements += 1;
-			}
-		}
-		if (keysym == DOWN)
-		{
-			game->angle = 7;
-			if (is_walkable(game->map[game->y_shift + VELOCITY][game->x_shift]))
-			{
-				game->y_shift += VELOCITY;
-				game->movements += 1;
-			}
-		}
-		if (keysym == UP)
-		{
-			game->angle = 8;
-			if (is_walkable(game->map[game->y_shift - VELOCITY][game->x_shift]))
-			{
-				game->y_shift -= VELOCITY;
-				game->movements += 1;
-			}
-		}
-	}
+		move(game, keysym);
 	//Handle collectibles
 	if (game->map[game->y_shift][game->x_shift] == 'C')
 	{
@@ -76,4 +39,44 @@ int	handle_input(int keysym, t_game *game)
 	ft_printf("Moves: %d\n", game->movements);
 	ft_printf("Key: %d\n", keysym);
 	return (0);
+}
+
+void	move(t_game *game, int keysym)
+{
+	if (keysym == LEFT)
+	{
+		game->angle = 9;
+		if (is_walkable(game->map[game->y_shift][game->x_shift - VELOCITY]))
+		{
+			game->x_shift -= VELOCITY;
+			game->movements += 1;
+		}
+	}
+	if (keysym == RIGHT)
+	{
+		game->angle = 10;	
+		if (is_walkable(game->map[game->y_shift][game->x_shift + VELOCITY]))
+		{
+			game->x_shift += VELOCITY;
+			game->movements += 1;
+		}
+	}
+	if (keysym == DOWN)
+	{
+		game->angle = 7;
+		if (is_walkable(game->map[game->y_shift + VELOCITY][game->x_shift]))
+		{
+			game->y_shift += VELOCITY;
+			game->movements += 1;
+		}
+	}
+	if (keysym == UP)
+	{
+		game->angle = 8;
+		if (is_walkable(game->map[game->y_shift - VELOCITY][game->x_shift]))
+		{
+			game->y_shift -= VELOCITY;
+			game->movements += 1;
+		}
+	}
 }
