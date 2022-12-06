@@ -6,7 +6,7 @@
 /*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 14:01:48 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/06 19:22:57 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/06 19:34:41 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,19 +44,19 @@
 # define VELOCITY 1
 
 /* INPUT KEYS (HOME SETUP) */
-// # define ESC 65307
-// # define UP 65362
-// # define DOWN 65364
-// # define LEFT 65361
-// # define RIGHT 65363
+# define ESC 65307
+# define UP 65362
+# define DOWN 65364
+# define LEFT 65361
+# define RIGHT 65363
 
 
 /* INPUT KEYS (SCHOOL SETUP) */
-# define ESC 53
-# define UP 13
-# define DOWN 1
-# define LEFT 0
-# define RIGHT 2
+// # define ESC 53
+// # define UP 13
+// # define DOWN 1
+// # define LEFT 0
+// # define RIGHT 2
 
 typedef enum e_sprite {
 	__player = 0,
