@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   input.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
+/*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 09:34:07 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/05 21:39:46 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/06 10:48:48 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,7 @@
 int	handle_input(int keysym, t_game *game)
 {
 	if (keysym == ESC)
-	{
-		destroy_sprites_images(game);
-		mlx_destroy_image(game->mlx, game->window);
-		mlx_destroy_window(game->mlx, game->window);
-		free(game->mlx);
-	}
+		game_over(game);
 	if (keysym == LEFT || keysym == RIGHT || keysym == UP || keysym == DOWN)
 	{
 		if (keysym == LEFT)
@@ -75,8 +70,7 @@ int	handle_input(int keysym, t_game *game)
 	if (game->map[game->y_shift][game->x_shift] == 'E' && game->c_credit == 0)
 	{
 		game->map[game->y_shift][game->x_shift] = '0';
-		mlx_destroy_window(game->mlx, game->window);
-		free(game->mlx);
+		game_over(game);
 	}
 		
 	ft_printf("Moves: %d\n", game->movements);

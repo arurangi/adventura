@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+         #
+#    By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/19 13:37:59 by arurangi          #+#    #+#              #
-#    Updated: 2022/12/05 21:23:42 by Arsene           ###   ########.fr        #
+#    Updated: 2022/12/06 10:16:26 by arurangi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,7 @@ SRCS	= 	src/main.c \
 			src/utils/input_utils.c \
 			src/initializer.c \
 			src/load_assets.c \
+			src/game_over.c \
 			libft/ft_strlen.c \
 			libft/ft_putchar.c \
 			libft/ft_putstr.c \
@@ -51,7 +52,7 @@ OBJ		=	${SRCS:.c=.o}
 				@$(CC) ${FLAGS} -Imlx -c $< -o $@
 
 $(NAME): 	$(OBJ)
-				@$(CC) $(OBJ) -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME) 
+				@$(CC) $(OBJ) -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME)
 
 all:		${NAME}
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
+/*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 11:36:54 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/05 20:30:53 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/06 10:49:42 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,14 @@ int	main(int argc, char **argv)
 	status = init_game_environment(&game, argc, argv);
 	if (status == 1)
 		return (game_error("couldn't initialize the environment."));
-	
+
 	/* Render the map */
 	mlx_loop_hook(game.mlx, &render, &game);
 	mlx_hook(game.window, 2, 1L<<0, &handle_input, &game);
-	//mlx_hook(game.window, DestroyNotify, LeaveWindowMask, &windown_close, &game);
+	mlx_hook(game.window, DestroyNotify, LeaveWindowMask, &game_over, &game);
+
+	mlx_loop(game.mlx);
 
 	/* Game loop */
-	mlx_loop(game.mlx);
-	return (1);
+	return (0);
 }

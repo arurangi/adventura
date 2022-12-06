@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 11:38:48 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/05 16:03:53 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/06 10:21:34 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,13 @@ void	free_matrix(char **matrix)
 	free(matrix);
 }
 
-int	map_error(char *message, ...)
+int	map_error(t_game *game, char *message, ...)
 {
 	va_list	args;
 	int index;
 
+	if (game->map)
+		free_matrix(game->map);
 	ft_printf("\033[31m✖ Map error: \033[0m ");
 	va_start(args, message);
 	index = 0;
@@ -112,7 +114,7 @@ int success_msg(int code, char *message, ...)
 	return (code);
 }
 
-void	destroy_sprites_images(t_game *game)
+void	free_assets(t_game *game)
 {
 	int i = 0;
 	
@@ -121,13 +123,4 @@ void	destroy_sprites_images(t_game *game)
 		mlx_destroy_image(game->mlx, game->sprites[i].img);
 		i++;
 	}
-}
-
-int	windown_close(t_game *game)
-{
-	destroy_sprites_images(game);
-	mlx_destroy_window(game->mlx, game->window);
-	free(game->mlx);
-	exit(1);
-	return (0);
 }

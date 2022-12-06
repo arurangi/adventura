@@ -47,5 +47,5 @@ int	path_finder(t_game *game)
 		add_neighbours(game, queue, head, &tail);
 		head += 1;
 	}
-	return (map_error("no EXIT found"));
+	return (map_error(game, "no EXIT found"));
 }

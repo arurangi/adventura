@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
+/*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 14:01:48 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/05 21:21:06 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/06 10:46:37 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,19 +42,19 @@
 # define VELOCITY 1
 
 /* INPUT KEYS (HOME SETUP) */
-# define ESC 65307
-# define UP 65362
-# define DOWN 65364
-# define LEFT 65361
-# define RIGHT 65363
+// # define ESC 65307
+// # define UP 65362
+// # define DOWN 65364
+// # define LEFT 65361
+// # define RIGHT 65363
+
 
 /* INPUT KEYS (SCHOOL SETUP) */
-//# define ESC 53
-// # define UP 126
-// # define DOWN 125
-// # define LEFT 123
-// # define RIGHT 124
-
+# define ESC 53
+# define UP 13
+# define DOWN 1
+# define LEFT 0
+# define RIGHT 2
 
 /*         STRUCTURES         */
 typedef struct s_node{
@@ -150,15 +150,16 @@ int			path_finder(t_game *game);
 int			tab_height(char **tab);
 
 /*     ERROR HANDLING        */
-int			map_error(char *message, ...);
+int			map_error(t_game *game, char *message, ...);
 int			game_error(char *message, ...);
 void		free_matrix(char **matrix);
 int			success_msg(int code, char *message, ...);
+void		free_assets(t_game *game);
+int			game_over(t_game *game);
 
 /*      INPUT             */
 int			handle_input(int keysym, t_game *game);
 int			is_walkable(char ch);
-int			windown_close(t_game *game);
 
 
 /*     PATH FINDER        */
@@ -178,7 +179,6 @@ int			render_rect(t_asset *img, t_shape rect);
 void		load_assets(t_game *game);
 void		render_sprite(t_game *game, char asset, int x, int y);
 
-void		destroy_sprites_images(t_game *game);
 
 /*       INITIALIZER       */
 int			init_game_environment(t_game *game, int ac, char **av);

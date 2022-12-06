@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_checker.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
+/*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 11:05:41 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/05 05:51:35 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/06 10:02:29 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,7 @@ int	map_checker(t_game *game)
 	// Parsing: save each map line into a table for easy access
 	game->map = ft_split_fd(game->map_filepath, '\n');
 	if (game->map == NULL)
-	{
-		free_matrix(game->map);
-		return (map_error("couldn't store the map in the matrix"));
-	}
+		return (map_error(game, "couldn't store the map in the matrix"));
 	// Analyze the map further
 	map_init(game);
 	game->map_height = tab_height(game->map);
@@ -47,12 +44,12 @@ int	map_checker(t_game *game)
 		{
 			// Valid characters (0, 1, C, E, P)
 			if (!valid_character(game->map[row][col]))
-				return (map_error("invalid character at [%d][%d]", row, col));
+				return (map_error(game, "invalid character at [%d][%d]", row, col));
 			// Surrounded by walls
 			if (row == 0 || row == game->map_height - 1 || col == 0	|| game->map[row][col + 1] == '\0') 
 			{
 				if (game->map[row][col] != '1')
-					return (map_error("Not surrounded by walls at [%d][%d]\n", row, col));
+					return (map_error(game, "Not surrounded by walls at [%d][%d]\n", row, col));
 			}
 			// At least one : C, E, P
 			if (game->map[row][col] == 'C')
@@ -67,7 +64,7 @@ int	map_checker(t_game *game)
 			}
 			// Map is rectangular
 			if ((game->map[row][col + 1] == '\0') && (col + 1 != game->map_width))
-					return (map_error("not rectangular at row %d", row));
+					return (map_error(game, "not rectangular at row %d", row));
 			col++;
 		}
 		row++;
@@ -75,12 +72,12 @@ int	map_checker(t_game *game)
 	
 	// Check credits
 	if ((game->c_credit * game->e_credit * game->p_credit) == 0)
-		return (map_error("missing Collectible (C), Exit (E) or Starting position (P)."));
+		return (map_error(game, "missing Collectible (C), Exit (E) or Starting position (P)."));
 	// Check for duplicates
 	if (game->e_credit > 1 || game->p_credit > 1)
-		return (map_error("duplicates of Exit/Start"));
+		return (map_error(game, "duplicates of Exit/Start"));
 	// Check for valid path
 	if (path_finder(game) == 1)
 		return (1);
-	return (map_error("invalid map"));
+	return (map_error(game, "invalid map"));
 }
