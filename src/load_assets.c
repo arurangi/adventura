@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 22:00:20 by Arsene            #+#    #+#             */
-/*   Updated: 2022/12/06 15:07:02 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/06 15:18:46 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,9 +62,9 @@ void	save_assets(t_game *game, char **path)
 			error_msg(0, "couldn't load assett \033[35m%s\033[0m", path[i]);
 			break ;
 		}
-		game->sprites[i].addr = mlx_get_data_addr(game->sprites[i].img, 
-			&game->sprites[i].bpp, &game->sprites[i].line_len,
-				&game->sprites[i].endian);
+		// game->sprites[i].addr = mlx_get_data_addr(game->sprites[i].img, 
+		// 	&game->sprites[i].bpp, &game->sprites[i].line_len,
+		// 		&game->sprites[i].endian);
 		i++;
 	}
 }
