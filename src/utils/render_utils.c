@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 15:15:51 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/06 16:56:34 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/06 19:25:47 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,32 +19,32 @@ void	render_sprite(t_game *game, char asset, int x, int y)
 {
 	void	*img_ptr;
 	
-	if (asset == 'P')
+	if (asset == __player)
 	{
 		img_ptr = game->sprites[game->angle].img;
 		mlx_put_image_to_window(game->mlx, game->window, img_ptr, x * TILE, y * TILE + HUD);
 	}
-	else if (asset == 'L')
+	else if (asset == __board)
 	{
 		img_ptr = game->sprites[15].img;
 		mlx_put_image_to_window(game->mlx, game->window, img_ptr, x * TILE, y * TILE);
 	}
 	else
 	{
-		if (asset == '0')
+		if (asset == __emptyspace)
 			img_ptr = game->sprites[0].img;
-		else if (asset == '1')
+		else if (asset == __wall)
 			img_ptr = game->sprites[1].img;
-		else if (asset == 'C')
+		else if (asset == __collectible)
 			img_ptr = game->sprites[4].img;
-		else if (asset == 'E')
+		else if (asset == __exit)
 		{
 			if (game->c_credit == 0)
 				img_ptr = game->sprites[5].img;
 			else
 				img_ptr = game->sprites[6].img;
 		}
-		else if (asset == 'N')
+		else if (asset == __enemy)
 			img_ptr = game->sprites[11].img;
 		else
 			return ;

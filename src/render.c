@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 12:29:26 by Arsene            #+#    #+#             */
-/*   Updated: 2022/12/06 15:16:58 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/06 19:30:32 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,20 +29,20 @@ int    render(t_game *game)
 		x = 0;
 		while (x < game->map_width)
 		{
-			render_sprite(game, '0', x, y);
-			if (game->map[y][x] == '1')
-				render_sprite(game, '1', x, y);
-			if (game->map[y][x] == 'C')
-				render_sprite(game, 'C', x, y);
-			if (game->map[y][x] == 'E')
-				render_sprite(game, 'E', x, y);
+			render_sprite(game, __emptyspace, x, y);
 			if (y == 0)
-				render_sprite(game, 'L', x, y);
+				render_sprite(game, __board, x, y);
+			if (game->map[y][x] == '1')
+				render_sprite(game, __wall, x, y);
+			if (game->map[y][x] == 'C')
+				render_sprite(game, __collectible, x, y);
+			if (game->map[y][x] == 'E')
+				render_sprite(game, __exit, x, y);
 			x++;
 		}
 		y++;
 	}
-    render_sprite(game, 'P', game->x_shift, game->y_shift);
+    render_sprite(game, __player, game->x_shift, game->y_shift);
 	render_HUD(game);
 	return (0);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 14:01:48 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/06 17:00:30 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/06 19:22:57 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,15 +58,15 @@
 # define LEFT 0
 # define RIGHT 2
 
-enum asset {
-	player = 0,
-	board = 1,
-	empty_space = 2,
-	wall = 3,
-	collectible = 4,
-	exit = 5,
-	enemy = 6,
-};
+typedef enum e_sprite {
+	__player = 0,
+	__board = 1,
+	__emptyspace = 2,
+	__wall = 3,
+	__collectible = 4,
+	__exit = 5,
+	__enemy = 6,
+} t_sprite;
 
 /*         STRUCTURES         */
 typedef struct s_node{
@@ -85,12 +85,6 @@ typedef struct s_asset
 	int		endian;
 	char	*filepath;
 }	t_asset;
-
-// typedef struct s_asset {
-// 	void	*ptr;
-// 	int		width;
-// 	int		height;
-// } t_asset;
 
 typedef struct s_game {
 	void		*mlx;
