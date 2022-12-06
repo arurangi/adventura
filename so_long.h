@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 14:01:48 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/06 10:46:37 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/06 15:07:20 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,10 @@
 # define HUD 40
 
 // HOOK MACROS
-# define LeaveWindowMask (1L<<5)
-# define DestroyNotify	17
+# define KEYPRESS 2
+# define KEYPRESS_MASK 1L<<0
+# define LEAVE_WINDOW_MASK (1L<<5)
+# define DESTROY_NOTIFY	17
 
 /* TILESET SIZE */
 # define TILE 40
@@ -132,56 +134,50 @@ char		**ft_split(char const *str, char ch);
 char		*ft_strjoin(char const *s1, char const *s2);
 char		**ft_split_fd(char *filepath, char seperator);
 
-/*  GET_NEXT_LINE  */
-
 char		*get_next_line(int fd);
 char		*save_raw_line(int fd, char *stash);
 char		*trim_right(char *raw_line);
 char		*trim_left(char *stash);
 char		*free_stash(char *stash);
 
+
+/* START GAME*/
+void		start_game(t_game *game);
+int			game_init(t_game *game, char **av);
+void		map_init(t_game *game); 
+
+/* END GAME */
+int			game_over(t_game *game);
+void		free_matrix(char **matrix);
+void		free_assets(t_game *game);
+
+/* MAP RELATED */
 int			map_checker(t_game *game);
 int			valid_character(char ch); // Check map for valid characters
-void		map_init(t_game *game); // Initialize credits for C, E and P
-
-/*     CHECK VALID MAP     */
 int			invalid_extension(char *filepath);
 int			path_finder(t_game *game);
 int			tab_height(char **tab);
-
-/*     ERROR HANDLING        */
-int			map_error(t_game *game, char *message, ...);
-int			game_error(char *message, ...);
-void		free_matrix(char **matrix);
-int			success_msg(int code, char *message, ...);
-void		free_assets(t_game *game);
-int			game_over(t_game *game);
-
-/*      INPUT             */
-int			handle_input(int keysym, t_game *game);
-int			is_walkable(char ch);
-
-
-/*     PATH FINDER        */
 int			in_queue(t_node current, t_node *queue, int head, int tail);
 void		q_init(t_node *queue, int q_size);
 int			found_exit(t_game *game, t_node node);
 t_node		add_node(int row, int col);
 void		add_neighbours(t_game *game, t_node *queue, int head, int *tail);
 
-/*     RENDERING          */
-int			render(t_game *game);
-void		img_pix_put(t_asset *img, int x, int y, int color);
-int			encode_rgb(uint8_t red, uint8_t green, uint8_t blue);
-void		render_background(t_asset *img, int color);
-int			render_rect(t_asset *img, t_shape rect);
+/* INPUT */
+int			handle_input(int keysym, t_game *game);
+int			is_walkable(char ch);
 
+/* ERROR HANDLING */
+int			error_msg(int return_code, char *message, ...);
+int			success_msg(int return_code, char *message, ...);
+
+/* RENDERING */
 void		load_assets(t_game *game);
+void		save_assets(t_game *game, char **path);
+void		free_assets(t_game *game);
+int			render(t_game *game);
 void		render_sprite(t_game *game, char asset, int x, int y);
-
-
-/*       INITIALIZER       */
-int			init_game_environment(t_game *game, int ac, char **av);
-
+int			rgbify(uint8_t red, uint8_t green, uint8_t blue);
+void		render_HUD(t_game *game);
 
 #endif

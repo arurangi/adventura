@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 22:00:20 by Arsene            #+#    #+#             */
-/*   Updated: 2022/12/05 15:23:38 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/06 15:07:02 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@
 void	load_assets(t_game *game)
 {
 	char	*path[16];
-	int		i;
 
 	// Empty space
 	path[0] = "assets/sprites/empty_space.xpm";
@@ -45,6 +44,13 @@ void	load_assets(t_game *game)
 	path[14] = "assets/sprites/enemy_right.xpm";
 	// HUD
 	path[15] = "assets/sprites/board.xpm";
+	save_assets(game, path);
+
+}
+
+void	save_assets(t_game *game, char **path)
+{
+	int	i;
 
 	i = 0;
 	while (i < 16)
@@ -52,7 +58,10 @@ void	load_assets(t_game *game)
 		game->sprites[i].img = mlx_xpm_file_to_image(game->mlx, path[i],
 			&game->sprites[i].width, &game->sprites[i].height);
 		if (game->sprites[i].img == NULL)
-			game_error("couldn't create image \033[35m%s\033[0m", path[i]);
+		{
+			error_msg(0, "couldn't load assett \033[35m%s\033[0m", path[i]);
+			break ;
+		}
 		game->sprites[i].addr = mlx_get_data_addr(game->sprites[i].img, 
 			&game->sprites[i].bpp, &game->sprites[i].line_len,
 				&game->sprites[i].endian);
@@ -60,10 +69,13 @@ void	load_assets(t_game *game)
 	}
 }
 
-/*
-
-- player (down) (up) (left) (right)
-- enemy (down) (up) (left) (right)
-- exit (closed) (opened)
-
-*/
+void	free_assets(t_game *game)
+{
+	int i = 0;
+	
+	while (i < 16)
+	{
+		mlx_destroy_image(game->mlx, game->sprites[i].img);
+		i++;
+	}
+}

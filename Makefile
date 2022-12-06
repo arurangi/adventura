@@ -6,7 +6,7 @@
 #    By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/19 13:37:59 by arurangi          #+#    #+#              #
-#    Updated: 2022/12/06 10:16:26 by arurangi         ###   ########.fr        #
+#    Updated: 2022/12/06 13:39:32 by arurangi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,6 +46,7 @@ NAME	= 	so_long
 CC		= 	gcc
 FLAGS	=	-Wall -Wextra -Werror
 OBJ		=	${SRCS:.c=.o}
+rm		=	rm -f
 
 # RULES
 %.o: 		%.c
@@ -56,19 +57,22 @@ $(NAME): 	$(OBJ)
 
 all:		${NAME}
 
+bonus:		${NAME}
+			@./${NAME} assets/maps/003.ber
+
 local:
 			@gcc src/*.c libft/*.c src/utils/*.c -lX11 -lXext -lmlx -o so_long
 			@./${NAME} assets/maps/000.ber
 
 map:		${NAME}
-				@./${NAME} assets/maps/000.ber
+				@./${NAME} assets/maps/003.ber
 
 clean:		
-			@rm ${OBJ}
+			@rm -f ${OBJ} core
 
 fclean:		clean
-				@rm ${NAME}
+				@${RM} ${NAME}
 
-re:			fclean all
+re:				fclean all
 
 .PHONY:		all clean fclean re

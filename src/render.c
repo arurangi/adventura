@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
+/*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 12:29:26 by Arsene            #+#    #+#             */
-/*   Updated: 2022/12/05 21:21:31 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/06 15:11:05 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,8 @@ int    render(t_game *game)
 {
     int y;
     int x;
-	
-	// Clear previous window
+
 	mlx_clear_window(game->mlx, game->window);
-	// Render new window: sprites
 	y = 0;
 	while (y < game->map_height)
 	{
@@ -45,15 +43,21 @@ int    render(t_game *game)
 		y++;
 	}
     render_sprite(game, 'P', game->x_shift, game->y_shift);
-	// Render new window: HUD
-	mlx_string_put(game->mlx, game->window, 150, 12, encode_rgb(255, 255, 255), ft_itoa(game->movements));
-	mlx_string_put(game->mlx, game->window, 15, 12, encode_rgb(255, 255, 255), "Steps count: ");
+	render_HUD(game);
 	return (0);
 }
 
 /*
  * Display a given sprite based on character input
- */
+*/
+
+void	render_HUD(t_game *game)
+{
+	mlx_string_put(game->mlx, game->window, 15, 12, rgbify(255, 255, 255), "Steps count: ");
+	mlx_string_put(game->mlx, game->window, 150, 12, rgbify(255, 255, 255), ft_itoa(game->movements));
+	mlx_string_put(game->mlx, game->window, 300, 12, rgbify(255, 255, 255), "Remaining items: ");
+	mlx_string_put(game->mlx, game->window, 500, 12, rgbify(255, 255, 255), ft_itoa(game->c_credit));
+}
 
 void	render_sprite(t_game *game, char asset, int x, int y)
 {
@@ -85,4 +89,9 @@ void	render_sprite(t_game *game, char asset, int x, int y)
 			return ;
 		mlx_put_image_to_window(game->mlx, game->window, img_ptr, x * TILE, y * TILE + HUD);
 	}
+}
+
+int	rgbify(uint8_t red, uint8_t green, uint8_t blue)
+{
+	return (red << 16 | green << 8 | blue);
 }
