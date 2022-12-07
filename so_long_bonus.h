@@ -6,7 +6,7 @@
 /*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 14:01:48 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/07 16:52:40 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/07 16:58:09 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,10 +79,6 @@ typedef struct s_asset
 	void	*img;
 	int		width;
 	int		height;
-	char	*addr;
-	int		bpp;
-	int		line_len;
-	int		endian;
 	char	*filepath;
 }	t_asset;
 
