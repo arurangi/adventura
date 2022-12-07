@@ -6,7 +6,7 @@
 /*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 09:34:07 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/07 16:53:31 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/07 21:02:35 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 */
 
 #include "../../so_long_bonus.h"
+
+int	no_collision(t_game *game);
 
 int	handle_input(int keysym, t_game *game)
 {

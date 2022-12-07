@@ -6,7 +6,7 @@
 /*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 14:01:48 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/07 16:58:09 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/07 21:03:00 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,26 @@ typedef enum e_sprite {
 	__enemy = 6,
 }	t_sprite;
 
+// typedef enum e_sprite {
+// 	wall_top_left,
+// 	wall_top_right,
+// 	wall_bottom_left,
+// 	wall_bottom_right,
+// 	wall_top_bottom,
+// 	wall_middle,
+// 	emptyspace_1,
+// 	emptyspace_2,
+// 	emptyspace_3,
+// 	emptyspace_4,
+// 	collect_,
+// 	exit_closed,
+// 	exit_closed,
+// 	player_right,
+// 	player_left,
+// 	player_up,
+// 	player_down,
+// }	t_sprite;
+
 /*         STRUCTURES         */
 typedef struct s_node{
 	int		row;
@@ -79,7 +99,7 @@ typedef struct s_asset
 	void	*img;
 	int		width;
 	int		height;
-	char	*filepath;
+	char	*path;
 }	t_asset;
 
 typedef struct s_game {
