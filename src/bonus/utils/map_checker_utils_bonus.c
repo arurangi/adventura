@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_checker_utils.c                                :+:      :+:    :+:   */
+/*   map_checker_utils_bonus.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 15:15:12 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/07 12:29:12 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/07 16:54:32 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
  * List of short but usefull functions
 */
 
-#include "../../../so_long.h"
+#include "../../../so_long_bonus.h"
 
 int	invalid_extension(char *filepath)
 {
