@@ -6,7 +6,7 @@
 /*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 09:34:07 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/07 07:10:54 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/07 12:01:16 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,94 +19,44 @@
 
 int	handle_input(int keysym, t_game *game)
 {
+	int	*x;
+	int	*y;
+	
+	x = &game->x_shift;
+	y = &game->y_shift;
+	if (!game)
+		return (error_msg(0, "game struct missing, can't handle input"));
 	if (keysym == ESC)
 		game_over(game);
 	if (keysym == LEFT || keysym == RIGHT || keysym == UP || keysym == DOWN)
 		move(game, keysym);
-	//Handle collectibles
-	// if (game->map[game->y_shift][game->x_shift] == 'C')
-	// {
-	// 	game->map[game->y_shift][game->x_shift] = '0';
-	// 	game->c_credit -= 1;
-	// }
-	// Handle exit
-	// if (game->map[game->y_shift][game->x_shift] == 'E' && game->c_credit == 0)
-	// {
-	// 	game->map[game->y_shift][game->x_shift] = '0';
-	// 	game_over(game);
-	// }
-		
+	if (game->map[*y][*x] == 'C')
+	{
+		game->map[*y][*x] = '0';
+		game->c_credit -= 1;
+	}
+	if (game->map[*y][*x] == 'E' && game->c_credit == 0)
+	{
+		game->map[*y][*x] = '0';
+		game_over(game);
+	}
 	ft_printf("Moves: %d\n", game->movements);
-	ft_printf("Key: %d\n", keysym);
 	return (0);
 }
 
 void	move(t_game *game, int keysym)
 {
-	if (keysym == LEFT)
-	{
-		game->angle = 9;
+	int	x;
+	int	y;
+	
+	x = game->x_shift;
+	y = game->y_shift;
+	if (keysym == LEFT && is_walkable(game, game->map[y][x - VELOCITY]))
 		game->x_shift -= VELOCITY;
-		game->movements += 1;
-	}
-	if (keysym == RIGHT)
-	{
-		game->angle = 10;	
+	if (keysym == RIGHT && is_walkable(game, game->map[y][x + VELOCITY]))
 		game->x_shift += VELOCITY;
-		game->movements += 1;
-	}
-	if (keysym == DOWN)
-	{
-		game->angle = 7;
+	if (keysym == DOWN && is_walkable(game, game->map[y + VELOCITY][x]))
 		game->y_shift += VELOCITY;
-		game->movements += 1;
-	}
-	if (keysym == UP)
-	{
-		game->angle = 8;
+	if (keysym == UP && is_walkable(game, game->map[y - VELOCITY][x]))
 		game->y_shift -= VELOCITY;
-		game->movements += 1;
-	}
 }
-
-/*
-void	move(t_game *game, int keysym)
-{
-	if (keysym == LEFT)
-	{
-		game->angle = 9;
-		if (is_walkable(game->map[game->y_shift][game->x_shift - VELOCITY]))
-		{
-			game->x_shift -= VELOCITY;
-			game->movements += 1;
-		}
-	}
-	if (keysym == RIGHT)
-	{
-		game->angle = 10;	
-		if (is_walkable(game->map[game->y_shift][game->x_shift + VELOCITY]))
-		{
-			game->x_shift += VELOCITY;
-			game->movements += 1;
-		}
-	}
-	if (keysym == DOWN)
-	{
-		game->angle = 7;
-		if (is_walkable(game->map[game->y_shift + VELOCITY][game->x_shift]))
-		{
-			game->y_shift += VELOCITY;
-			game->movements += 1;
-		}
-	}
-	if (keysym == UP)
-	{
-		game->angle = 8;
-		if (is_walkable(game->map[game->y_shift - VELOCITY][game->x_shift]))
-		{
-			game->y_shift -= VELOCITY;
-			game->movements += 1;
-		}
-	}
-}
-*/

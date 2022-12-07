@@ -6,7 +6,7 @@
 /*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 09:40:40 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/07 07:10:47 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/07 10:54:49 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ int	game_init(t_game *game, char **av)
 		return (0);
 
 	// Player 
-	game->x_shift = game->starting_pos.col * TILE;
-	game->y_shift = game->starting_pos.row * TILE + HUD;
+	game->x_shift = game->starting_pos.col;
+	game->y_shift = game->starting_pos.row;
 	game->angle = 7;
 	game->movements = 0;
 

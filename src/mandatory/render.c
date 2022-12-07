@@ -6,7 +6,7 @@
 /*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 12:29:26 by Arsene            #+#    #+#             */
-/*   Updated: 2022/12/07 07:11:27 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/07 11:59:52 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@
 
 #include "../../so_long.h"
 
-int    render(t_game *game)
+int	render(t_game *game)
 {
-    int y;
-    int x;
+    int	y;
+    int	x;
 
 	mlx_clear_window(game->mlx, game->window);
 	y = 0;
@@ -30,8 +30,6 @@ int    render(t_game *game)
 		while (x < game->map_width)
 		{
 			render_sprite(game, __emptyspace, x, y);
-			if (y == 0)
-				render_sprite(game, __board, x, y);
 			if (game->map[y][x] == '1')
 				render_sprite(game, __wall, x, y);
 			if (game->map[y][x] == 'C')
@@ -42,7 +40,7 @@ int    render(t_game *game)
 		}
 		y++;
 	}
-    render_sprite(game, __player, game->x_shift, game->y_shift);
+    render_player(game, game->x_shift, game->y_shift);
 	render_HUD(game);
 	return (0);
 }

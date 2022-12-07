@@ -6,7 +6,7 @@
 /*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 14:01:48 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/07 10:25:16 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/07 12:00:48 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@
 # define TILE 40
 
 /* VELOCITY */
-# define VELOCITY 8
+# define VELOCITY 1
 
 /* INPUT KEYS (HOME SETUP) */
 # define ESC 65307
@@ -138,7 +138,7 @@ void		add_neighbours(t_game *game, t_node *queue, int head, int *tail);
 
 /* INPUT */
 int			handle_input(int keysym, t_game *game);
-int			is_walkable(char ch);
+int			is_walkable(t_game *game, char ch);
 void		move(t_game *game, int keysym);
 
 /* ERROR HANDLING */
@@ -151,6 +151,7 @@ void		save_assets(t_game *game, char **path);
 void		free_assets(t_game *game);
 int			render(t_game *game);
 void		render_sprite(t_game *game, char asset, int x, int y);
+void		render_player(t_game *game, int x, int y);
 int			rgbify(uint8_t red, uint8_t green, uint8_t blue);
 void		render_HUD(t_game *game);
 
