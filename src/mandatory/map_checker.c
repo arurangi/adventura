@@ -6,7 +6,7 @@
 /*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 11:05:41 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/07 13:47:22 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/07 15:55:23 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int	map_checker(t_game *game)
 		}
 		row++;
 	}
-	if (after_loop_checker(game, row, col) == 1 && path_finder(game) == 1)
-		return (1);
-	return (error_msg(0, "invalid map"));
+	if (after_loop_checker(game, row, col) == 0 || path_finder(game) == 0)
+		return (0);
+	return (1);
 }

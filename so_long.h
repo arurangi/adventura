@@ -6,7 +6,7 @@
 /*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 14:01:48 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/07 14:59:44 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/07 15:22:45 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,6 +135,7 @@ void		q_init(t_node *queue, int q_size);
 int			found_exit(t_game *game, t_node node);
 t_node		add_node(int row, int col);
 void		add_neighbours(t_game *game, t_node *queue, int head, int *tail);
+int			valid_position(t_game *game, int row, int col, t_node current);
 
 /* INPUT */
 int			handle_input(int keysym, t_game *game);
@@ -142,7 +143,7 @@ int			is_walkable(t_game *game, char ch);
 void		move(t_game *game, int keysym);
 
 /* Memory management */
-int			free_array(int return_code, char *arr);
+int			free_array(int return_code, t_node *queue);
 
 /* ERROR HANDLING */
 int			error_msg(int return_code, char *message, ...);

@@ -6,7 +6,7 @@
 /*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 09:34:07 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/07 12:04:10 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/07 16:07:54 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ int	handle_input(int keysym, t_game *game)
 		game->map[*y][*x] = '0';
 		game_over(game);
 	}
-	ft_printf("Moves: %d\n", game->movements);
 	return (0);
 }
 
@@ -48,7 +47,7 @@ void	move(t_game *game, int keysym)
 {
 	int	x;
 	int	y;
-	
+
 	x = game->x_shift;
 	y = game->y_shift;
 	if (keysym == LEFT && is_walkable(game, game->map[y][x - VELOCITY]))

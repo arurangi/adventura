@@ -6,7 +6,7 @@
 /*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 10:08:53 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/07 12:09:59 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/07 16:09:27 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,25 +18,16 @@
 
 int	game_over(t_game *game)
 {
-	if (game->map == NULL)
+	if (game->map != NULL)
 		free_matrix(game->map);
-	free_assets(game);
-	mlx_clear_window(game->mlx, game->window);
-	mlx_destroy_window(game->mlx, game->window);
+	if (game->sprites[0].img != NULL)
+		free_assets(game);
+	if (game->window != NULL)
+	{
+		mlx_clear_window(game->mlx, game->window);
+		mlx_destroy_window(game->mlx, game->window);
+	}
 	free(game->mlx);
 	exit(EXIT_SUCCESS);
 	return (0);
-}
-
-void	free_matrix(char **matrix)
-{
-	int	i;
-
-	i = 0;
-	while (matrix[i])
-	{
-		free(matrix[i]);
-		i++;
-	}
-	free(matrix);
 }
