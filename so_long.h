@@ -6,7 +6,7 @@
 /*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 14:01:48 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/06 19:34:41 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/07 10:25:16 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@
 # include <limits.h> // INT_MAX, INT_MIN
 # include <stdarg.h> // printf
 # include <mlx.h> // Acccess the minilibx functions
-# include <fcntl.h> // 
+# include "src/libft/libft.h"
+//# include <fcntl.h> // 
 # include <stdio.h> // FOPEN_MAX
 
 /* PARSING */
@@ -41,7 +42,7 @@
 # define TILE 40
 
 /* VELOCITY */
-# define VELOCITY 1
+# define VELOCITY 8
 
 /* INPUT KEYS (HOME SETUP) */
 # define ESC 65307
@@ -112,38 +113,6 @@ typedef struct s_shape {
 	int height;
 	int color;
 } t_shape;
-
-/* *********************** */
-/*     BASIC & PRINT_F     */
-/* *********************** */
-
-int			ft_printf(const char *str, ...);
-
-int			ft_strlen(const char *s);
-int			ft_putchar(char c);
-int			ft_putstr(char *str);
-void		ft_putnbr(int nbr);
-int			ft_putnbr_mod(int nbr, int *counter);
-int			ft_putnbr_u(unsigned int nbr, int *counter);
-int			ft_puthex(unsigned long nbr, char format, int *counter);
-int			ft_isalpha(int c);
-void		ft_putfs(char ch, va_list args, int *counter);
-
-char		*ft_strjoin_mod(char *old_stash, char *buff);
-char		*ft_strdup(const char *str);
-int			ft_strchr_mod(const char *s, char ch);
-
-char		*ft_itoa(int nbr);
-char		**ft_split(char const *str, char ch);
-char		*ft_strjoin(char const *s1, char const *s2);
-char		**ft_split_fd(char *filepath, char seperator);
-
-char		*get_next_line(int fd);
-char		*save_raw_line(int fd, char *stash);
-char		*trim_right(char *raw_line);
-char		*trim_left(char *stash);
-char		*free_stash(char *stash);
-
 
 /* START GAME*/
 void		start_game(t_game *game);

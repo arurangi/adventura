@@ -6,73 +6,89 @@
 #    By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/19 13:37:59 by arurangi          #+#    #+#              #
-#    Updated: 2022/12/06 19:05:46 by Arsene           ###   ########.fr        #
+#    Updated: 2022/12/07 10:40:59 by Arsene           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-# SOURCES
-SRCS	= 	src/main.c \
-			src/map_checker.c \
-			src/utils/map_checker_utils.c \
-			src/path_finder.c \
-			src/utils/path_finder_utils.c \
-			src/utils/error_handling.c \
-			src/render.c \
-			src/utils/render_utils.c \
-			src/input.c \
-			src/utils/input_utils.c \
-			src/initializer.c \
-			src/load_assets.c \
-			src/game_over.c \
-			libft/ft_strlen.c \
-			libft/ft_putchar.c \
-			libft/ft_putstr.c \
-			libft/ft_putnbr.c \
-			libft/ft_putnbr_mod.c \
-			libft/ft_putnbr_u.c \
-			libft/ft_isalpha.c \
-			libft/ft_puthex.c \
-			libft/ft_putfs.c \
-			libft/ft_printf.c \
-			libft/get_next_line.c \
-			libft/get_next_line_utils.c \
-			libft/ft_split.c \
-			libft/ft_strjoin.c \
-			libft/ft_split_fd.c \
-			libft/ft_itoa.c \
+# PROGRAM
+NAME		= 	so_long
+LEVEL		=	000.ber
+LIBFT		=	./src/libft/libft.a
+
+# DIRECTORIES
+MANDATORY	=	./src/mandatory/
+BONUS		=	./src/bonus/
+LIBFT_DIR	=	./src/libft/
+MAPS_DIR	=	./assets/maps/
+
+# SOURCE FILES
+SRCS		=	$(MANDATORY)main.c \
+				$(MANDATORY)map_checker.c \
+				$(MANDATORY)utils/map_checker_utils.c \
+				$(MANDATORY)path_finder.c \
+				$(MANDATORY)utils/path_finder_utils.c \
+				$(MANDATORY)utils/error_handling.c \
+				$(MANDATORY)render.c \
+				$(MANDATORY)utils/render_utils.c \
+				$(MANDATORY)input.c \
+				$(MANDATORY)utils/input_utils.c \
+				$(MANDATORY)initializer.c \
+				$(MANDATORY)load_assets.c \
+				$(MANDATORY)game_over.c \
+
+SRCS_B		= 	$(BONUS)main_bonus.c \
+				$(BONUS)map_checker_bonus.c \
+				$(BONUS)utils/map_checker_utils_bonus.c \
+				$(BONUS)path_finder_bonus.c \
+				$(BONUS)utils/path_finder_utils_bonus.c \
+				$(BONUS)utils/error_handling_bonus.c \
+				$(BONUS)render_bonus.c \
+				$(BONUS)utils/render_utils_bonus.c \
+				$(BONUS)input_bonus.c \
+				$(BONUS)utils/input_utils_bonus.c \
+				$(BONUS)initializer_bonus.c \
+				$(BONUS)load_assets_bonus.c \
+				$(BONUS)game_over_bonus.c \
 
 # VARIABLES
-NAME	= 	so_long
-CC		= 	gcc
-FLAGS	=	-Wall -Wextra -Werror
-OBJ		=	${SRCS:.c=.o}
-rm		=	rm -f
+COMPILER	= 	gcc
+C_FLAGS		=	-Wall -Wextra -Werror
+LIB_FLAGS	=	-Lmlx -lmlx -framework OpenGL -framework AppKit
+OBJ			=	${SRCS:.c=.o}
+OBJ_B		=	${SRCS_B:.c=.o}
+rm			=	rm -f
+#DEPS		=	./src/libft/libft.h
 
 # RULES
 %.o: 		%.c
-				@$(CC) ${FLAGS} -Imlx -c $< -o $@
+				@$(COMPILER) $(C_FLAGS) -Imlx -c $< -o $@
 
-$(NAME): 	$(OBJ)
-				@$(CC) $(OBJ) -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME)
+$(NAME): 	$(OBJ) $(LIBFT)
+				@$(COMPILER) $(OBJ) $(LIBFT_DIR)libft.a  $(LIB_FLAGS) -o $(NAME)
+$(LIBFT):
+				@make -C $(LIBFT_DIR)
 
-all:		${NAME}
+all:		$(NAME) 
+				@./$(NAME) $(MAPS_DIR)$(LEVEL)
 
-bonus:		${NAME}
-			@./${NAME} assets/maps/003.ber
-
-local:
-			@gcc src/*.c libft/*.c src/utils/*.c -lX11 -lXext -lmlx -o so_long
-			@./${NAME} assets/maps/000.ber
-
-map:		${NAME}
-				@./${NAME} assets/maps/002.ber
-
-clean:		
-			@rm -f ${OBJ} core
+clean:
+				@make -C ./src/libft fclean
+				@rm -f $(OBJ) $(OBJ_B) core
 
 fclean:		clean
-				@${RM} ${NAME}
+				@$(RM) $(NAME)
 
-re:				fclean all
+re:			fclean all
 
 .PHONY:		all clean fclean re
+
+bonus:		$(NAME)
+				@./$(NAME) $(MAPS_DIR)$(LEVEL)
+
+local:			$(LIBFT)
+				@gcc  $(MANDATORY)*.c $(MANDATORY)utils/*.c -lX11 -lXext -lmlx -o so_long $(LIBFT)
+				@./$(NAME)  $(MAPS_DIR)$(LEVEL)
+
+local_bonus:	$(LIBFT)
+				@gcc $(BONUS)*.c $(BONUS)utils/*.c -lX11 -lXext -lmlx -o so_long $(LIBFT)
+				@./$(NAME) $(MAPS_DIR)$(LEVEL)

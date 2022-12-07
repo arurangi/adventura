@@ -4,5 +4,9 @@
 	],
 	"workbench.colorCustomizations": {
 		"editorRuler.foreground": "#3a3636"
+	},
+	"files.associations": {
+		"libft.h": "c",
+		"so_long.h": "c"
 	}
 }
