@@ -6,7 +6,7 @@
 /*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 15:15:51 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/07 12:12:05 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/07 16:11:53 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,10 +52,6 @@ void	render_hud(t_game *game)
 		15, 12, rgbify(255, 255, 255), "Steps count: ");
 	mlx_string_put(game->mlx, game->window,
 		150, 12, rgbify(255, 255, 255), ft_itoa(game->movements));
-	// mlx_string_put(game->mlx, game->window,
-	// 	300, 12, rgbify(255, 255, 255), "Remaining items: ");
-	// mlx_string_put(game->mlx, game->window,
-	// 	500, 12, rgbify(255, 255, 255), ft_itoa(game->c_credit));
 }
 
 int	rgbify(uint8_t red, uint8_t green, uint8_t blue)

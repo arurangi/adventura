@@ -1,24 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   input_utils.c                                      :+:      :+:    :+:   */
+/*   memory_management.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/05 16:06:13 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/07 16:08:15 by Arsene           ###   ########.fr       */
+/*   Created: 2022/12/07 14:58:19 by Arsene            #+#    #+#             */
+/*   Updated: 2022/12/07 16:09:11 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../so_long.h"
 
-int	is_walkable(t_game *game, char ch)
+int	free_array(int return_code, t_node *arr)
 {
-	if (ch == '0' || ch == 'C' || ch == 'E' || ch == 'P' || ch == 'N')
+	free(arr);
+	return (return_code);
+}
+
+void	free_matrix(char **matrix)
+{
+	int	i;
+
+	i = 0;
+	while (matrix[i])
 	{
-		game->movements += 1;
-		ft_printf("steps: %d\n", game->movements);
-		return (1);
+		free(matrix[i]);
+		i++;
 	}
-	return (0);
+	free(matrix);
 }

@@ -6,7 +6,7 @@
 /*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 10:13:21 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/07 07:11:52 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/07 16:02:58 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 int	in_queue(t_node current, t_node *queue, int head, int tail)
 {
 	int		i;
-	
+
 	i = 0;
 	while (i <= tail)
 	{
@@ -47,7 +47,7 @@ void	q_init(t_node *queue, int q_size)
 	int	i;
 
 	i = 0;
-	while(i < q_size)
+	while (i < q_size)
 	{
 		queue[i] = add_node(-1, -1);
 		i++;
@@ -62,43 +62,11 @@ int	found_exit(t_game *game, t_node node)
 	return (0);
 }
 
-// Add all friends to the queue
-void	add_neighbours(t_game *game, t_node *queue, int head, int *tail)
+int	valid_position(t_game *game, int row, int col, t_node current)
 {
-	t_node	current;
-	int		pos;
-	int		row;
-	int		col;
-
-	pos = *tail;
-	current = queue[head];
-	//ft_printf("Current at [%d][%d]\n", current.row, current.col);
-	row = current.row - 1;
-	while (row <= current.row + 1)
-	{
-		col = current.col - 1;
-		while (col <= current.col + 1)
-		{
-			// Avoid walls
-			if (game->map[row][col] == '1')
-				col++;
-			else if (game->map[row][col] == 'P')
-				col++;
-			// Avoid center
-			else if ((row == current.row) && (col == current.col))
-				col++;
-			// Present in queue
-			else if (in_queue(add_node(row, col), queue, head, *tail))
-				col++;
-			// Add node
-			else
-			{
-				queue[pos++] = add_node(row, col);
-				*tail += 1;
-				col++;
-			}
-		}
-		row++;
-	}
-
+	if (game->map[row][col] == '1' || game->map[row][col] == 'P')
+		return (0);
+	if ((row == current.row) && (col == current.col))
+		return (0);
+	return (1);
 }
