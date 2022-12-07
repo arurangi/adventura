@@ -6,7 +6,7 @@
 /*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 11:38:48 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/07 07:11:35 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/07 12:06:30 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,13 @@
 int	error_msg(int return_code, char *message, ...)
 {
 	va_list	args;
-	int index;
+	int		index;
 
 	ft_putstr("\033[31mError\033[0m\n✖ ");
 	va_start(args, message);
 	index = 0;
 	while (message[index])
 	{
-		
 		if (message[index] == '%')
 		{
 			if (message[index + 1] == 's')
@@ -39,17 +38,16 @@ int	error_msg(int return_code, char *message, ...)
 	return (return_code);
 }
 
-int success_msg(int return_code, char *message, ...)
+int	success_msg(int return_code, char *message, ...)
 {
 	va_list	args;
-	int index;
+	int		index;
 
 	ft_putstr("\033[32m✓\033[0m ");
 	va_start(args, message);
 	index = 0;
 	while (message[index])
 	{
-		
 		if (message[index] == '%')
 		{
 			if (message[index + 1] == 's')
@@ -65,5 +63,3 @@ int success_msg(int return_code, char *message, ...)
 	write(1, "\n", 1);
 	return (return_code);
 }
-
-

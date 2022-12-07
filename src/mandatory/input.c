@@ -6,7 +6,7 @@
 /*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 09:34:07 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/07 12:01:16 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/07 12:04:10 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	handle_input(int keysym, t_game *game)
 {
 	int	*x;
 	int	*y;
-	
+
 	x = &game->x_shift;
 	y = &game->y_shift;
 	if (!game)

@@ -6,7 +6,7 @@
 /*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 15:15:51 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/07 11:58:59 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/07 12:12:05 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,16 @@
 void	render_player(t_game *game, int x, int y)
 {
 	void	*img_ptr;
-	
+
 	img_ptr = game->sprites[game->angle].img;
-	mlx_put_image_to_window(game->mlx, game->window, img_ptr, x * TILE, y * TILE + HUD);
+	mlx_put_image_to_window(game->mlx, game->window,
+		img_ptr, x * TILE, y * TILE + HUD);
 }
 
 void	render_sprite(t_game *game, char asset, int x, int y)
 {
 	void	*img_ptr;
-	
+
 	if (asset == __emptyspace)
 		img_ptr = game->sprites[0].img;
 	else if (asset == __wall)
@@ -45,7 +46,7 @@ void	render_sprite(t_game *game, char asset, int x, int y)
 		img_ptr, x * TILE, y * TILE + HUD);
 }
 
-void	render_HUD(t_game *game)
+void	render_hud(t_game *game)
 {
 	mlx_string_put(game->mlx, game->window,
 		15, 12, rgbify(255, 255, 255), "Steps count: ");

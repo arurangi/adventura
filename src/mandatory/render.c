@@ -6,7 +6,7 @@
 /*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 12:29:26 by Arsene            #+#    #+#             */
-/*   Updated: 2022/12/07 11:59:52 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/07 12:12:31 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@
 
 int	render(t_game *game)
 {
-    int	y;
-    int	x;
+	int	y;
+	int	x;
 
 	mlx_clear_window(game->mlx, game->window);
 	y = 0;
@@ -40,7 +40,7 @@ int	render(t_game *game)
 		}
 		y++;
 	}
-    render_player(game, game->x_shift, game->y_shift);
-	render_HUD(game);
+	render_player(game, game->x_shift, game->y_shift);
+	render_hud(game);
 	return (0);
 }
