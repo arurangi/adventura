@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 22:00:20 by Arsene            #+#    #+#             */
-/*   Updated: 2022/12/08 12:11:03 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/08 12:16:32 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,9 @@ int	load_assets(t_game *game)
 	path[14] = "assets/sprites/bonus/exit_closed.xpm";
 	path[15] = "assets/sprites/bonus/exit_opened.xpm";
 	path[16] = "assets/sprites/bonus/player_down.xpm";
-	path[17] = "";
-	path[18] = "";
-	path[19] = "";
+	path[17] = "assets/sprites/bonus/player_up.xpm";
+	path[18] = "assets/sprites/bonus/player_left.xpm";
+	path[19] = "assets/sprites/bonus/player_right.xpm";
 	return (save_assets(game, path));
 }
 
