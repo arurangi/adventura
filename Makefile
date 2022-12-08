@@ -6,13 +6,13 @@
 #    By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/19 13:37:59 by arurangi          #+#    #+#              #
-#    Updated: 2022/12/08 20:58:40 by Arsene           ###   ########.fr        #
+#    Updated: 2022/12/08 21:31:59 by Arsene           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # PROGRAM
 NAME		= 	so_long
-LEVEL		=	enemy.ber
+LEVEL		=	001.ber
 LIBFT		=	./src/libft/libft.a
 
 # DIRECTORIES

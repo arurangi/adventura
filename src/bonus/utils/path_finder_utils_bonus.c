@@ -6,7 +6,7 @@
 /*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 10:13:21 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/07 16:54:44 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/08 21:37:05 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,8 @@ int	found_exit(t_game *game, t_node node)
 
 int	valid_position(t_game *game, int row, int col, t_node current)
 {
-	if (game->map[row][col] == '1' || game->map[row][col] == 'P')
+	if (game->map[row][col] == '1' || game->map[row][col] == 'P'
+		|| game->map[row][col] == 'N')
 		return (0);
 	if ((row == current.row) && (col == current.col))
 		return (0);
