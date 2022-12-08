@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 22:00:20 by Arsene            #+#    #+#             */
-/*   Updated: 2022/12/08 12:16:32 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/08 14:22:51 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,42 +19,46 @@
 
 int	load_assets(t_game *game)
 {
-	char	*path[20];
-
-	path[0] = "assets/sprites/bonus/empty_space.xpm";
-	path[1] = "assets/sprites/bonus/wall.xpm";
-	path[2] = "assets/sprites/bonus/wall_top_left.xpm";
-	path[3] = "assets/sprites/bonus/wall_top_right.xpm";
-	path[4] = "assets/sprites/bonus/wall_bottom_left.xpm";
-	path[5] = "assets/sprites/bonus/wall_bottom_right.xpm";
-	path[6] = "assets/sprites/bonus/wall_top1.xpm";
-	path[7] = "assets/sprites/bonus/wall_top2.xpm";
-	path[8] = "assets/sprites/bonus/wall_middle_left1.xpm";
-	path[9] = "assets/sprites/bonus/wall_middle_left2.xpm";
-	path[10] = "assets/sprites/bonus/wall_middle_right1.xpm";
-	path[11] = "assets/sprites/bonus/wall_middle_right2.xpm";
-	path[12] = "assets/sprites/bonus/coins.xpm";
-	path[13] = "assets/sprites/bonus/treasure_chest.xpm";
-	path[14] = "assets/sprites/bonus/exit_closed.xpm";
-	path[15] = "assets/sprites/bonus/exit_opened.xpm";
-	path[16] = "assets/sprites/bonus/player_down.xpm";
-	path[17] = "assets/sprites/bonus/player_up.xpm";
-	path[18] = "assets/sprites/bonus/player_left.xpm";
-	path[19] = "assets/sprites/bonus/player_right.xpm";
-	return (save_assets(game, path));
+	game->sprites[0].path = "assets/sprites/bonus/empty_space.xpm";
+	game->sprites[1].path = "assets/sprites/bonus/wall.xpm";
+	game->sprites[2].path = "assets/sprites/bonus/wall_top_left.xpm";
+	game->sprites[3].path = "assets/sprites/bonus/wall_top_right.xpm";
+	game->sprites[4].path = "assets/sprites/bonus/wall_bottom_left.xpm";
+	game->sprites[5].path = "assets/sprites/bonus/wall_bottom_right.xpm";
+	game->sprites[6].path = "assets/sprites/bonus/wall_top1.xpm";
+	game->sprites[7].path = "assets/sprites/bonus/wall_top2.xpm";
+	game->sprites[8].path = "assets/sprites/bonus/wall_middle_left1.xpm";
+	game->sprites[9].path = "assets/sprites/bonus/wall_middle_left2.xpm";
+	game->sprites[10].path = "assets/sprites/bonus/wall_middle_right1.xpm";
+	game->sprites[11].path = "assets/sprites/bonus/wall_middle_right2.xpm";
+	game->sprites[12].path = "assets/sprites/bonus/coins.xpm";
+	game->sprites[13].path = "assets/sprites/bonus/treasure_chest.xpm";
+	game->sprites[14].path = "assets/sprites/bonus/exit_closed.xpm";
+	game->sprites[15].path = "assets/sprites/bonus/exit_opened.xpm";
+	game->sprites[16].path = "assets/sprites/bonus/player_down.xpm";
+	game->sprites[17].path = "assets/sprites/bonus/player_up.xpm";
+	game->sprites[18].path = "assets/sprites/bonus/player_left.xpm";
+	game->sprites[19].path = "assets/sprites/bonus/player_right.xpm";
+	game->sprites[20].path = "assets/sprites/bonus/enemy_0.xpm";
+	game->sprites[21].path = "assets/sprites/bonus/enemy_1.xpm";
+	game->sprites[22].path = "assets/sprites/bonus/enemy_2.xpm";
+	game->sprites[23].path = "assets/sprites/bonus/enemy_3.xpm";
+	return (save_assets(game));
 }
 
-int	save_assets(t_game *game, char **path)
+int	save_assets(t_game *game)
 {
 	int	i;
 
 	i = 0;
-	while (i < 16)
+	while (i < SPRITES_NBR)
 	{
-		game->sprites[i].img = mlx_xpm_file_to_image(game->mlx, path[i],
-				&game->sprites[i].width, &game->sprites[i].height);
+		game->sprites[i].img = mlx_xpm_file_to_image(game->mlx,
+			game->sprites[i].path, &game->sprites[i].width,
+				&game->sprites[i].height);
 		if (game->sprites[i].img == NULL)
-			return (error_msg(0, "can't save asset: %s", path[i]));
+			return (error_msg(0, "can't save asset: %s",
+				game->sprites[i].path));
 		i++;
 	}
 	return (1);
@@ -65,7 +69,7 @@ void	free_assets(t_game *game)
 	int	i;
 
 	i = 0;
-	while (i < 16)
+	while (i < SPRITES_NBR)
 	{
 		mlx_destroy_image(game->mlx, game->sprites[i].img);
 		i++;

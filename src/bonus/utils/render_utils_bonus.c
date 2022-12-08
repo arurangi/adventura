@@ -3,45 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   render_utils_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
+/*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 15:15:51 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/08 07:41:23 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/08 13:21:04 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../so_long_bonus.h"
 
-void	render_player(t_game *game, int x, int y)
+// void	render_player(t_game *game, int x, int y)
+// {
+// 	void	*img_ptr;
+
+// 	img_ptr = game->sprites[game->angle].img;
+// 	mlx_put_image_to_window(game->mlx, game->window,
+// 		img_ptr, x * TILE, y * TILE + HUD);
+// }
+
+void	render_sprite(t_game *game, int asset, int x, int y)
 {
 	void	*img_ptr;
 
-	img_ptr = game->sprites[game->angle].img;
-	mlx_put_image_to_window(game->mlx, game->window,
-		img_ptr, x * TILE, y * TILE + HUD);
-}
-
-void	render_sprite(t_game *game, char asset, int x, int y)
-{
-	void	*img_ptr;
-
-	if (asset == __emptyspace)
-		img_ptr = game->sprites[0].img;
-	else if (asset == __wall)
-		img_ptr = game->sprites[1].img;
-	else if (asset == __collectible)
-		img_ptr = game->sprites[4].img;
-	else if (asset == __exit)
-	{
-		if (game->c_credit == 0)
-			img_ptr = game->sprites[5].img;
-		else
-			img_ptr = game->sprites[6].img;
-	}
-	else if (asset == __enemy)
-		img_ptr = game->sprites[11].img;
-	else
-		return ;
+	img_ptr = game->sprites[asset].img;
 	mlx_put_image_to_window(game->mlx, game->window,
 		img_ptr, x * TILE, y * TILE + HUD);
 }

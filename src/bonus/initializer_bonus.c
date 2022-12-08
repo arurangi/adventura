@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   initializer_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
+/*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 09:40:40 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/07 21:03:22 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/08 14:51:16 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,8 @@ int	game_init(t_game *game, char **av)
 	}
 	game->x_shift = game->starting_pos.col;
 	game->y_shift = game->starting_pos.row;
-	game->angle = 7;
+	game->angle = 16;
 	game->movements = 0;
+	game->state = 0;
 	return (load_assets(game));
 }

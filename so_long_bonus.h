@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 14:01:48 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/08 12:01:52 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/08 14:50:53 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,34 +22,32 @@
 # include <mlx.h>
 # include <stdio.h>
 
-/* PARSING */
 # define BUFFER_SIZE 1
 
-/* WINDOW SIZE */
 # define W_WIDTH 800
 # define W_HEIGHT 640
 
 # define HUD 40
 
-/* TILESET SIZE */
 # define TILE 40
 
-/* VELOCITY */
 # define VELOCITY 1
 
+# define SPRITES_NBR 24
+
 /* INPUT KEYS (HOME SETUP) */
-# define ESC 65307
-# define UP 65362
-# define DOWN 65364
-# define LEFT 65361
-# define RIGHT 65363
+// # define ESC 65307
+// # define UP 65362
+// # define DOWN 65364
+// # define LEFT 65361
+// # define RIGHT 65363
 
 /* INPUT KEYS (SCHOOL SETUP) */
-// # define ESC 53
-// # define UP 13
-// # define DOWN 1
-// # define LEFT 0
-// # define RIGHT 2
+# define ESC 53
+# define UP 13
+# define DOWN 1
+# define LEFT 0
+# define RIGHT 2
 
 typedef enum e_events {
 	keypress = 2,
@@ -79,6 +77,10 @@ typedef enum e_sprite {
 	_player_up = 17,
 	_player_left = 18,
 	_player_right = 19,
+	_enemy1 = 20,
+	_enemy2 = 21,
+	_enemy3 = 22,
+	_enemy4 = 23,
 }	t_sprite;
 
 /*         STRUCTURES         */
@@ -106,11 +108,13 @@ typedef struct s_game {
 	int			e_credit;
 	int			p_credit;
 	t_node		starting_pos;
-	t_asset		sprites[16];
+	t_asset		sprites[24];
+	//t_asset		enemy[5];
 	int			x_shift;
 	int			y_shift;
 	int			angle;
 	int			movements;
+	int			state;
 }	t_game;
 
 typedef struct s_shape {
@@ -159,12 +163,16 @@ int			success_msg(int return_code, char *message, ...);
 
 /* RENDERING */
 int			load_assets(t_game *game);
-int			save_assets(t_game *game, char **path);
+int			save_assets(t_game *game);
 void		free_assets(t_game *game);
 int			render(t_game *game);
-void		render_sprite(t_game *game, char asset, int x, int y);
-void		render_player(t_game *game, int x, int y);
+void		render_sprite(t_game *game, int asset, int x, int y);
+//void		render_player(t_game *game, int x, int y);
 int			rgbify(uint8_t red, uint8_t green, uint8_t blue);
 void		render_hud(t_game *game);
+
+void		identify_walls(t_game *game, int x, int y);
+void		identify_exit(t_game *game, int x, int y);
+void		animate(t_game *game, int x, int y);
 
 #endif

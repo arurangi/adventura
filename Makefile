@@ -6,13 +6,13 @@
 #    By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/19 13:37:59 by arurangi          #+#    #+#              #
-#    Updated: 2022/12/08 11:33:03 by arurangi         ###   ########.fr        #
+#    Updated: 2022/12/08 14:47:08 by arurangi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # PROGRAM
 NAME		= 	so_long
-LEVEL		=	000.ber
+LEVEL		=	enemy.ber
 LIBFT		=	./src/libft/libft.a
 
 # DIRECTORIES

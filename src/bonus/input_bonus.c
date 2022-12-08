@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   input_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
+/*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 09:34:07 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/07 21:02:35 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/08 14:41:01 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@
 */
 
 #include "../../so_long_bonus.h"
-
-int	no_collision(t_game *game);
 
 int	handle_input(int keysym, t_game *game)
 {
@@ -42,6 +40,7 @@ int	handle_input(int keysym, t_game *game)
 		game->map[*y][*x] = '0';
 		game_over(game);
 	}
+	ft_printf("key : %d\n", keysym);
 	return (0);
 }
 
@@ -52,12 +51,28 @@ void	move(t_game *game, int keysym)
 
 	x = game->x_shift;
 	y = game->y_shift;
-	if (keysym == LEFT && is_walkable(game, game->map[y][x - VELOCITY]))
-		game->x_shift -= VELOCITY;
-	if (keysym == RIGHT && is_walkable(game, game->map[y][x + VELOCITY]))
-		game->x_shift += VELOCITY;
-	if (keysym == DOWN && is_walkable(game, game->map[y + VELOCITY][x]))
-		game->y_shift += VELOCITY;
-	if (keysym == UP && is_walkable(game, game->map[y - VELOCITY][x]))
-		game->y_shift -= VELOCITY;
+	if (keysym == LEFT)
+	{
+		game->angle = 18;
+		if (is_walkable(game, game->map[y][x - VELOCITY]))
+			game->x_shift -= VELOCITY;
+	}
+	if (keysym == RIGHT)
+	{
+		game->angle = 19;
+		if (is_walkable(game, game->map[y][x + VELOCITY]))
+			game->x_shift += VELOCITY;
+	}
+	if (keysym == DOWN)
+	{
+		game->angle = 16;
+		if (is_walkable(game, game->map[y + VELOCITY][x]))
+			game->y_shift += VELOCITY;
+	}
+	if (keysym == UP)
+	{
+		game->angle = 17;
+		if (is_walkable(game, game->map[y - VELOCITY][x]))
+			game->y_shift -= VELOCITY;
+	}
 }
