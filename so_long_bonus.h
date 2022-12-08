@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 14:01:48 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/08 15:46:32 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/08 16:10:00 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@
 # define W_WIDTH 800
 # define W_HEIGHT 640
 
-# define HUD 40
+# define HUD 80
 
 # define TILE 40
 
