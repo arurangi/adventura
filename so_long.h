@@ -6,7 +6,7 @@
 /*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 14:01:48 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/07 15:22:45 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/08 07:54:27 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,13 +60,12 @@ typedef enum e_events {
 }	t_events;
 
 typedef enum e_sprite {
-	__player = 0,
-	__board = 1,
-	__emptyspace = 2,
-	__wall = 3,
-	__collectible = 4,
-	__exit = 5,
-	__enemy = 6,
+	_emptyspace = 0,
+	_wall = 1,
+	_collectible = 2,
+	_exit_closed = 4,
+	_exit_opened = 5,
+	_player = 6,
 }	t_sprite;
 
 /*         STRUCTURES         */
@@ -154,7 +153,7 @@ int			load_assets(t_game *game);
 int			save_assets(t_game *game, char **path);
 void		free_assets(t_game *game);
 int			render(t_game *game);
-void		render_sprite(t_game *game, char asset, int x, int y);
+void		render_sprite(t_game *game, int asset, int x, int y);
 void		render_player(t_game *game, int x, int y);
 int			rgbify(uint8_t red, uint8_t green, uint8_t blue);
 void		render_hud(t_game *game);

@@ -6,7 +6,7 @@
 /*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 12:29:26 by Arsene            #+#    #+#             */
-/*   Updated: 2022/12/07 12:12:31 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/08 07:55:28 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,13 @@ int	render(t_game *game)
 		x = 0;
 		while (x < game->map_width)
 		{
-			render_sprite(game, __emptyspace, x, y);
+			render_sprite(game, _emptyspace, x, y);
 			if (game->map[y][x] == '1')
-				render_sprite(game, __wall, x, y);
+				render_sprite(game, _wall, x, y);
 			if (game->map[y][x] == 'C')
-				render_sprite(game, __collectible, x, y);
+				render_sprite(game, _collectible, x, y);
 			if (game->map[y][x] == 'E')
-				render_sprite(game, __exit, x, y);
+				render_sprite(game, _exit_closed, x, y);
 			x++;
 		}
 		y++;

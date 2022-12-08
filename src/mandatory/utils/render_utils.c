@@ -6,7 +6,7 @@
 /*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 15:15:51 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/07 16:11:53 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/08 08:14:10 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,30 +16,28 @@ void	render_player(t_game *game, int x, int y)
 {
 	void	*img_ptr;
 
-	img_ptr = game->sprites[game->angle].img;
+	img_ptr = game->sprites[5].img;
 	mlx_put_image_to_window(game->mlx, game->window,
 		img_ptr, x * TILE, y * TILE + HUD);
 }
 
-void	render_sprite(t_game *game, char asset, int x, int y)
+void	render_sprite(t_game *game, int asset, int x, int y)
 {
 	void	*img_ptr;
 
-	if (asset == __emptyspace)
+	if (asset == _emptyspace)
 		img_ptr = game->sprites[0].img;
-	else if (asset == __wall)
+	else if (asset == _wall)
 		img_ptr = game->sprites[1].img;
-	else if (asset == __collectible)
-		img_ptr = game->sprites[4].img;
-	else if (asset == __exit)
+	else if (asset == _collectible)
+		img_ptr = game->sprites[2].img;
+	else if (asset == _exit_closed)
 	{
 		if (game->c_credit == 0)
-			img_ptr = game->sprites[5].img;
+			img_ptr = game->sprites[4].img;
 		else
-			img_ptr = game->sprites[6].img;
+			img_ptr = game->sprites[3].img;
 	}
-	else if (asset == __enemy)
-		img_ptr = game->sprites[11].img;
 	else
 		return ;
 	mlx_put_image_to_window(game->mlx, game->window,
