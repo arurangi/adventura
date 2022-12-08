@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 14:01:48 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/08 14:50:53 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/08 15:46:32 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,7 +131,7 @@ int			game_init(t_game *game, char **av);
 void		map_init(t_game *game);
 
 /* END GAME */
-int			game_over(t_game *game);
+int			end_game(t_game *game);
 void		free_matrix(char **matrix);
 
 /* MAP RELATED */

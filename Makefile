@@ -6,7 +6,7 @@
 #    By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/19 13:37:59 by arurangi          #+#    #+#              #
-#    Updated: 2022/12/08 14:47:08 by arurangi         ###   ########.fr        #
+#    Updated: 2022/12/08 15:48:36 by arurangi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,6 +51,7 @@ SRCS_B		= 	$(BONUS)main_bonus.c \
 				$(BONUS)load_assets_bonus.c \
 				$(BONUS)game_over_bonus.c \
 				${BONUS}utils/memory_management_bonus.c \
+				${BONUS}animate_bonus.c \
 
 # VARIABLES
 COMPILER	= 	gcc

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
+/*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 11:36:54 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/07 16:53:49 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/08 15:48:03 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	main(int ac, char **av)
 	status = game_init(&game, av);
 	if (status == 0)
 	{
-		game_over(&game);
+		end_game(&game);
 		return (error_msg(1, "couldn't initialize the environment."));
 	}
 	start_game(&game);
@@ -41,6 +41,6 @@ void	start_game(t_game *game)
 {
 	mlx_loop_hook(game->mlx, &render, game);
 	mlx_hook(game->window, keypress, keypress_mask, &handle_input, game);
-	mlx_hook(game->window, destroy_notify, leave_window_mask, &game_over, game);
+	mlx_hook(game->window, destroy_notify, leave_window_mask, &end_game, game);
 	mlx_loop(game->mlx);
 }
