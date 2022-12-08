@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 12:29:26 by Arsene            #+#    #+#             */
-/*   Updated: 2022/12/08 15:54:25 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/08 16:52:11 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@ int	render(t_game *game)
 			else if (game->map[y][x] == 'E')
 				identify_exit(game, x, y);
 			else if (game->map[y][x] == 'N')
-				//animate(game, x, y);
 				render_sprite(game, _enemy1, x, y);
 			x++;
 		}

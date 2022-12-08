@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 22:00:20 by Arsene            #+#    #+#             */
-/*   Updated: 2022/12/08 14:22:51 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/08 16:53:33 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,11 +54,11 @@ int	save_assets(t_game *game)
 	while (i < SPRITES_NBR)
 	{
 		game->sprites[i].img = mlx_xpm_file_to_image(game->mlx,
-			game->sprites[i].path, &game->sprites[i].width,
+				game->sprites[i].path, &game->sprites[i].width,
 				&game->sprites[i].height);
 		if (game->sprites[i].img == NULL)
 			return (error_msg(0, "can't save asset: %s",
-				game->sprites[i].path));
+					game->sprites[i].path));
 		i++;
 	}
 	return (1);

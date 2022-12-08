@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 09:34:07 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/08 15:45:54 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/08 16:50:29 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,5 @@ int	handle_input(int keysym, t_game *game)
 		game->map[*y][*x] = '0';
 		game->c_credit -= 1;
 	}
-	ft_printf("key : %d\n", keysym);
 	return (0);
 }

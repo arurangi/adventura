@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 15:15:51 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/08 16:16:49 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/08 16:54:34 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ void	render_hud(t_game *game)
 	int		i;
 	void	*img_ptr;
 
-	
 	i = 0;
 	img_ptr = game->sprites[_wall_inside].img;
 	while (i < W_WIDTH)
