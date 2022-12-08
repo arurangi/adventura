@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+         #
+#    By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/19 13:37:59 by arurangi          #+#    #+#              #
-#    Updated: 2022/12/07 10:40:59 by Arsene           ###   ########.fr        #
+#    Updated: 2022/12/08 11:33:03 by arurangi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,6 +35,7 @@ SRCS		=	$(MANDATORY)main.c \
 				$(MANDATORY)initializer.c \
 				$(MANDATORY)load_assets.c \
 				$(MANDATORY)game_over.c \
+				${MANDATORY}utils/memory_management.c \
 
 SRCS_B		= 	$(BONUS)main_bonus.c \
 				$(BONUS)map_checker_bonus.c \
@@ -49,6 +50,7 @@ SRCS_B		= 	$(BONUS)main_bonus.c \
 				$(BONUS)initializer_bonus.c \
 				$(BONUS)load_assets_bonus.c \
 				$(BONUS)game_over_bonus.c \
+				${BONUS}utils/memory_management_bonus.c \
 
 # VARIABLES
 COMPILER	= 	gcc
@@ -69,7 +71,9 @@ $(LIBFT):
 				@make -C $(LIBFT_DIR)
 
 all:		$(NAME) 
-				@./$(NAME) $(MAPS_DIR)$(LEVEL)
+			
+play:		${NAME}
+			@./$(NAME) $(MAPS_DIR)$(LEVEL)
 
 clean:
 				@make -C ./src/libft fclean
@@ -82,7 +86,8 @@ re:			fclean all
 
 .PHONY:		all clean fclean re
 
-bonus:		$(NAME)
+bonus:		$(OBJ_B) $(LIBFT)
+				@$(COMPILER) $(OBJ_B) $(LIBFT_DIR)libft.a  $(LIB_FLAGS) -o $(NAME)
 				@./$(NAME) $(MAPS_DIR)$(LEVEL)
 
 local:			$(LIBFT)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_checker_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
+/*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 11:05:41 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/07 16:53:57 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/08 11:32:00 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int	map_checker(t_game *game)
 		}
 		row++;
 	}
-	if (after_loop_checker(game, row, col) == 0 || path_finder(game) == 0)
+	if (outer_loop_checker(game) == 0 || path_finder(game) == 0)
 		return (0);
 	return (1);
 }

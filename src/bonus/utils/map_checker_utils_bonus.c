@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_checker_utils_bonus.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
+/*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 15:15:12 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/07 17:06:07 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/08 11:44:15 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,8 @@ int	valid_character(char ch)
 		|| ch == 'C'
 		|| ch == 'E'
 		|| ch == 'P'
-		|| ch == 'N')
+		|| ch == 'N'
+		|| ch == 'T')
 		return (1);
 	return (0);
 }
@@ -82,7 +83,7 @@ int	inner_loop_checker(t_game *game, int row, int col)
 	return (1);
 }
 
-int	after_loop_checker(t_game *game, int row, int col)
+int	outer_loop_checker(t_game *game)
 {
 	if ((game->c_credit * game->e_credit * game->p_credit) == 0)
 		return (error_msg(0, "missing (C), (E) or (P)"));

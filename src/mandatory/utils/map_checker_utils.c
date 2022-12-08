@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_checker_utils.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
+/*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 15:15:12 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/07 12:29:12 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/08 11:05:50 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,8 @@ int	inner_loop_checker(t_game *game, int row, int col)
 
 int	after_loop_checker(t_game *game, int row, int col)
 {
+	(void)row;
+	(void)col;
 	if ((game->c_credit * game->e_credit * game->p_credit) == 0)
 		return (error_msg(0, "missing (C), (E) or (P)"));
 	if (game->e_credit > 1 || game->p_credit > 1)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   load_assets_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
+/*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 22:00:20 by Arsene            #+#    #+#             */
-/*   Updated: 2022/12/07 16:53:40 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/08 12:11:03 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,24 +19,28 @@
 
 int	load_assets(t_game *game)
 {
-	char	*path[16];
+	char	*path[20];
 
-	path[0] = "assets/sprites/empty_space.xpm";
-	path[1] = "assets/sprites/wall.xpm";
-	path[2] = "assets/sprites/wall_2.xpm";
-	path[3] = "assets/sprites/wall_3.xpm";
-	path[4] = "assets/sprites/collectible.xpm";
-	path[5] = "assets/sprites/exit_closed.xpm";
-	path[6] = "assets/sprites/exit_opened.xpm";
-	path[7] = "assets/sprites/player_down.xpm";
-	path[8] = "assets/sprites/player_up.xpm";
-	path[9] = "assets/sprites/player_left.xpm";
-	path[10] = "assets/sprites/player_right.xpm";
-	path[11] = "assets/sprites/enemy_down.xpm";
-	path[12] = "assets/sprites/enemy_up.xpm";
-	path[13] = "assets/sprites/enemy_left.xpm";
-	path[14] = "assets/sprites/enemy_right.xpm";
-	path[15] = "assets/sprites/board.xpm";
+	path[0] = "assets/sprites/bonus/empty_space.xpm";
+	path[1] = "assets/sprites/bonus/wall.xpm";
+	path[2] = "assets/sprites/bonus/wall_top_left.xpm";
+	path[3] = "assets/sprites/bonus/wall_top_right.xpm";
+	path[4] = "assets/sprites/bonus/wall_bottom_left.xpm";
+	path[5] = "assets/sprites/bonus/wall_bottom_right.xpm";
+	path[6] = "assets/sprites/bonus/wall_top1.xpm";
+	path[7] = "assets/sprites/bonus/wall_top2.xpm";
+	path[8] = "assets/sprites/bonus/wall_middle_left1.xpm";
+	path[9] = "assets/sprites/bonus/wall_middle_left2.xpm";
+	path[10] = "assets/sprites/bonus/wall_middle_right1.xpm";
+	path[11] = "assets/sprites/bonus/wall_middle_right2.xpm";
+	path[12] = "assets/sprites/bonus/coins.xpm";
+	path[13] = "assets/sprites/bonus/treasure_chest.xpm";
+	path[14] = "assets/sprites/bonus/exit_closed.xpm";
+	path[15] = "assets/sprites/bonus/exit_opened.xpm";
+	path[16] = "assets/sprites/bonus/player_down.xpm";
+	path[17] = "";
+	path[18] = "";
+	path[19] = "";
 	return (save_assets(game, path));
 }
 

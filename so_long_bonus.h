@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
+/*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 14:01:48 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/07 21:03:00 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/08 12:01:52 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,34 +59,27 @@ typedef enum e_events {
 }	t_events;
 
 typedef enum e_sprite {
-	__player = 0,
-	__board = 1,
-	__emptyspace = 2,
-	__wall = 3,
-	__collectible = 4,
-	__exit = 5,
-	__enemy = 6,
+	_emptyspace = 0,
+	_wall_inside = 1,
+	_wall_top_left = 2,
+	_wall_top_right = 3,
+	_wall_bottom_left = 4,
+	_wall_bottom_right = 5,
+	_wall_top1 = 6,
+	_wall_top2 = 7,
+	_wall_middle_left1 = 8,
+	_wall_middle_left2 = 9,
+	_wall_middle_right1 = 10,
+	_wall_middle_right2 = 11,
+	_coins =  12,
+	_treasure_chest = 13,
+	_exit_closed = 14,
+	_exit_opened = 15,
+	_player_down = 16,
+	_player_up = 17,
+	_player_left = 18,
+	_player_right = 19,
 }	t_sprite;
-
-// typedef enum e_sprite {
-// 	wall_top_left,
-// 	wall_top_right,
-// 	wall_bottom_left,
-// 	wall_bottom_right,
-// 	wall_top_bottom,
-// 	wall_middle,
-// 	emptyspace_1,
-// 	emptyspace_2,
-// 	emptyspace_3,
-// 	emptyspace_4,
-// 	collect_,
-// 	exit_closed,
-// 	exit_closed,
-// 	player_right,
-// 	player_left,
-// 	player_up,
-// 	player_down,
-// }	t_sprite;
 
 /*         STRUCTURES         */
 typedef struct s_node{
@@ -142,7 +135,7 @@ int			map_checker(t_game *game);
 int			valid_character(char ch); // Check map for valid characters
 int			invalid_extension(char *filepath);
 int			inner_loop_checker(t_game *game, int row, int col);
-int			after_loop_checker(t_game *game, int row, int col);
+int			outer_loop_checker(t_game *game);
 int			path_finder(t_game *game);
 int			tab_height(char **tab);
 int			in_queue(t_node current, t_node *queue, int head, int tail);
