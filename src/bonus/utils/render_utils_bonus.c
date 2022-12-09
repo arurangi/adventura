@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 15:15:51 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/09 10:20:13 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/09 10:24:13 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,5 +90,5 @@ void	identify_exit(t_game *game, int x, int y)
 	if (game->c_credit == 0)
 		render_sprite(game, _exit_opened, x, y);
 	else
-		render_sprite(game, _exit_closed, x, y);
+		render_sprite(game, _emptyspace, x, y);
 }

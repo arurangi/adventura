@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 15:15:51 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/08 11:19:06 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/09 10:25:51 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	render_sprite(t_game *game, int asset, int x, int y)
 		if (game->c_credit == 0)
 			img_ptr = game->sprites[4].img;
 		else
-			img_ptr = game->sprites[3].img;
+			img_ptr = game->sprites[0].img;
 	}
 	else
 		return ;
