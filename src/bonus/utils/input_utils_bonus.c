@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 16:06:13 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/09 10:21:22 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/09 11:45:17 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ int	is_walkable(t_game *game, char ch)
 		ft_printf("steps: %d\n", game->movements);
 		return (1);
 	}
+	if (ch == 'N')
+		game->life_points -= 1;
 	return (0);
 }
 

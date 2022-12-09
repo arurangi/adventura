@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 15:40:36 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/08 16:53:56 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/09 11:25:17 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,5 @@ void	animate(t_game *game, int x, int y)
 	frame = game->state;
 	render_sprite(game, frame + 20, x, y);
 	game->state = (frame + 1) % 4;
-	//usleep(100000);
+	usleep(100000);
 }

@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 15:15:51 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/09 10:24:13 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/09 12:24:16 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,14 +36,15 @@ void	render_hud(t_game *game)
 			game->map_height * TILE + HUD);
 		i += 40;
 	}
+	mlx_put_image_to_window(game->mlx, game->window,
+		game->sprites[game->life_points + 24].img, TILE, 20);
 	mlx_string_put(game->mlx, game->window,
-		TILE + 20, HUD - 50, rgbify(255, 255, 255), "steps");
+		TILE * 2, HUD - 50, rgbify(255, 255, 255), ft_itoa(game->life_points));
 	mlx_string_put(game->mlx, game->window,
-		TILE - 10, HUD - 50, rgbify(255, 255, 255), ft_itoa(game->movements));
+		TILE * 4, HUD - 50, rgbify(255, 255, 255), "Steps:");
 	mlx_string_put(game->mlx, game->window,
-		300, 30, rgbify(255, 255, 255), "Remaining items: ");
-	mlx_string_put(game->mlx, game->window,
-		500, 30, rgbify(255, 255, 255), ft_itoa(game->c_credit));
+		TILE * 4 + 70, HUD - 50, rgbify(255, 255, 255),
+		ft_itoa(game->movements));
 }
 
 int	rgbify(uint8_t red, uint8_t green, uint8_t blue)

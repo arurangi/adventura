@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 09:40:40 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/08 16:10:30 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/09 11:38:49 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,17 @@ int	game_init(t_game *game, char **av)
 		free(game->window);
 		return (error_msg(0, "couldn't connect to the window"));
 	}
+	player_init(game);
+	game->state = 0;
+	return (load_assets(game));
+}
+
+
+void	player_init(t_game *game)
+{
 	game->x_shift = game->starting_pos.col;
 	game->y_shift = game->starting_pos.row;
 	game->angle = 16;
 	game->movements = 0;
-	game->state = 0;
-	return (load_assets(game));
+	game->life_points = 5;
 }

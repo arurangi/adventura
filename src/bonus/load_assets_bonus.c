@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 22:00:20 by Arsene            #+#    #+#             */
-/*   Updated: 2022/12/08 16:53:33 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/09 12:04:31 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,22 @@ int	load_assets(t_game *game)
 	return (save_assets(game));
 }
 
+void	load_heart(t_game *game)
+{
+	game->sprites[24].path = "assets/sprites/bonus/health_0.xpm";
+	game->sprites[25].path = "assets/sprites/bonus/health_10.xpm";
+	game->sprites[26].path = "assets/sprites/bonus/health_25.xpm";
+	game->sprites[27].path = "assets/sprites/bonus/health_50.xpm";
+	game->sprites[28].path = "assets/sprites/bonus/health_75.xpm";
+	game->sprites[29].path = "assets/sprites/bonus/health_100.xpm";
+}
+
 int	save_assets(t_game *game)
 {
 	int	i;
 
 	i = 0;
+	load_heart(game);
 	while (i < SPRITES_NBR)
 	{
 		game->sprites[i].img = mlx_xpm_file_to_image(game->mlx,

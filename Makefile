@@ -3,16 +3,16 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+         #
+#    By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/19 13:37:59 by arurangi          #+#    #+#              #
-#    Updated: 2022/12/08 21:31:59 by Arsene           ###   ########.fr        #
+#    Updated: 2022/12/09 11:24:34 by arurangi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # PROGRAM
 NAME		= 	so_long
-LEVEL		=	001.ber
+LEVEL		=	enemy.ber
 LIBFT		=	./src/libft/libft.a
 
 # DIRECTORIES

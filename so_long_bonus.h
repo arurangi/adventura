@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 14:01:48 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/09 10:08:44 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/09 12:05:10 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@
 
 # define VELOCITY 1
 
-# define SPRITES_NBR 24
+# define SPRITES_NBR 30
 
 /* INPUT KEYS (HOME SETUP) */
 // # define ESC 65307
@@ -110,13 +110,13 @@ typedef struct s_game {
 	int			e_credit;
 	int			p_credit;
 	t_node		starting_pos;
-	t_asset		sprites[24];
-	//t_asset		enemy[5];
+	t_asset		sprites[SPRITES_NBR];
 	int			x_shift;
 	int			y_shift;
 	int			angle;
 	int			movements;
 	int			state;
+	int			life_points;
 }	t_game;
 
 typedef struct s_shape {
@@ -176,5 +176,8 @@ void		render_hud(t_game *game);
 void		identify_walls(t_game *game, int x, int y);
 void		identify_exit(t_game *game, int x, int y);
 void		animate(t_game *game, int x, int y);
+
+void		player_init(t_game *game);
+void		load_heart(t_game *game);
 
 #endif
