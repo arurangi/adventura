@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
+/*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 14:01:48 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/08 20:56:15 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/09 10:08:44 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,18 +36,20 @@
 # define SPRITES_NBR 24
 
 /* INPUT KEYS (HOME SETUP) */
-# define ESC 65307
-# define UP 65362
-# define DOWN 65364
-# define LEFT 65361
-# define RIGHT 65363
+// # define ESC 65307
+// # define UP 65362
+// # define DOWN 65364
+// # define LEFT 65361
+// # define RIGHT 65363
 
-/* INPUT KEYS (SCHOOL SETUP) */
-// # define ESC 53
-// # define UP 13
-// # define DOWN 1
-// # define LEFT 0
-// # define RIGHT 2
+/* INPUT KEYS (SCHOOL SETUP #1) */
+# define ESC 53
+# define UP 13
+# define DOWN 1
+# define LEFT 0
+# define RIGHT 2
+
+/* INPUT KEYS (SCHOOL SETUP #2) */
 
 typedef enum e_events {
 	keypress = 2,
@@ -69,7 +71,7 @@ typedef enum e_sprite {
 	_wall_middle_left2 = 9,
 	_wall_middle_right1 = 10,
 	_wall_middle_right2 = 11,
-	_coins =  12,
+	_coins = 12,
 	_treasure_chest = 13,
 	_exit_closed = 14,
 	_exit_opened = 15,
