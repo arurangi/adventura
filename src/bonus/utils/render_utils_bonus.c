@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 15:15:51 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/08 16:54:34 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/09 10:20:13 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,10 @@ void	render_hud(t_game *game)
 		mlx_put_image_to_window(game->mlx, game->window, img_ptr, i, TILE);
 		mlx_put_image_to_window(game->mlx, game->window, img_ptr, i,
 			game->map_height * TILE + HUD);
-		i += 40;	
+		i += 40;
 	}
 	mlx_string_put(game->mlx, game->window,
-		TILE + 15, HUD - 50, rgbify(255, 255, 255), "steps");
+		TILE + 20, HUD - 50, rgbify(255, 255, 255), "steps");
 	mlx_string_put(game->mlx, game->window,
 		TILE - 10, HUD - 50, rgbify(255, 255, 255), ft_itoa(game->movements));
 	mlx_string_put(game->mlx, game->window,

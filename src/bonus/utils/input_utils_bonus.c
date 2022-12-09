@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   input_utils_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
+/*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 16:06:13 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/08 21:00:08 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/09 10:21:22 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	is_walkable(t_game *game, char ch)
 {
 	if (ch == '0' || ch == 'C' || ch == 'P' || ch == 'T'
-		|| (ch == 'E' && game->c_credit == 0))
+		|| ch == 'E')
 	{
 		game->movements += 1;
 		ft_printf("steps: %d\n", game->movements);
