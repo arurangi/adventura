@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 22:00:20 by Arsene            #+#    #+#             */
-/*   Updated: 2022/12/09 12:04:31 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/09 14:06:49 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ void	load_heart(t_game *game)
 	game->sprites[27].path = "assets/sprites/bonus/health_50.xpm";
 	game->sprites[28].path = "assets/sprites/bonus/health_75.xpm";
 	game->sprites[29].path = "assets/sprites/bonus/health_100.xpm";
+	game->sprites[30].path = "assets/sprites/bonus/footsteps.xpm";
 }
 
 int	save_assets(t_game *game)

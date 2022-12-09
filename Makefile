@@ -6,13 +6,14 @@
 #    By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/19 13:37:59 by arurangi          #+#    #+#              #
-#    Updated: 2022/12/09 11:24:34 by arurangi         ###   ########.fr        #
+#    Updated: 2022/12/09 14:40:23 by arurangi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # PROGRAM
 NAME		= 	so_long
-LEVEL		=	enemy.ber
+LEVEL		=	003.ber
+LEVEL_B		=	005.ber
 LIBFT		=	./src/libft/libft.a
 
 # DIRECTORIES
@@ -20,6 +21,7 @@ MANDATORY	=	./src/mandatory/
 BONUS		=	./src/bonus/
 LIBFT_DIR	=	./src/libft/
 MAPS_DIR	=	./assets/maps/
+MAPS_DIR_B	=	./assets/maps/bonus/
 
 # SOURCE FILES
 SRCS		=	$(MANDATORY)main.c \
@@ -89,7 +91,7 @@ re:			fclean all
 
 bonus:		$(OBJ_B) $(LIBFT)
 				@$(COMPILER) $(OBJ_B) $(LIBFT_DIR)libft.a  $(LIB_FLAGS) -o $(NAME)
-				@./$(NAME) $(MAPS_DIR)$(LEVEL)
+				@./$(NAME) $(MAPS_DIR_B)$(LEVEL_B)
 
 local:			$(LIBFT)
 				@gcc  $(MANDATORY)*.c $(MANDATORY)utils/*.c -lX11 -lXext -lmlx -o so_long $(LIBFT)
@@ -97,4 +99,4 @@ local:			$(LIBFT)
 
 local_bonus:	$(LIBFT)
 				@gcc $(BONUS)*.c $(BONUS)utils/*.c -lX11 -lXext -lmlx -o so_long $(LIBFT)
-				@./$(NAME) $(MAPS_DIR)$(LEVEL)
+				@./$(NAME) $(MAPS_DIR_B)$(LEVEL_B)

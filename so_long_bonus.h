@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 14:01:48 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/09 12:05:10 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/09 14:07:07 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@
 
 # define VELOCITY 1
 
-# define SPRITES_NBR 30
+# define SPRITES_NBR 31
 
 /* INPUT KEYS (HOME SETUP) */
 // # define ESC 65307

@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 15:15:51 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/09 12:24:16 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/09 14:15:27 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	render_hud(t_game *game)
 
 	i = 0;
 	img_ptr = game->sprites[_wall_inside].img;
-	while (i < W_WIDTH)
+	while (i < game->map_width * TILE)
 	{
 		mlx_put_image_to_window(game->mlx, game->window, img_ptr, i, 0);
 		mlx_put_image_to_window(game->mlx, game->window, img_ptr, i, TILE);
@@ -40,10 +40,10 @@ void	render_hud(t_game *game)
 		game->sprites[game->life_points + 24].img, TILE, 20);
 	mlx_string_put(game->mlx, game->window,
 		TILE * 2, HUD - 50, rgbify(255, 255, 255), ft_itoa(game->life_points));
+	mlx_put_image_to_window(game->mlx, game->window,
+		game->sprites[30].img, TILE * 3, 20);
 	mlx_string_put(game->mlx, game->window,
-		TILE * 4, HUD - 50, rgbify(255, 255, 255), "Steps:");
-	mlx_string_put(game->mlx, game->window,
-		TILE * 4 + 70, HUD - 50, rgbify(255, 255, 255),
+		TILE * 3 + 40, HUD - 50, rgbify(255, 255, 255),
 		ft_itoa(game->movements));
 }
 
@@ -54,7 +54,6 @@ int	rgbify(uint8_t red, uint8_t green, uint8_t blue)
 
 void	identify_walls(t_game *game, int x, int y)
 {
-	// top
 	if (y == 0)
 	{
 		if (x == 0)
@@ -64,7 +63,6 @@ void	identify_walls(t_game *game, int x, int y)
 		else
 			render_sprite(game, _wall_top1, x, y);
 	}
-	// bottom
 	else if (y == game->map_height - 1)
 	{
 		if (x == 0)
@@ -72,15 +70,14 @@ void	identify_walls(t_game *game, int x, int y)
 		else if (x == game->map_width - 1)
 			render_sprite(game, _wall_bottom_right, x, y);
 		else
-			render_sprite(game, _wall_top1, x, y); // alternate
+			render_sprite(game, _wall_top1, x, y);
 	}
-	// middle left or right
 	else if (x == 0 || x == game->map_width - 1)
 	{
 		if (x == 0)
-			render_sprite(game, _wall_middle_left1, x, y); // alternate
+			render_sprite(game, _wall_middle_left1, x, y);
 		else
-			render_sprite(game, _wall_middle_right1, x, y); // alternate
+			render_sprite(game, _wall_middle_right1, x, y);
 	}
 	else
 		render_sprite(game, _wall_inside, x, y);
