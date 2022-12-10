@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 12:29:26 by Arsene            #+#    #+#             */
-/*   Updated: 2022/12/10 13:59:24 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/10 14:54:31 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,38 +19,38 @@
 
 int	render(t_game *game)
 {
-	int	y;
-	int	x;
+	int	row;
+	int	col;
 
 	mlx_clear_window(game->mlx, game->window);
 	render_hud(game);
-	y = 0;
-	while (y < game->map_height)
+	row = 0;
+	while (row < game->map_height)
 	{
-		x = 0;
-		while (x < game->map_width)
+		col = 0;
+		while (col < game->map_width)
 		{
-			identify_sprites(game, x, y);
-			x++;
+			identify_sprites(game, row, col);
+			col++;
 		}
-		y++;
+		row++;
 	}
 	render_sprite(game, game->angle, game->x_shift, game->y_shift);
 	return (0);
 }
 
-void	identify_sprites(t_game *game, int x, int y)
+void	identify_sprites(t_game *game, int row, int col)
 {
-	if (game->map[y][x] == '0' || game->map[y][x] == 'P')
-		render_sprite(game, _emptyspace, x, y);
-	else if (game->map[y][x] == '1')
-		identify_walls(game, x, y);
-	else if (game->map[y][x] == 'C')
-		render_sprite(game, _coins, x, y);
-	else if (game->map[y][x] == 'T')
-		render_sprite(game, _treasure_chest, x, y);
-	else if (game->map[y][x] == 'E')
-		identify_exit(game, x, y);
-	else if (game->map[y][x] == 'N')
-		animate(game, x, y);
+	if (game->map[row][col] == '0' || game->map[row][col] == 'P')
+		render_sprite(game, _emptyspace, col, row);
+	else if (game->map[row][col] == '1')
+		identify_walls(game, col, row);
+	else if (game->map[row][col] == 'C')
+		render_sprite(game, _coins, col, row);
+	else if (game->map[row][col] == 'T')
+		render_sprite(game, _treasure_chest, col, row);
+	else if (game->map[row][col] == 'E')
+		identify_exit(game, col, row);
+	else if (game->map[row][col] == 'N')
+		animate(game, col, row);
 }

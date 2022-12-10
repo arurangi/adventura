@@ -6,14 +6,14 @@
 #    By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/19 13:37:59 by arurangi          #+#    #+#              #
-#    Updated: 2022/12/10 13:54:23 by arurangi         ###   ########.fr        #
+#    Updated: 2022/12/10 14:55:18 by arurangi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # PROGRAM
 NAME		= 	so_long
 LEVEL		=	003.ber
-LEVEL_B		=	002.ber
+LEVEL_B		=	005.ber
 LIBFT		=	./src/libft/libft.a
 
 # DIRECTORIES

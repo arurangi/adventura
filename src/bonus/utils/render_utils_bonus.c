@@ -6,19 +6,19 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 15:15:51 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/10 13:59:50 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/10 14:53:24 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../so_long_bonus.h"
 
-void	render_sprite(t_game *game, int asset, int x, int y)
+void	render_sprite(t_game *game, int asset, int col, int row)
 {
 	void	*img_ptr;
 
 	img_ptr = game->sprites[asset].img;
 	mlx_put_image_to_window(game->mlx, game->window,
-		img_ptr, x * TILE, y * TILE + HUD);
+		img_ptr, col * TILE, row * TILE + HUD);
 }
 
 void	render_hud(t_game *game)
