@@ -6,7 +6,7 @@
 /*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 09:43:09 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/07 07:40:57 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/10 09:38:28 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ char	**ft_split_fd(char *filepath, char seperator)
 	fd = open(filepath, O_RDONLY);
 	if (fd < 0 || fd > FOPEN_MAX || !seperator)
 	{
-		printf("Error: couldn't open file or no seperator");
+		ft_printf("Error: couldn't open file or no seperator");
 		return (NULL);
 	}
 	extracted_text = read_and_save(fd);
