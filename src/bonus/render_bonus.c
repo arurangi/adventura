@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 12:29:26 by Arsene            #+#    #+#             */
-/*   Updated: 2022/12/09 13:21:24 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/10 09:49:49 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,8 @@ int	render(t_game *game)
 			else if (game->map[y][x] == 'E')
 				identify_exit(game, x, y);
 			else if (game->map[y][x] == 'N')
-				animate(game, x, y);
-				//render_sprite(game, _enemy1, x, y);
+				render_sprite(game, _enemy1, x, y);
+				//animate(game, x, y);
 			x++;
 		}
 		y++;
