@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 09:40:40 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/09 11:38:49 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/10 12:05:36 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ int	game_init(t_game *game, char **av)
 		return (error_msg(0, "couldn't connect to the window"));
 	}
 	player_init(game);
+	game->delay = 0;
 	game->state = 0;
 	return (load_assets(game));
 }

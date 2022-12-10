@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 14:01:48 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/09 14:07:07 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/10 12:05:06 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,6 +117,7 @@ typedef struct s_game {
 	int			movements;
 	int			state;
 	int			life_points;
+	int			delay;
 }	t_game;
 
 typedef struct s_shape {

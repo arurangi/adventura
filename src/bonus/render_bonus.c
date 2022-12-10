@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
+/*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 12:29:26 by Arsene            #+#    #+#             */
-/*   Updated: 2022/12/10 09:49:49 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/10 12:07:55 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ int	render(t_game *game)
 
 	mlx_clear_window(game->mlx, game->window);
 	render_hud(game);
+	game->delay += 1;
 	y = 0;
 	while (y < game->map_height)
 	{
@@ -41,8 +42,7 @@ int	render(t_game *game)
 			else if (game->map[y][x] == 'E')
 				identify_exit(game, x, y);
 			else if (game->map[y][x] == 'N')
-				render_sprite(game, _enemy1, x, y);
-				//animate(game, x, y);
+				animate(game, x, y);
 			x++;
 		}
 		y++;
