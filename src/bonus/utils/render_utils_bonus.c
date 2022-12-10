@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 15:15:51 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/09 14:15:27 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/10 13:59:50 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,34 +55,16 @@ int	rgbify(uint8_t red, uint8_t green, uint8_t blue)
 void	identify_walls(t_game *game, int x, int y)
 {
 	if (y == 0)
-	{
-		if (x == 0)
-			render_sprite(game, _wall_top_left, x, y);
-		else if (x == game->map_width - 1)
-			render_sprite(game, _wall_top_right, x, y);
-		else
-			render_sprite(game, _wall_top1, x, y);
-	}
+		top_walls(game, x, y);
 	else if (y == game->map_height - 1)
-	{
-		if (x == 0)
-			render_sprite(game, _wall_bottom_left, x, y);
-		else if (x == game->map_width - 1)
-			render_sprite(game, _wall_bottom_right, x, y);
-		else
-			render_sprite(game, _wall_top1, x, y);
-	}
+		bottom_walls(game, x, y);
 	else if (x == 0 || x == game->map_width - 1)
-	{
-		if (x == 0)
-			render_sprite(game, _wall_middle_left1, x, y);
-		else
-			render_sprite(game, _wall_middle_right1, x, y);
-	}
+		inner_walls(game, x, y);
 	else
 		render_sprite(game, _wall_inside, x, y);
 }
 
+// Check whether exit is opened or closed
 void	identify_exit(t_game *game, int x, int y)
 {
 	if (game->c_credit == 0)

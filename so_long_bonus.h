@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 14:01:48 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/10 13:26:08 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/10 13:50:40 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -156,7 +156,7 @@ int			valid_position(t_game *game, int row, int col, t_node current);
 /* INPUT */
 int			handle_input(int keysym, t_game *game);
 int			is_walkable(t_game *game, char ch);
-void		move(t_game *game, int keysym);
+void		move(t_game *game, int keysym, int x, int y);
 
 /* Memory management */
 int			free_array(int return_code, t_node *queue);
@@ -181,5 +181,10 @@ void		animate(t_game *game, int x, int y);
 
 void		load_heart(t_game *game);
 void		identify_sprites(t_game *game, int x, int y);
+
+/* WALLS */
+void		top_walls(t_game *game, int x, int y);
+void		bottom_walls(t_game *game, int x, int y);
+void		inner_walls(t_game *game, int x, int y);
 
 #endif

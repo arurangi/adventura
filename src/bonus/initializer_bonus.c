@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 09:40:40 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/10 13:24:50 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/10 13:59:15 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,6 @@ void	map_init(t_game *game, char **av)
 	game->p_credit = 0;
 	game->map_width = -1;
 }
-
 
 void	player_init(t_game *game)
 {

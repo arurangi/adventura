@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 16:06:13 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/09 11:45:17 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/10 13:50:25 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,8 @@ int	is_walkable(t_game *game, char ch)
 	return (0);
 }
 
-void	move(t_game *game, int keysym)
+void	move(t_game *game, int keysym, int x, int y)
 {
-	int	x;
-	int	y;
-
-	x = game->x_shift;
-	y = game->y_shift;
 	if (keysym == LEFT)
 	{
 		game->angle = 18;
