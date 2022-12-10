@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 14:01:48 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/10 12:05:06 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/10 13:21:49 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -180,5 +180,6 @@ void		animate(t_game *game, int x, int y);
 
 void		player_init(t_game *game);
 void		load_heart(t_game *game);
+void	identify_sprites(t_game *game, int x, int y);
 
 #endif
