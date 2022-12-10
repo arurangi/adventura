@@ -37,7 +37,7 @@ int	path_finder(t_game *game)
 	{
 		current = queue[head];
 		if (found_exit(game, current))
-			return (free_array(1, queue));
+			return (free_arr_nodes(1, queue));
 		add_neighbours(game, queue, head, &tail);
 		head++;
 	}

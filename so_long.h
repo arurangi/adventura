@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 14:01:48 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/09 10:10:39 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/10 15:21:38 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,7 +142,7 @@ int			is_walkable(t_game *game, char ch);
 void		move(t_game *game, int keysym);
 
 /* Memory management */
-int			free_array(int return_code, t_node *queue);
+int			free_arr_nodes(int return_code, t_node *queue);
 
 /* ERROR HANDLING */
 int			error_msg(int return_code, char *message, ...);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
+/*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 07:27:17 by Arsene            #+#    #+#             */
-/*   Updated: 2022/12/07 08:35:00 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/10 15:17:40 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int			ft_strchr_mod(const char *s, char ch);
 
 char		*ft_itoa(int nbr);
 char		**ft_split(char const *str, char ch);
-char		*ft_strjoin(char const *s1, char const *s2);
+char		*ft_strjoin(char *s1, char *s2);
 char		**ft_split_fd(char *filepath, char seperator);
 
 char		*get_next_line(int fd);

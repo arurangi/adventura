@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   load_assets.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
+/*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 22:00:20 by Arsene            #+#    #+#             */
-/*   Updated: 2022/12/08 07:19:46 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/10 15:38:22 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	free_assets(t_game *game)
 	i = 0;
 	while (i < 6)
 	{
-		mlx_destroy_image(game->mlx, game->sprites[i].img);
+		free(game->sprites[i].img);
 		i++;
 	}
 }

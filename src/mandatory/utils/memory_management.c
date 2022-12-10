@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   memory_management.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
+/*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 14:58:19 by Arsene            #+#    #+#             */
-/*   Updated: 2022/12/07 16:09:11 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/10 16:45:30 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../so_long.h"
+#include "../../../so_long_bonus.h"
 
-int	free_array(int return_code, t_node *arr)
+int	free_arr_nodes(int return_code, t_node *arr)
 {
 	free(arr);
 	return (return_code);

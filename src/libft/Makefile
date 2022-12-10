@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+         #
+#    By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/07 07:27:54 by Arsene            #+#    #+#              #
-#    Updated: 2022/12/07 16:17:47 by Arsene           ###   ########.fr        #
+#    Updated: 2022/12/10 16:25:06 by arurangi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,22 +33,25 @@ OBJS =		${SRCS:.c=.o}
 OBJSB =		${SRCSB:.c=.o}
 
 FLAGS =		-Wall -Wextra -Werror 
-CC =		gcc ${FLAGS}
+CC =		gcc $(FLAGS)
 RM =		rm -f
 
-all:		${NAME}
+all:		$(NAME)
 
-${NAME} :	${OBJS}
-				@ar rcs ${NAME} ${OBJS}
+%.o: 		%.c
+				@$(CC) $(FLAGS) -Imlx -c $< -o $@
 
-bonus:		${OBJS} ${OBJSB}
-				@ar rcs ${NAME} ${OBJS} ${OBJSB}
+$(NAME) :	$(OBJS)
+				@ar rcs $(NAME) $(OBJS)
+
+bonus:		$(OBJS) $(OBJSB)
+				@ar rcs $(NAME) $(OBJS) $(OBJSB)
 
 clean:
-				@${RM} ${OBJS} $(OBJSB)
+				@$(RM) $(OBJS) $(OBJSB)
 
 fclean:		clean
-				@${RM} ${NAME}
+				@$(RM) $(NAME)
 
 re:			fclean all
 

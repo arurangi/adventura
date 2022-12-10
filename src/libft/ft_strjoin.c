@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
+/*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 09:10:02 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/07 07:41:13 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/10 16:05:58 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,9 @@
 
 #include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+static char	*free_array(char *to_free, char *return_str);
+
+char	*ft_strjoin(char *s1, char *s2)
 {
 	char	*s3;
 	int		length;
@@ -42,5 +44,11 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		j++;
 	}
 	s3[i + j] = '\0';
-	return (s3);
+	return (free_array(s1, s3));
+}
+
+char	*free_array(char *to_free, char *return_str)
+{
+	free(to_free);
+	return (return_str);
 }
