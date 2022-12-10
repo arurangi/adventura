@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 09:34:07 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/09 11:50:52 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/10 13:30:30 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,15 +26,11 @@ int	handle_input(int keysym, t_game *game)
 	y = &game->y_shift;
 	if (!game)
 		return (error_msg(0, "game struct missing, can't handle input"));
+	if (keysym == ESC || game->life_points == 0
+		|| (game->map[*y][*x] == 'E' && game->c_credit == 0))
+		end_game(game);
 	if (keysym == LEFT || keysym == RIGHT || keysym == UP || keysym == DOWN)
 		move(game, keysym);
-	if (keysym == ESC || game->life_points == 0)
-		end_game(game);
-	if ((game->map[*y][*x] == 'E' && game->c_credit == 0))
-	{
-		//game->map[*y][*x] = '0';
-		end_game(game);
-	}
 	if (game->map[*y][*x] == 'C' || game->map[*y][*x] == 'T')
 	{
 		if (game->map[*y][*x] == 'C')

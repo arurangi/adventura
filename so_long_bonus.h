@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 14:01:48 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/10 13:21:49 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/10 13:26:08 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,7 +131,8 @@ typedef struct s_shape {
 /* START GAME*/
 void		start_game(t_game *game);
 int			game_init(t_game *game, char **av);
-void		map_init(t_game *game);
+void		map_init(t_game *game, char **av);
+void		player_init(t_game *game);
 
 /* END GAME */
 int			end_game(t_game *game);
@@ -170,7 +171,6 @@ int			save_assets(t_game *game);
 void		free_assets(t_game *game);
 int			render(t_game *game);
 void		render_sprite(t_game *game, int asset, int x, int y);
-//void		render_player(t_game *game, int x, int y);
 int			rgbify(uint8_t red, uint8_t green, uint8_t blue);
 void		render_hud(t_game *game);
 
@@ -178,8 +178,8 @@ void		identify_walls(t_game *game, int x, int y);
 void		identify_exit(t_game *game, int x, int y);
 void		animate(t_game *game, int x, int y);
 
-void		player_init(t_game *game);
+
 void		load_heart(t_game *game);
-void	identify_sprites(t_game *game, int x, int y);
+void		identify_sprites(t_game *game, int x, int y);
 
 #endif
