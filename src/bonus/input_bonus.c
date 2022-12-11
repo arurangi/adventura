@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   input_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 09:34:07 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/10 13:58:39 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/11 21:31:07 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ int	handle_input(int keysym, t_game *game)
 	if (keysym == ESC || game->life_points == 0
 		|| (game->map[*y][*x] == 'E' && game->c_credit == 0))
 		end_game(game);
+	if (game->map[*y][*x] == 'N')
+		game->life_points -= 1;
 	if (game->map[*y][*x] == 'C' || game->map[*y][*x] == 'T')
 	{
 		if (game->map[*y][*x] == 'C')

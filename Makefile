@@ -6,14 +6,14 @@
 #    By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/19 13:37:59 by arurangi          #+#    #+#              #
-#    Updated: 2022/12/11 18:08:54 by Arsene           ###   ########.fr        #
+#    Updated: 2022/12/11 20:54:59 by Arsene           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # PROGRAM
 NAME		= 	so_long
 LEVEL		=	002.ber
-LEVEL_B		=	004.ber
+LEVEL_B		=	002.ber
 LIBFT		=	./src/libft/libft.a
 
 # DIRECTORIES

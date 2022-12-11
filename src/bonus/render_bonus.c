@@ -6,7 +6,7 @@
 /*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 12:29:26 by Arsene            #+#    #+#             */
-/*   Updated: 2022/12/11 18:10:47 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/11 20:56:03 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,5 @@ void	identify_sprites(t_game *game, int row, int col)
 	else if (game->map[row][col] == 'E')
 		identify_exit(game, col, row);
 	else if (game->map[row][col] == 'N')
-		render_sprite(game, _enemy1, col, row);
-		//animate(game, col, row);
+		animate(game, col, row);
 }

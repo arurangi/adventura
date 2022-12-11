@@ -6,7 +6,7 @@
 /*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 09:40:40 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/11 17:10:03 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/11 21:04:25 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ int	game_init(t_game *game, char **av)
 	player_init(game);
 	game->delay = 0;
 	game->state = 0;
+	game->polarity = 1;
 	return (load_assets(game));
 }
 

@@ -6,7 +6,7 @@
 /*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 14:01:48 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/11 17:22:55 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/11 21:26:59 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,6 +111,7 @@ typedef struct s_game {
 	int			state;
 	int			life_points;
 	int			delay;
+	int			polarity;
 }	t_game;
 
 /* START/END */
@@ -142,6 +143,7 @@ int			tab_height(char **tab);
 int			handle_input(int keysym, t_game *game);
 void		move(t_game *game, int keysym, int x, int y);
 int			is_walkable(t_game *game, char ch);
+int			is_walkable_enemy(t_game *game, char ch);
 
 /* RENDERING */
 int			load_assets(t_game *game);

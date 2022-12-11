@@ -6,7 +6,7 @@
 /*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 16:06:13 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/11 17:10:33 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/11 21:28:19 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,16 @@ int	is_walkable(t_game *game, char ch)
 	}
 	if (ch == 'N')
 		game->life_points -= 1;
+	return (0);
+}
+
+int	is_walkable_enemy(t_game *game, char ch)
+{
+	if (ch == '0' || ch == 'P'
+		|| ch == 'E')
+	{
+		return (1);
+	}
 	return (0);
 }
 
