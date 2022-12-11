@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   input_utils_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 16:06:13 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/10 13:50:25 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/11 17:10:33 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,25 +30,25 @@ void	move(t_game *game, int keysym, int x, int y)
 {
 	if (keysym == LEFT)
 	{
-		game->angle = 18;
+		game->plr_angle = 18;
 		if (is_walkable(game, game->map[y][x - VELOCITY]))
 			game->x_shift -= VELOCITY;
 	}
 	if (keysym == RIGHT)
 	{
-		game->angle = 19;
+		game->plr_angle = 19;
 		if (is_walkable(game, game->map[y][x + VELOCITY]))
 			game->x_shift += VELOCITY;
 	}
 	if (keysym == DOWN)
 	{
-		game->angle = 16;
+		game->plr_angle = 16;
 		if (is_walkable(game, game->map[y + VELOCITY][x]))
 			game->y_shift += VELOCITY;
 	}
 	if (keysym == UP)
 	{
-		game->angle = 17;
+		game->plr_angle = 17;
 		if (is_walkable(game, game->map[y - VELOCITY][x]))
 			game->y_shift -= VELOCITY;
 	}

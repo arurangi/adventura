@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   initializer.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 09:40:40 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/10 15:13:27 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/11 17:10:56 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,7 @@ int	game_init(t_game *game, char **av)
 		return (error_msg(0, "can't initialize minilibx"));
 	game->window = NULL;
 	game->sprites[0].img = NULL;
-	game->map_filepath = av[1];
-	game->c_credit = 0;
-	game->e_credit = 0;
-	game->p_credit = 0;
-	game->map_width = -1;
+	map_init(game, av);
 	if (map_checker(game) == 0)
 		return (0);
 	game->window = mlx_new_window(game->mlx, game->map_width * TILE,
@@ -42,9 +38,22 @@ int	game_init(t_game *game, char **av)
 		free(game->window);
 		return (error_msg(0, "couldn't connect to the window"));
 	}
+	player_init(game);
+	return (load_assets(game));
+}
+
+void	map_init(t_game *game, char **av)
+{
+	game->map_filepath = av[1];
+	game->c_credit = 0;
+	game->e_credit = 0;
+	game->p_credit = 0;
+	game->map_width = -1;
+}
+
+void	player_init(t_game *game)
+{
 	game->x_shift = game->starting_pos.col;
 	game->y_shift = game->starting_pos.row;
-	game->angle = 7;
 	game->movements = 0;
-	return (load_assets(game));
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_checker_utils.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 15:15:12 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/08 11:05:50 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/11 17:06:19 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ int	inner_loop_checker(t_game *game, int row, int col)
 	return (1);
 }
 
-int	after_loop_checker(t_game *game, int row, int col)
+int	outer_loop_checker(t_game *game, int row, int col)
 {
 	(void)row;
 	(void)col;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   input.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 09:34:07 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/10 15:33:48 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/11 16:59:23 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	handle_input(int keysym, t_game *game)
 	if (!game)
 		return (error_msg(0, "game struct missing, can't handle input"));
 	if (keysym == ESC)
-		game_over(game);
+		end_game(game);
 	if (keysym == LEFT || keysym == RIGHT || keysym == UP || keysym == DOWN)
 		move(game, keysym);
 	if (game->map[*y][*x] == 'C')
@@ -38,7 +38,7 @@ int	handle_input(int keysym, t_game *game)
 	if (game->map[*y][*x] == 'E' && game->c_credit == 0)
 	{
 		game->map[*y][*x] = '0';
-		game_over(game);
+		end_game(game);
 	}
 	return (0);
 }

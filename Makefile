@@ -6,13 +6,13 @@
 #    By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/19 13:37:59 by arurangi          #+#    #+#              #
-#    Updated: 2022/12/11 16:31:10 by Arsene           ###   ########.fr        #
+#    Updated: 2022/12/11 17:11:40 by Arsene           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # PROGRAM
 NAME		= 	so_long
-LEVEL		=	009.ber
+LEVEL		=	002.ber
 LEVEL_B		=	002.ber
 LIBFT		=	./src/libft/libft.a
 

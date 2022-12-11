@@ -6,7 +6,7 @@
 /*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 10:08:53 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/11 16:19:25 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/11 17:24:51 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ int	end_game(t_game *game)
 		mlx_destroy_window(game->mlx, game->window);
 	}
 	free(game->mlx);
-	system("leaks so_long");
 	exit(EXIT_SUCCESS);
 	return (0);
 }

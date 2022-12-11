@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   initializer_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 09:40:40 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/10 13:59:15 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/11 17:10:03 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	player_init(t_game *game)
 {
 	game->x_shift = game->starting_pos.col;
 	game->y_shift = game->starting_pos.row;
-	game->angle = 16;
+	game->plr_angle = 16;
 	game->movements = 0;
 	game->life_points = 5;
 }
