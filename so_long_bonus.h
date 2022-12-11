@@ -6,7 +6,7 @@
 /*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 14:01:48 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/10 19:58:44 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/11 14:45:09 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,14 +129,10 @@ typedef struct s_shape {
 }	t_shape;
 
 /* START GAME*/
-void		start_game(t_game *game);
 int			game_init(t_game *game, char **av);
 void		map_init(t_game *game, char **av);
 void		player_init(t_game *game);
 
-/* END GAME */
-int			end_game(t_game *game);
-void		free_matrix(char **matrix);
 
 /* MAP RELATED */
 int			map_checker(t_game *game);
@@ -160,15 +156,19 @@ void		move(t_game *game, int keysym, int x, int y);
 
 /* Memory management */
 int			free_arr_nodes(int return_code, t_node *queue);
+void		free_matrix(char **matrix);
+void		free_hud(char **hud_data);
+void		free_assets(t_game *game);
+int			end_game(t_game *game);
 
 /* ERROR HANDLING */
 int			error_msg(int return_code, char *message, ...);
 int			success_msg(int return_code, char *message, ...);
 
 /* RENDERING */
+void		start_game(t_game *game);
 int			load_assets(t_game *game);
 int			save_assets(t_game *game);
-void		free_assets(t_game *game);
 int			render(t_game *game);
 void		render_sprite(t_game *game, int asset, int col, int row);
 int			rgbify(uint8_t red, uint8_t green, uint8_t blue);

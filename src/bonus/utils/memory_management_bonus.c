@@ -6,7 +6,7 @@
 /*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 14:58:19 by Arsene            #+#    #+#             */
-/*   Updated: 2022/12/10 20:01:17 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/11 14:43:28 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,4 +29,10 @@ void	free_matrix(char **matrix)
 		i++;
 	}
 	free(matrix);
+}
+
+void	free_hud(char **hud_data)
+{
+	free(hud_data[0]);
+	free(hud_data[1]);
 }

@@ -6,7 +6,7 @@
 /*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 12:29:26 by Arsene            #+#    #+#             */
-/*   Updated: 2022/12/10 20:03:21 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/11 14:35:21 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ int	render(t_game *game)
 		row++;
 	}
 	render_sprite(game, game->angle, game->x_shift, game->y_shift);
+	system("leaks so_long");
 	return (0);
 }
 
