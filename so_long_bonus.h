@@ -6,7 +6,7 @@
 /*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 14:01:48 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/11 14:45:09 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/11 16:21:59 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,7 +133,6 @@ int			game_init(t_game *game, char **av);
 void		map_init(t_game *game, char **av);
 void		player_init(t_game *game);
 
-
 /* MAP RELATED */
 int			map_checker(t_game *game);
 int			valid_character(char ch); // Check map for valid characters
@@ -158,7 +157,6 @@ void		move(t_game *game, int keysym, int x, int y);
 int			free_arr_nodes(int return_code, t_node *queue);
 void		free_matrix(char **matrix);
 void		free_hud(char **hud_data);
-void		free_assets(t_game *game);
 int			end_game(t_game *game);
 
 /* ERROR HANDLING */

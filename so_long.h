@@ -6,7 +6,7 @@
 /*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 14:01:48 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/10 19:58:55 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/11 16:21:33 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@
 
 /* TILESET SIZE */
 # define TILE 40
+
+# define SPRITES_NBR 6
 
 /* VELOCITY */
 # define VELOCITY 1
@@ -76,14 +78,10 @@ typedef struct s_node{
 
 typedef struct s_asset
 {
+	char	*path;
 	void	*img;
 	int		width;
 	int		height;
-	char	*addr;
-	int		bpp;
-	int		line_len;
-	int		endian;
-	char	*filepath;
 }	t_asset;
 
 typedef struct s_game {
@@ -97,7 +95,7 @@ typedef struct s_game {
 	int			e_credit;
 	int			p_credit;
 	t_node		starting_pos;
-	t_asset		sprites[16];
+	t_asset		sprites[SPRITES_NBR];
 	int			x_shift;
 	int			y_shift;
 	int			angle;
@@ -150,8 +148,7 @@ int			success_msg(int return_code, char *message, ...);
 
 /* RENDERING */
 int			load_assets(t_game *game);
-int			save_assets(t_game *game, char **path);
-void		free_assets(t_game *game);
+int			save_assets(t_game *game);
 int			render(t_game *game);
 void		render_sprite(t_game *game, int asset, int x, int y);
 void		render_player(t_game *game, int x, int y);

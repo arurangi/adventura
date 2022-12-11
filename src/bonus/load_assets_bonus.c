@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   load_assets_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 22:00:20 by Arsene            #+#    #+#             */
-/*   Updated: 2022/12/09 14:06:49 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/11 16:21:48 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,16 +74,4 @@ int	save_assets(t_game *game)
 		i++;
 	}
 	return (1);
-}
-
-void	free_assets(t_game *game)
-{
-	int	i;
-
-	i = 0;
-	while (i < SPRITES_NBR)
-	{
-		mlx_destroy_image(game->mlx, game->sprites[i].img);
-		i++;
-	}
 }

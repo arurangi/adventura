@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game_over.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 10:08:53 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/10 15:36:56 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/11 16:19:21 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,13 @@ int	game_over(t_game *game)
 {
 	if (game->map != NULL)
 		free_matrix(game->map);
-	if (game->sprites[0].img != NULL)
-		free_assets(game);
 	if (game->window != NULL)
 	{
 		mlx_clear_window(game->mlx, game->window);
 		mlx_destroy_window(game->mlx, game->window);
 	}
 	free(game->mlx);
+	system("leaks so_long");
 	exit(EXIT_SUCCESS);
 	return (0);
 }
