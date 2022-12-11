@@ -6,7 +6,7 @@
 /*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 15:40:36 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/11 21:29:17 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/11 21:39:35 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,17 +40,15 @@ void	animate(t_game *game, int x, int y)
 	usleep(10);
 }
 
-/*
-void	animate(t_game *game, int x, int y)
-{
-	int	frame;
+// void	animate(t_game *game, int x, int y)
+// {
+// 	int	frame;
 
-	frame = game->state;
-	render_sprite(game, frame + 20, x, y);
-	if (game->map[y][x])
-	game->delay += 1;
-	if (game->delay % 11 == 10)
-		game->state = (frame + 1) % 4;
-	usleep(10000);
-}
-*/
+// 	frame = game->state;
+// 	render_sprite(game, frame + 20, x, y);
+// 	if (game->map[y][x])
+// 	game->delay += 1;
+// 	if (game->delay % 21 == 20)
+// 		game->state = (frame + 1) % 4;
+// 	usleep(10);
+// }
