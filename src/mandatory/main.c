@@ -6,7 +6,7 @@
 /*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 11:36:54 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/11 16:59:51 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/11 19:00:53 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ int	main(int ac, char **av)
 	status = game_init(&game, av);
 	if (status == 0)
 	{
+		error_msg(1, "couldn't initialize the environment.");
 		end_game(&game);
-		return (error_msg(1, "couldn't initialize the environment."));
 	}
 	start_game(&game);
 	return (0);
