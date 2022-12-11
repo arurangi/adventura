@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 15:15:51 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/09 10:25:51 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/11 14:14:43 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,14 @@ void	render_sprite(t_game *game, int asset, int x, int y)
 
 void	render_hud(t_game *game)
 {
+	char	*movements;
+
+	movements = ft_itoa(game->movements);
 	mlx_string_put(game->mlx, game->window,
 		15, 12, rgbify(255, 255, 255), "Steps count: ");
 	mlx_string_put(game->mlx, game->window,
-		150, 12, rgbify(255, 255, 255), ft_itoa(game->movements));
+		150, 12, rgbify(255, 255, 255), movements);
+	free(movements);
 }
 
 int	rgbify(uint8_t red, uint8_t green, uint8_t blue)

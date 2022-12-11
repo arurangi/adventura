@@ -3,17 +3,17 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+         #
+#    By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/19 13:37:59 by arurangi          #+#    #+#              #
-#    Updated: 2022/12/10 16:27:26 by arurangi         ###   ########.fr        #
+#    Updated: 2022/12/11 13:53:33 by Arsene           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # PROGRAM
 NAME		= 	so_long
 LEVEL		=	003.ber
-LEVEL_B		=	005.ber
+LEVEL_B		=	003.ber
 LIBFT		=	./src/libft/libft.a
 
 # DIRECTORIES
