@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 16:06:13 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/12 11:05:36 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/12 13:10:38 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,7 @@ int	is_walkable(t_game *game, char ch)
 
 int	is_walkable_enemy(char ch)
 {
-	if (ch == '0' || ch == 'P'
-		|| ch == 'E')
+	if (ch == '0' || ch == 'P' || ch == 'E' || ch == 'N')
 	{
 		return (1);
 	}

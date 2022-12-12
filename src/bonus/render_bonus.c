@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 12:29:26 by Arsene            #+#    #+#             */
-/*   Updated: 2022/12/12 11:49:28 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/12 12:06:08 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@ int	render(t_game *game)
 		if ((game->delay % 21 == 20) && game->life_points > 0)
 			game->life_points -= 1;
 		usleep(100);
-		//end_game(game);
 	}
 	return (0);
 }

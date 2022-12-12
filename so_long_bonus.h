@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 14:01:48 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/12 11:06:11 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/12 14:13:05 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,10 +86,10 @@ typedef struct s_node{
 
 typedef struct s_asset
 {
-	char	*path;
-	void	*img;
-	int		width;
-	int		height;
+	char			*path;
+	void			*img;
+	int				width;
+	int				height;
 }	t_asset;
 
 typedef struct s_game {
@@ -153,7 +153,9 @@ int			save_assets(t_game *game);
 int			render(t_game *game);
 void		render_sprite(t_game *game, int asset, int col, int row);
 void		render_hud(t_game *game);
+
 void		animate(t_game *game, int x, int y);
+void		add_delay(t_game *game, int frame);
 
 void		identify_sprites(t_game *game, int row, int col);
 void		identify_walls(t_game *game, int x, int y);
