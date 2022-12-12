@@ -3,17 +3,17 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+         #
+#    By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/19 13:37:59 by arurangi          #+#    #+#              #
-#    Updated: 2022/12/11 21:37:29 by Arsene           ###   ########.fr        #
+#    Updated: 2022/12/12 11:16:22 by arurangi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # PROGRAM
 NAME		= 	so_long
-LEVEL		=	005.ber
-LEVEL_B		=	002.ber
+LEVEL		=	002.ber
+LEVEL_B		=	004.ber
 LIBFT		=	./src/libft/libft.a
 
 # DIRECTORIES
@@ -63,7 +63,6 @@ LIB_FLAGS	=	-Lmlx -lmlx -framework OpenGL -framework AppKit
 OBJ			=	${SRCS:.c=.o}
 OBJ_B		=	${SRCS_B:.c=.o}
 rm			=	rm -f
-#DEPS		=	./src/libft/libft.h
 
 # RULES
 %.o: 		%.c
@@ -92,7 +91,7 @@ re:			fclean all
 
 bonus:		$(OBJ_B) $(LIBFT)
 				@$(COMPILER) $(OBJ_B) $(LIBFT_DIR)libft.a  $(LIB_FLAGS) -o $(NAME)
-				@./$(NAME) $(MAPS_DIR_B)$(LEVEL_B)
+#@./$(NAME) $(MAPS_DIR_B)$(LEVEL_B)
 
 local:			$(LIBFT)
 				@gcc  $(MANDATORY)*.c $(MANDATORY)utils/*.c -lX11 -lXext -lmlx -o so_long $(LIBFT)

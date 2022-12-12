@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   animate_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
+/*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 15:40:36 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/11 21:39:35 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/12 11:06:33 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	animate(t_game *game, int x, int y)
 	frame = game->state;
 	render_sprite(game, frame + 20, x, y);
 	game->delay += 1;
-	if (is_walkable_enemy(game, game->map[y][x + (1 * game->polarity)]))
+	if (is_walkable_enemy(game->map[y][x + (1 * game->polarity)]))
 	{
 		if (game->delay % 31 == 30)
 		{
