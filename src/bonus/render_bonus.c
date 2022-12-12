@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 12:29:26 by Arsene            #+#    #+#             */
-/*   Updated: 2022/12/12 11:23:11 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/12 11:49:28 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,10 @@ int	render(t_game *game)
 	render_sprite(game, game->plr_angle, game->x_shift, game->y_shift);
 	if (game->map[game->y_shift][game->x_shift] == 'N')
 	{
-		game->life_points = 0;
-		end_game(game);
+		if ((game->delay % 21 == 20) && game->life_points > 0)
+			game->life_points -= 1;
+		usleep(100);
+		//end_game(game);
 	}
 	return (0);
 }
