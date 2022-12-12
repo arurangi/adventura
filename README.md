@@ -1,5 +1,5 @@
 <h1 align="center">so_long</h1>
-<p align="center">In this project, I created a 2D game using the minilibx.</p>
+<p align="center">In this project, I created a 2D game from scratch using the minilibx library</p>
 
 ![game preview](./documentation/preview.png)
 
