@@ -9,6 +9,8 @@ Find more informations about the project requirements [here](./documentation/pro
 
 ## How it works
 ### 1. reading the map
+- saving the map in a matrix for better analysis
+- path finding using breath-first search
 ### 2. starting the game
 ### 3. game machanics
 ### 4. animation
