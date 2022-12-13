@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 15:40:36 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/13 11:44:29 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/13 13:48:01 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ void	animate(t_game *game, int x, int y)
 	}
 	else
 		game->polarity *= -1;
-	success_msg(1, "%d polarity", game->polarity);
 	add_delay(game, frame);
 }
 

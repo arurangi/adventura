@@ -6,7 +6,7 @@
 #    By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/19 13:37:59 by arurangi          #+#    #+#              #
-#    Updated: 2022/12/13 11:22:17 by arurangi         ###   ########.fr        #
+#    Updated: 2022/12/13 13:48:52 by arurangi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,7 +59,8 @@ SRCS_B		= 	$(BONUS)main_bonus.c \
 # VARIABLES
 COMPILER	= 	gcc
 C_FLAGS		=	-Wall -Wextra -Werror
-LIB_FLAGS	=	-Lmlx -lmlx -framework OpenGL -framework AppKit
+# LIB_FLAGS	=	-Lmlx -lmlx -framework OpenGL -framework AppKit
+LIB_FLAGS	=	-lmlx -framework OpenGL -framework AppKit
 OBJ			=	${SRCS:.c=.o}
 OBJ_B		=	${SRCS_B:.c=.o}
 rm			=	rm -f
