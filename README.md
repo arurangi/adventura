@@ -54,6 +54,8 @@ int	map_checker(t_game *game)
 }
 ```
 ### 2. path finding
+For the map to be valid, I needed to check whether a viable path to the exit was present.
+To do so, I opted for a graph algorithm: breath-first search. I chose it because it's implementation straight forward and since I only cared about 
 ### 2. displaying sprites on the window
 ### 3. game machanics
 ### 4. animation
