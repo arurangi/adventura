@@ -7,6 +7,8 @@ Find more informations about the project requirements [here](./documentation/pro
 
 ## About
 
+Write a program that checks whether a given map is valid, me
+
 The program must be able to read a given map, check if all elements of the map are valid*, display all sprites on a window, and be able to move the player and collect items before exiting the game.
 
 The projects demends that we create a game based on a given map that follows certain rues:
