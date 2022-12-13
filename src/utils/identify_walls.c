@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   identify_walls_bonus.c                             :+:      :+:    :+:   */
+/*   identify_walls.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 13:43:53 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/10 13:59:37 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/13 20:16:25 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../so_long_bonus.h"
+#include "../../so_long.h"
 
 void	top_walls(t_game *game, int x, int y)
 {

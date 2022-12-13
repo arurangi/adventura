@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   path_finder_utils_bonus.c                          :+:      :+:    :+:   */
+/*   path_finder_utils.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 10:13:21 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/08 21:37:05 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/13 20:16:42 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../so_long_bonus.h"
+#include "../../so_long.h"
 
 // Check if node has neem visited, based on coordinates
 int	in_queue(t_node current, t_node *queue, int head, int tail)

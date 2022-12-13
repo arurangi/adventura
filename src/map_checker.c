@@ -6,7 +6,7 @@
 /*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 11:05:41 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/11 17:06:26 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/13 20:15:01 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
  * - valid path
 */
 
-#include "../../so_long.h"
+#include "../so_long.h"
 
 int	map_checker(t_game *game)
 {
@@ -47,7 +47,7 @@ int	map_checker(t_game *game)
 		}
 		row++;
 	}
-	if (outer_loop_checker(game, row, col) == 0 || path_finder(game) == 0)
+	if (outer_loop_checker(game) == 0 || path_finder(game) == 0)
 		return (0);
 	return (1);
 }

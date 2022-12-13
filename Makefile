@@ -3,58 +3,39 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+         #
+#    By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/19 13:37:59 by arurangi          #+#    #+#              #
-#    Updated: 2022/12/13 13:48:52 by arurangi         ###   ########.fr        #
+#    Updated: 2022/12/13 20:13:32 by Arsene           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # PROGRAM
 NAME		= 	so_long
-LEVEL		=	002.ber
-LEVEL_B		=	004.ber
+LEVEL		=	001.ber
 LIBFT		=	./src/libft/libft.a
 
 # DIRECTORIES
-MANDATORY	=	./src/mandatory/
-BONUS		=	./src/bonus/
 LIBFT_DIR	=	./src/libft/
 MAPS_DIR	=	./assets/maps/
-MAPS_DIR_B	=	./assets/maps/bonus/
 
 # SOURCE FILES
-SRCS		=	$(MANDATORY)main.c \
-				$(MANDATORY)map_checker.c \
-				$(MANDATORY)utils/map_checker_utils.c \
-				$(MANDATORY)path_finder.c \
-				$(MANDATORY)utils/path_finder_utils.c \
-				$(MANDATORY)utils/error_handling.c \
-				$(MANDATORY)render.c \
-				$(MANDATORY)utils/render_utils.c \
-				$(MANDATORY)input.c \
-				$(MANDATORY)utils/input_utils.c \
-				$(MANDATORY)initializer.c \
-				$(MANDATORY)load_assets.c \
-				$(MANDATORY)game_over.c \
-				${MANDATORY}utils/memory_management.c \
-
-SRCS_B		= 	$(BONUS)main_bonus.c \
-				$(BONUS)map_checker_bonus.c \
-				$(BONUS)utils/map_checker_utils_bonus.c \
-				$(BONUS)path_finder_bonus.c \
-				$(BONUS)utils/path_finder_utils_bonus.c \
-				$(BONUS)utils/error_handling_bonus.c \
-				$(BONUS)render_bonus.c \
-				$(BONUS)utils/render_utils_bonus.c \
-				$(BONUS)input_bonus.c \
-				$(BONUS)utils/input_utils_bonus.c \
-				$(BONUS)initializer_bonus.c \
-				$(BONUS)load_assets_bonus.c \
-				$(BONUS)game_over_bonus.c \
-				${BONUS}utils/memory_management_bonus.c \
-				${BONUS}animate_bonus.c \
-				${BONUS}utils/identify_walls_bonus.c \
+SRCS		= 	./src/main_bonus.c \
+				./src/map_checker_bonus.c \
+				./src/utils/map_checker_utils_bonus.c \
+				./src/path_finder_bonus.c \
+				./src/utils/path_finder_utils_bonus.c \
+				./src/utils/error_handling_bonus.c \
+				./src/render_bonus.c \
+				./src/utils/render_utils_bonus.c \
+				./src/input_bonus.c \
+				./src/utils/input_utils_bonus.c \
+				./src/initializer_bonus.c \
+				./src/load_assets_bonus.c \
+				./src/game_over_bonus.c \
+				./src/utils/memory_management_bonus.c \
+				./src/animate_bonus.c \
+				./src/utils/identify_walls_bonus.c \
 
 # VARIABLES
 COMPILER	= 	gcc
@@ -62,7 +43,6 @@ C_FLAGS		=	-Wall -Wextra -Werror
 # LIB_FLAGS	=	-Lmlx -lmlx -framework OpenGL -framework AppKit
 LIB_FLAGS	=	-lmlx -framework OpenGL -framework AppKit
 OBJ			=	${SRCS:.c=.o}
-OBJ_B		=	${SRCS_B:.c=.o}
 rm			=	rm -f
 
 # RULES
@@ -75,13 +55,11 @@ $(LIBFT):
 				@make -C $(LIBFT_DIR)
 
 all:		$(NAME) 
-			
-play:		${NAME}
 			@./$(NAME) $(MAPS_DIR)$(LEVEL)
 
 clean:
 				@make -C ./src/libft fclean
-				@rm -f $(OBJ) $(OBJ_B) core
+				@rm -f $(OBJ) core
 
 fclean:		clean
 				@$(RM) $(NAME)
@@ -90,14 +68,6 @@ re:			fclean all
 
 .PHONY:		all clean fclean re
 
-bonus:		$(OBJ_B) $(LIBFT)
-				@$(COMPILER) $(OBJ_B) $(LIBFT_DIR)libft.a  $(LIB_FLAGS) -o $(NAME)
-				@./$(NAME) $(MAPS_DIR_B)$(LEVEL_B)
-
 local:			$(LIBFT)
-				@gcc  $(MANDATORY)*.c $(MANDATORY)utils/*.c -lX11 -lXext -lmlx -o so_long $(LIBFT)
+				@gcc  ./src/*.c ./src/utils/*.c -lX11 -lXext -lmlx -o so_long $(LIBFT)
 				@./$(NAME)  $(MAPS_DIR)$(LEVEL)
-
-local_bonus:	$(LIBFT)
-				@gcc $(BONUS)*.c $(BONUS)utils/*.c -lX11 -lXext -lmlx -o so_long $(LIBFT)
-				@./$(NAME) $(MAPS_DIR_B)$(LEVEL_B)

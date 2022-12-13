@@ -6,7 +6,7 @@
 /*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 11:36:54 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/11 19:00:53 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/13 20:14:57 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
  * - start the game loop
 */
 
-#include "../../so_long.h"
+#include "../so_long.h"
 
 int	main(int ac, char **av)
 {

@@ -6,7 +6,7 @@
 /*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 09:40:40 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/11 17:10:56 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/13 20:14:41 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
  * - initialize player position and movement count 
 */
 
-#include "../../so_long.h"
+#include "../so_long.h"
 
 int	game_init(t_game *game, char **av)
 {
@@ -32,13 +32,16 @@ int	game_init(t_game *game, char **av)
 	if (map_checker(game) == 0)
 		return (0);
 	game->window = mlx_new_window(game->mlx, game->map_width * TILE,
-			game->map_height * TILE + HUD, "Adventura");
+			game->map_height * TILE + (HUD + 40), "Adventura");
 	if (game->window == NULL)
 	{
 		free(game->window);
 		return (error_msg(0, "couldn't connect to the window"));
 	}
 	player_init(game);
+	game->delay = 0;
+	game->state = 0;
+	game->polarity = 1;
 	return (load_assets(game));
 }
 
@@ -55,5 +58,7 @@ void	player_init(t_game *game)
 {
 	game->x_shift = game->starting_pos.col;
 	game->y_shift = game->starting_pos.row;
+	game->plr_angle = 16;
 	game->movements = 0;
+	game->life_points = 5;
 }
