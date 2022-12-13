@@ -5,7 +5,7 @@
 
 Find more informations about the project requirements [here](./documentation/project_requirements.pdf).
 
-## About
+## About the game
 
 Write a program that checks whether a given map is valid, me
 
