@@ -7,23 +7,18 @@ Find more informations about the project requirements [here](./documentation/pro
 
 ## About
 
+The program must be able to read a given map, check if all elements of the map are valid*, display all sprites on a window, and be able to move the player and collect items before exiting the game.
+
 The projects demends that we create a game based on a given map that follows certain rues:
 - the map must be stored in a file with <code>.ber</code> extension
-- the map can only contain these characters (1, 0, C, P, E)
-
-	| Characters| Description                |
-	|    ---    |     ---                    |
-	| 1         | Wall                       |
-	| 0         | Walkable space             |
-	| C         | Collectible                |
-	| P         | Player's starting position |
-	| E         | Exit                       |
+- the map can only contain these characters 1 (wall), 0 (empty space), C (collectible), P (starting position), E (exit).
 - the map must be rectangular, surrounded by walls and have at least one collectible (C), starting position (P) and exit (E)
 - there must be a valid path leading to the exit.
 
 The game must be able to use any map that follows those rules.
 
 Here is what a valid map looks like.
+
 ```bash
 11111111111
 10000E00001
@@ -53,6 +48,7 @@ int	map_checker(t_game *game)
 		return (0);
 }
 ```
+
 ### 2. path finding
 For the map to be valid, I needed to check whether a viable path to the exit was present.
 To do so, I opted for a graph algorithm: breath-first search. I chose it because it's implementation straight forward and since I only cared about 
