@@ -6,7 +6,7 @@
 /*   By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 15:40:36 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/13 10:55:36 by arurangi         ###   ########.fr       */
+/*   Updated: 2022/12/13 11:44:29 by arurangi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,16 +43,3 @@ void	add_delay(t_game *game, int frame)
 		game->state = (frame + 1) % 4;
 	usleep(10);
 }
-
-// void	animate(t_game *game, int x, int y)
-// {
-// 	int	frame;
-
-// 	frame = game->state;
-// 	render_sprite(game, frame + 20, x, y);
-// 	if (game->map[y][x])
-// 	game->delay += 1;
-// 	if (game->delay % 21 == 20)
-// 		game->state = (frame + 1) % 4;
-// 	usleep(10);
-// }
