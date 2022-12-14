@@ -6,7 +6,7 @@
 /*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 14:01:48 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/14 18:52:27 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/14 19:44:51 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,6 +101,7 @@ typedef struct s_actor {
     int         polarity;
     int         angle;
     t_asset		frames[MAX_FRAMES];
+	int			frame_pos;
 } t_actor;
 
 typedef struct s_game {
@@ -198,5 +199,8 @@ int			save_enemy_data(t_game *game, int n_id);
 void		enemy_init(t_game *game);
 
 void		locate_global_assets(t_game *game);
+
+void		render_enemies(t_game *game, int row, int col);
+int			find_which_enemy(t_game *game, int row, int col);
 
 #endif

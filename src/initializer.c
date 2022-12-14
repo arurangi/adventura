@@ -6,7 +6,7 @@
 /*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 09:40:40 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/14 18:45:20 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/14 19:33:13 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,7 @@ void	enemy_init(t_game *game)
 			{
 				game->enemies[n_id].x = col;
 				game->enemies[n_id].y = row;
+				game->enemies[n_id].frame_pos = 0;
 				game->enemies[n_id].polarity = 1;
 				locate_enemy_assets(game, n_id);
 				status = save_enemy_data(game, n_id);
