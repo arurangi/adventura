@@ -6,7 +6,7 @@
 /*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 15:40:36 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/13 20:14:28 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/14 11:45:59 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	animate(t_game *game, int x, int y)
 
 	frame = game->state;
 	render_sprite(game, frame + 20, x, y);
-	if (is_walkable_enemy(game->map[y][x + (1 * game->polarity)]))
+	if (is_walkable_enemy(game, y, x + (1 * game->polarity)))
 	{
 		if (game->delay % 31 == 30)
 		{
@@ -31,7 +31,10 @@ void	animate(t_game *game, int x, int y)
 		}
 	}
 	else
+	{
 		game->polarity *= -1;
+		// + change sprite angle
+	}
 	add_delay(game, frame);
 }
 

@@ -6,7 +6,7 @@
 /*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 15:15:12 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/13 20:16:34 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/14 11:41:48 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,8 @@ int	inner_loop_checker(t_game *game, int row, int col)
 		game->starting_pos.row = row;
 		game->starting_pos.col = col;
 	}
+	if (game->map[row][col] == 'N')
+    	game->n_credit++;
 	if ((game->map[row][col + 1] == '\0')
 		&& (col + 1 != game->map_width))
 		return (error_msg(0, "not rectangular at row %d", row));

@@ -6,7 +6,7 @@
 /*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 16:06:13 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/13 20:16:30 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/14 11:32:24 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,13 @@ int	is_walkable(t_game *game, char ch)
 	return (0);
 }
 
-int	is_walkable_enemy(char ch)
+int	is_walkable_enemy(t_game *game, int y, int x)
 {
-	if (ch == '0' || ch == 'P' || ch == 'E' || ch == 'N')
+	char 	ch;
+
+	ch = game->map[y][x];
+	if (ch == '0' || ch == 'P' || ch == 'E' || ch == 'N'
+		|| !(y != game->y_shift && x != game->x_shift))
 	{
 		return (1);
 	}

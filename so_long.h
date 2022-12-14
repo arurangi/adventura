@@ -6,7 +6,7 @@
 /*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 14:01:48 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/13 20:17:33 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/14 18:28:51 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,23 +25,24 @@
 /* GAME MACROS */
 # define TILE 40
 # define HUD 80
-# define SPRITES_NBR 31
+# define SPRITES_NBR 24
 # define VELOCITY 1
 # define BUFFER_SIZE 1
+# define MAX_FRAMES 4
 
 /* INPUT KEYS (HOME SETUP) */
-// # define ESC 65307
-// # define UP 65362
-// # define DOWN 65364
-// # define LEFT 65361
-// # define RIGHT 65363
+# define ESC 65307
+# define UP 65362
+# define DOWN 65364
+# define LEFT 65361
+# define RIGHT 65363
 
 /* INPUT KEYS (SCHOOL SETUP #1) */
-# define ESC 53
-# define UP 13
-# define DOWN 1
-# define LEFT 0
-# define RIGHT 2
+// # define ESC 53
+// # define UP 13
+// # define DOWN 1
+// # define LEFT 0
+// # define RIGHT 2
 
 /* ENUMS */
 typedef enum e_events {
@@ -72,10 +73,6 @@ typedef enum e_sprite {
 	_player_up = 17,
 	_player_left = 18,
 	_player_right = 19,
-	_enemy1 = 20,
-	_enemy2 = 21,
-	_enemy3 = 22,
-	_enemy4 = 23,
 }	t_sprite;
 
 /* STRUCTURES */
@@ -92,6 +89,14 @@ typedef struct s_asset
 	int				height;
 }	t_asset;
 
+typedef struct s_actor {
+    int         x;
+    int         y;
+    int         polarity;
+    int         angle;
+    t_asset		frames[MAX_FRAMES];
+} t_actor;
+
 typedef struct s_game {
 	void		*mlx;
 	void		*window;
@@ -102,8 +107,10 @@ typedef struct s_game {
 	int			c_credit;
 	int			e_credit;
 	int			p_credit;
+	int			n_credit;
 	t_node		starting_pos;
 	t_asset		sprites[SPRITES_NBR];
+	t_actor		*enemies;
 	int			x_shift;
 	int			y_shift;
 	int			plr_angle;
@@ -112,6 +119,7 @@ typedef struct s_game {
 	int			life_points;
 	int			delay;
 	int			polarity;
+	int			error_count;
 }	t_game;
 
 /* START/END */
@@ -122,6 +130,7 @@ int			end_game(t_game *game);
 /* INITIALIZATION */
 void		map_init(t_game *game, char **av);
 void		player_init(t_game *game);
+void		enemy_init(t_game *game);
 
 /* MAP RELATED */
 int			map_checker(t_game *game);
@@ -143,12 +152,12 @@ int			tab_height(char **tab);
 int			handle_input(int keysym, t_game *game);
 void		move(t_game *game, int keysym, int x, int y);
 int			is_walkable(t_game *game, char ch);
-int			is_walkable_enemy(char ch);
+int			is_walkable_enemy(t_game *game, int y, int x);
 
 /* RENDERING */
 int			load_assets(t_game *game);
 void		load_heart(t_game *game);
-int			save_assets(t_game *game);
+int			save_global_assets(t_game *game);
 
 int			render(t_game *game);
 void		render_sprite(t_game *game, int asset, int col, int row);
@@ -174,5 +183,14 @@ void		free_hud(char **hud_data);
 /* ERROR HANDLING */
 int			error_msg(int return_code, char *message, ...);
 int			success_msg(int return_code, char *message, ...);
+int			info_msg(int return_code, char *message, ...);
+
+/* NEW */
+void		load_enemies(t_game *game);
+void		locate_enemy_assets(t_game *game, int n_id);
+int			save_enemy_data(t_game *game, int n_id);
+void		enemy_init(t_game *game);
+
+void		locate_global_assets(t_game *game);
 
 #endif

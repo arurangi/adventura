@@ -6,13 +6,13 @@
 #    By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/19 13:37:59 by arurangi          #+#    #+#              #
-#    Updated: 2022/12/13 20:24:41 by Arsene           ###   ########.fr        #
+#    Updated: 2022/12/14 15:07:14 by Arsene           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # PROGRAM
 NAME		= 	so_long
-LEVEL		=	001.ber
+LEVEL		=	003.ber
 LIBFT		=	./src/libft/libft.a
 
 # DIRECTORIES
@@ -57,7 +57,7 @@ $(LIBFT):
 				@make -C $(LIBFT_DIR)
 
 all:		$(NAME) 
-			@./$(NAME) $(MAPS_DIR)$(LEVEL)
+#@./$(NAME) $(MAPS_DIR)$(LEVEL)
 
 clean:
 				@make -C ./src/libft fclean
