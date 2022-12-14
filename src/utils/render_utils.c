@@ -6,7 +6,7 @@
 /*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 15:15:51 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/13 20:16:45 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/14 18:51:20 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,11 @@ void	render_hud(t_game *game)
 	hud_data[0] = ft_itoa(game->movements);
 	hud_data[1] = ft_itoa(game->life_points);
 	mlx_put_image_to_window(game->mlx, game->window,
-		game->sprites[game->life_points + 24].img, TILE, 20);
+		game->sprites[game->life_points + 20].img, TILE, 20);
 	mlx_string_put(game->mlx, game->window,
 		TILE * 2, HUD - 50, rgbify(255, 255, 255), hud_data[1]);
 	mlx_put_image_to_window(game->mlx, game->window,
-		game->sprites[30].img, TILE * 3, 20);
+		game->sprites[26].img, TILE * 3, 20);
 	mlx_string_put(game->mlx, game->window,
 		TILE * 3 + 40, HUD - 50, rgbify(255, 255, 255), hud_data[0]);
 	free_hud(hud_data);

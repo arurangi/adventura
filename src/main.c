@@ -6,7 +6,7 @@
 /*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 11:36:54 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/14 11:50:25 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/14 18:47:09 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ int	main(int ac, char **av)
 		error_msg(1, "couldn't initialize the environment.");
 		end_game(&game);
 	}
-	success_msg(1, "Nbr enemies: %d", game.n_credit);
 	start_game(&game);
 	return (0);
 }

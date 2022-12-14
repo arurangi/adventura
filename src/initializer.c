@@ -6,7 +6,7 @@
 /*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 09:40:40 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/14 18:22:59 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/14 18:45:20 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,6 @@ void	enemy_init(t_game *game)
 				status = save_enemy_data(game, n_id);
 				if (status == 0)
 					return ;
-				success_msg(1, "enemy ID [%d] initialized", n_id);
 				n_id++;
 			}
 			col++;
@@ -105,7 +104,6 @@ void	enemy_init(t_game *game)
 			break ;
 		row++;
 	}
-	success_msg(1, "enemy initialized");
 }
 
 void	map_init(t_game *game, char **av)

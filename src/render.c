@@ -6,7 +6,7 @@
 /*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 12:29:26 by Arsene            #+#    #+#             */
-/*   Updated: 2022/12/14 14:35:01 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/14 18:48:24 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,14 @@ int	render(t_game *game)
 	int	row;
 	int	col;
 
+
 	// Clear previous images
 	mlx_clear_window(game->mlx, game->window);
 
 	// Render the heads-up display
 	render_hud(game);
 
+	success_msg(1, "rendered HUD");
 	// Render the map
 	row = 0;
 	while (row < game->map_height)

@@ -6,7 +6,7 @@
 /*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 14:01:48 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/14 18:28:51 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/14 18:52:27 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 /* GAME MACROS */
 # define TILE 40
 # define HUD 80
-# define SPRITES_NBR 24
+# define SPRITES_NBR 27
 # define VELOCITY 1
 # define BUFFER_SIZE 1
 # define MAX_FRAMES 4
@@ -73,6 +73,12 @@ typedef enum e_sprite {
 	_player_up = 17,
 	_player_left = 18,
 	_player_right = 19,
+	_health_0 = 20,
+	_health_10 = 21,
+	_health_25 = 22,
+	_health_50 = 23,
+	_health_75 = 24,
+	_health_100 = 25,
 }	t_sprite;
 
 /* STRUCTURES */

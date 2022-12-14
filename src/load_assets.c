@@ -6,7 +6,7 @@
 /*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 22:00:20 by Arsene            #+#    #+#             */
-/*   Updated: 2022/12/14 18:28:25 by Arsene           ###   ########.fr       */
+/*   Updated: 2022/12/14 18:47:32 by Arsene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	locate_global_assets(t_game *game)
 	game->sprites[23].path = "assets/sprites/health_50.xpm";
 	game->sprites[24].path = "assets/sprites/health_75.xpm";
 	game->sprites[25].path = "assets/sprites/health_100.xpm";
-	game->sprites[36].path = "assets/sprites/footsteps.xpm";
+	game->sprites[26].path = "assets/sprites/footsteps.xpm";
 	// Maybe remove these
 	// game->sprites[20].path = "assets/sprites/enemy_0.xpm";
 	// game->sprites[21].path = "assets/sprites/enemy_1.xpm";
@@ -73,7 +73,6 @@ int	save_enemy_data(t_game *game, int n_id)
 
 	i = 0;
 
-	info_msg(1, "saving data..");
     while (i < MAX_FRAMES)
     {
         game->enemies[n_id].frames[i].img = mlx_xpm_file_to_image(game->mlx,
@@ -87,7 +86,7 @@ int	save_enemy_data(t_game *game, int n_id)
 		}
         i++;
     }
-	return (success_msg(1, "saved enemy data (ID: %d)", n_id));
+	return (1);
 }
 
 // void	load_heart(t_game *game)
@@ -106,7 +105,7 @@ int	save_global_assets(t_game *game)
 	int	i;
 
 	i = 0;
-	load_heart(game);
+	//load_heart(game);
 	while (i < SPRITES_NBR)
 	{
 		game->sprites[i].img = mlx_xpm_file_to_image(game->mlx,
