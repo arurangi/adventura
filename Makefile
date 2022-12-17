@@ -12,7 +12,7 @@
 
 # PROGRAM
 NAME		= 	so_long
-LEVEL		=	001.ber
+LEVEL		=	005.ber
 LIBFT		=	./src/libft/libft.a
 
 # DIRECTORIES

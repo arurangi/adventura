@@ -30,18 +30,18 @@
 # define BUFFER_SIZE 1
 
 /* INPUT KEYS (HOME SETUP) */
-// # define ESC 65307
-// # define UP 65362
-// # define DOWN 65364
-// # define LEFT 65361
-// # define RIGHT 65363
+# define ESC 65307
+# define UP 65362
+# define DOWN 65364
+# define LEFT 65361
+# define RIGHT 65363
 
 /* INPUT KEYS (SCHOOL SETUP #1) */
-# define ESC 53
-# define UP 13
-# define DOWN 1
-# define LEFT 0
-# define RIGHT 2
+// # define ESC 53
+// # define UP 13
+// # define DOWN 1
+// # define LEFT 0
+// # define RIGHT 2
 
 /* ENUMS */
 typedef enum e_events {
