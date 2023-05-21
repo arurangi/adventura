@@ -3,16 +3,17 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+         #
+#    By: lupin <lupin@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/19 13:37:59 by arurangi          #+#    #+#              #
-#    Updated: 2022/12/13 20:24:41 by Arsene           ###   ########.fr        #
+#    Updated: 2023/05/21 16:19:27 by lupin            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # PROGRAM
 NAME		= 	so_long
-LEVEL		=	005.ber
+lvl			=	3
+LEVEL		=	00$(lvl).ber
 LIBFT		=	./src/libft/libft.a
 
 # DIRECTORIES
@@ -20,6 +21,9 @@ SRC_DIR		=	./src/
 UTILS_DIR	=	./src/utils/
 LIBFT_DIR	=	./src/libft/
 MAPS_DIR	=	./assets/maps/
+#MLX_PATH	=	$(CURDIR)/mlx_mod/
+MLX_PATH	=	/Users/lupin/Desktop/cursus/so_long/mlx/
+X11_PATH	=	/usr/X11/lib/
 
 # SOURCE FILES
 SRCS		= 	$(SRC_DIR)main.c \
@@ -42,22 +46,30 @@ SRCS		= 	$(SRC_DIR)main.c \
 # VARIABLES
 COMPILER	= 	gcc
 C_FLAGS		=	-Wall -Wextra -Werror
-LIB_FLAGS	=	-lmlx -framework OpenGL -framework AppKit
+FRAMEWORK	=	-framework OpenGL -framework AppKit
+LIB_FLAGS	=	-L$(X11_PATH) -lX11 -lXext -L$(MLX_PATH) -lmlx 
 OBJ			=	${SRCS:.c=.o}
 rm			=	rm -f
 
+LIBX		=	/Users/lupin/Documents/education/coding/cursus/so_long/minilibx-linux
+
 # RULES
-%.o: 		%.c
-				@$(COMPILER) $(C_FLAGS) -Imlx -c $< -o $@
+# %.o: 		%.c
+# 				@$(COMPILER) $(C_FLAGS) -Imlx -c $< -o $@
+
+%.o: %.c
+	$(COMPILER) $(C_FLAGS) -Imlx -c $< -o $@
 
 $(NAME): 	$(OBJ) $(LIBFT)
-				@$(COMPILER) $(OBJ) $(LIBFT_DIR)libft.a  $(LIB_FLAGS) -o $(NAME)
+				@$(COMPILER) $(C_FLAGS) $(OBJ) $(LIBFT_DIR)libft.a $(LIB_FLAGS) $(FRAMEWORK) -o $(NAME)
 
 $(LIBFT):
 				@make -C $(LIBFT_DIR)
 
 all:		$(NAME) 
-			@./$(NAME) $(MAPS_DIR)$(LEVEL)
+
+run:
+			./$(NAME) $(MAPS_DIR)$(LEVEL)
 
 clean:
 				@make -C ./src/libft fclean
@@ -71,5 +83,5 @@ re:			fclean all
 .PHONY:		all clean fclean re
 
 local:			$(LIBFT)
-				@gcc  ./src/*.c ./src/utils/*.c -lX11 -lXext -lmlx -o so_long $(LIBFT)
+				@gcc $(C_FLAGS) ./src/*.c ./src/utils/*.c $(LIB_FLAGS) -o so_long $(LIBFT)
 				@./$(NAME)  $(MAPS_DIR)$(LEVEL)

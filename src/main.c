@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
+/*   By: lupin <lupin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 11:36:54 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/13 20:14:57 by Arsene           ###   ########.fr       */
+/*   Updated: 2023/05/21 16:20:25 by lupin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,7 @@ int	main(int ac, char **av)
 
 void	start_game(t_game *game)
 {
-	mlx_loop_hook(game->mlx, &render, game);
-	mlx_hook(game->window, keypress, keypress_mask, &handle_input, game);
-	mlx_hook(game->window, destroy_notify, leave_window_mask, &end_game, game);
+	process_input(game);
+	render_and_update(game);
 	mlx_loop(game->mlx);
 }

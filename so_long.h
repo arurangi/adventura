@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
+/*   By: lupin <lupin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 14:01:48 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/13 20:17:33 by Arsene           ###   ########.fr       */
+/*   Updated: 2023/05/21 16:20:01 by lupin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <unistd.h>
 # include <limits.h>
 # include <stdarg.h>
-# include <mlx.h>
+# include "mlx/mlx.h"
 # include <stdio.h>
 
 /* GAME MACROS */
@@ -174,5 +174,9 @@ void		free_hud(char **hud_data);
 /* ERROR HANDLING */
 int			error_msg(int return_code, char *message, ...);
 int			success_msg(int return_code, char *message, ...);
+
+void		update_life_points(t_game *game);
+void		render_and_update(t_game *game);
+void		process_input(t_game *game);
 
 #endif

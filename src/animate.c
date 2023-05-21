@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   animate.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
+/*   By: lupin <lupin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 15:40:36 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/13 20:14:28 by Arsene           ###   ########.fr       */
+/*   Updated: 2023/05/21 15:42:31 by lupin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,5 @@ void	add_delay(t_game *game, int frame)
 	game->delay += 1;
 	if (game->delay % 11 == 10)
 		game->state = (frame + 1) % 4;
-	usleep(10);
+	usleep(10000);
 }

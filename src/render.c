@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
+/*   By: lupin <lupin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 12:29:26 by Arsene            #+#    #+#             */
-/*   Updated: 2022/12/13 20:15:10 by Arsene           ###   ########.fr       */
+/*   Updated: 2023/05/21 16:17:39 by lupin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,32 +17,36 @@
 
 #include "../so_long.h"
 
+void	render_and_update(t_game *game)
+{
+	mlx_loop_hook(game->mlx, &render, game);
+}
+
 int	render(t_game *game)
 {
 	int	row;
 	int	col;
 
-	mlx_clear_window(game->mlx, game->window);
+	// mlx_clear_window(game->mlx, game->window);
 	render_hud(game);
 	row = 0;
 	while (row < game->map_height)
 	{
 		col = 0;
 		while (col < game->map_width)
-		{
-			identify_sprites(game, row, col);
-			col++;
-		}
+			identify_sprites(game, row, col++);
 		row++;
 	}
+	update_life_points(game);
 	render_sprite(game, game->plr_angle, game->x_shift, game->y_shift);
-	if (game->map[game->y_shift][game->x_shift] == 'N')
-	{
-		if ((game->delay % 21 == 20) && game->life_points > 0)
-			game->life_points -= 1;
-		usleep(100);
-	}
+	mlx_do_sync(game->mlx);
 	return (0);
+}
+
+void	process_input(t_game *game)
+{
+	mlx_hook(game->window, keypress, keypress_mask, &handle_input, game);
+	mlx_hook(game->window, destroy_notify, leave_window_mask, &end_game, game);
 }
 
 void	identify_sprites(t_game *game, int row, int col)
@@ -59,4 +63,15 @@ void	identify_sprites(t_game *game, int row, int col)
 		identify_exit(game, col, row);
 	else if (game->map[row][col] == 'N')
 		animate(game, col, row);
+	//render_sprite(game, _enemy1, col, row);
+}
+
+void	update_life_points(t_game *game)
+{
+	if (game->map[game->y_shift][game->x_shift] == 'N')
+	{
+		if ((game->delay % 21 == 20) && game->life_points > 0)
+			game->life_points -= 1;
+		usleep(1000);
+	}
 }
