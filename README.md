@@ -57,3 +57,8 @@ To do so, I opted for a graph algorithm: breath-first search. I chose it because
 ### 2. displaying sprites on the window
 ### 3. game machanics
 ### 4. animation
+
+### 5. improvements
+- smoother animation
+- monster follows the player
+- player can move in between tiles instead of jumps
