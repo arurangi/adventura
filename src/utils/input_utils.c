@@ -6,7 +6,7 @@
 /*   By: lupin <lupin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 16:06:13 by arurangi          #+#    #+#             */
-/*   Updated: 2023/05/25 11:03:40 by lupin            ###   ########.fr       */
+/*   Updated: 2023/05/25 14:30:49 by lupin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,30 +43,43 @@ int	is_walkable_enemy(char ch)
 
 void	move(t_game *game, int keysym, int x, int y)
 {
+	game->player_moved = TRUE;
 	switch (keysym)
 	{
 		case LEFT_KEY: {
 			game->plr_angle = WEST;
-			if (is_walkable(game, game->map[y][x - PLAYER_JUMP]))
+			if (is_walkable(game, game->map[y][x - PLAYER_JUMP])) {
+				// game->x_last = game->x_shift;
+				render_sprite(game, _emptyspace, x, y);
 				game->x_shift -= PLAYER_JUMP;
+			}
 			break ;
 		}
 		case RIGHT_KEY: {
 			game->plr_angle = EAST;
-			if (is_walkable(game, game->map[y][x + PLAYER_JUMP]))
+			if (is_walkable(game, game->map[y][x + PLAYER_JUMP])) {
+				// game->x_last = game->x_shift;	
+				render_sprite(game, _emptyspace, x, y);
 				game->x_shift += PLAYER_JUMP;
+			}
 			break ;
 		}
 		case DOWN_KEY: {
 			game->plr_angle = SOUTH;
-			if (is_walkable(game, game->map[y + PLAYER_JUMP][x]))
+			if (is_walkable(game, game->map[y + PLAYER_JUMP][x])) {
+				// game->y_last = game->y_shift;
+				render_sprite(game, _emptyspace, x, y);
 				game->y_shift += PLAYER_JUMP;
+			}
 			break ;
 		}
 		case UP_KEY: {
 			game->plr_angle = NORTH;
-			if (is_walkable(game, game->map[y - PLAYER_JUMP][x]))
+			if (is_walkable(game, game->map[y - PLAYER_JUMP][x])) {
+				// game->y_last = game->y_shift;
+				render_sprite(game, _emptyspace, x, y);
 				game->y_shift -= PLAYER_JUMP;
+			}
 			break ;
 		}
 	}

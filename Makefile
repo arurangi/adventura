@@ -6,13 +6,13 @@
 #    By: lupin <lupin@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/19 13:37:59 by arurangi          #+#    #+#              #
-#    Updated: 2023/05/25 10:10:45 by lupin            ###   ########.fr        #
+#    Updated: 2023/05/25 16:27:26 by lupin            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # PROGRAM
 NAME		= 	so_long
-lvl			=	4
+lvl			=	5
 LEVEL		=	00$(lvl).ber
 LIBFT		=	./src/libft/libft.a
 
@@ -44,7 +44,8 @@ SRCS		= 	$(SRC_DIR)main.c \
 
 # VARIABLES
 COMPILER	= 	gcc
-C_FLAGS		=	-Wall -Wextra -Werror
+C_FLAGS		=	-Wall -Wextra -Werror $(SANITIZE)
+SANITIZE	=	-g -fsanitize=address
 FRAMEWORK	=	-framework OpenGL -framework AppKit
 LIB_FLAGS	=	-L$(X11_PATH) -lX11 -lXext -L$(MLX_PATH) -lmlx 
 OBJ			=	${SRCS:.c=.o}

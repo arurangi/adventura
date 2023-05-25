@@ -6,7 +6,7 @@
 /*   By: lupin <lupin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 09:40:40 by arurangi          #+#    #+#             */
-/*   Updated: 2023/05/25 11:03:46 by lupin            ###   ########.fr       */
+/*   Updated: 2023/05/25 17:41:30 by lupin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,10 @@ void	player_init(t_game *game)
 {
 	game->x_shift = game->starting_pos.col;
 	game->y_shift = game->starting_pos.row;
+	game->x_last = game->x_shift;
+	game->y_last = game->y_shift;
 	game->plr_angle = 16;
 	game->steps_count = 0;
 	game->life_points = 5;
+	game->player_moved = TRUE;
 }

@@ -6,7 +6,7 @@
 /*   By: lupin <lupin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 14:01:48 by arurangi          #+#    #+#             */
-/*   Updated: 2023/05/25 11:03:29 by lupin            ###   ########.fr       */
+/*   Updated: 2023/05/25 16:32:17 by lupin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@
 # define PLAYER_JUMP 1
 # define BUFFER_SIZE 1
 
-# define STATE_PERIOD 6
+# define STATE_PERIOD 15
 # define LAST_FRAME_INDEX 4
 
 # define NORTH 17
@@ -118,6 +118,9 @@ typedef struct s_game {
 	t_node		starting_pos;
 	
 	t_asset		sprites[SPRITES_NBR];
+
+	int			x_last;
+	int			y_last;
 	
 	int			x_shift;
 	int			y_shift;
@@ -129,6 +132,8 @@ typedef struct s_game {
 	
 	int			steps_count;
 	int			life_points;
+
+	int			player_moved;
 	
 }	t_game;
 
@@ -172,6 +177,7 @@ int			save_assets(t_game *game);
 int			render(t_game *game);
 void		render_sprite(t_game *game, int asset, int col, int row);
 void		render_hud(t_game *game);
+void		render_hud_values(t_game *game);
 
 void		animate(t_game *game, int x, int y);
 void		add_delay(t_game *game, int frame);

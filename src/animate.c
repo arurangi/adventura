@@ -6,7 +6,7 @@
 /*   By: lupin <lupin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 15:40:36 by arurangi          #+#    #+#             */
-/*   Updated: 2023/05/25 11:01:14 by lupin            ###   ########.fr       */
+/*   Updated: 2023/05/25 17:48:33 by lupin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,16 +22,18 @@ void	animate(t_game *game, int x, int y)
 
 	frame = game->animation_state;
 	render_sprite(game, frame + 20, x, y);
-	if (is_walkable_enemy(game->map[y][x + (1 * game->polarity)]))
-	{
-		if (game->delay % 31 == 30)
-		{
-			game->map[y][x] = '0';
-			game->map[y][x + (1 * game->polarity)] = 'N';
-		}
-	}
-	else
-		game->polarity *= -1;
+	// if (is_walkable_enemy(game->map[y][x + (1 * game->polarity)]))
+	// {
+	// 	if (game->delay % 50 == 49)
+	// 	{
+	// 		render_sprite(game, _emptyspace, x, y);
+	// 		game->map[y][x + (1 * game->polarity)] = 'N';
+	// 		render_sprite(game, frame + 20, x, y);
+	// 		//game->map[y][x] = '0';
+	// 	}
+	// }
+	// else
+	// 	game->polarity *= -1;
 	add_delay(game, frame);
 }
 
@@ -40,4 +42,5 @@ void	add_delay(t_game *game, int frame)
 	game->delay += 1;
 	if (game->delay % STATE_PERIOD == STATE_PERIOD - 1)
 		game->animation_state = (frame + 1) % LAST_FRAME_INDEX;
+	usleep(1000);
 }
