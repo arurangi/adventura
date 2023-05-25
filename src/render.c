@@ -6,7 +6,7 @@
 /*   By: lupin <lupin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 12:29:26 by Arsene            #+#    #+#             */
-/*   Updated: 2023/05/22 09:04:39 by lupin            ###   ########.fr       */
+/*   Updated: 2023/05/25 10:09:53 by lupin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,6 @@ int	render(t_game *game)
 	update_life_points(game);
 	//mlx_do_sync(game->mlx);
 	return (0);
-}
-
-void	process_input(t_game *game)
-{
-	mlx_hook(game->window, keypress, keypress_mask, &handle_input, game);
-	mlx_hook(game->window, destroy_notify, leave_window_mask, &end_game, game);
 }
 
 void	identify_sprites(t_game *game, int row, int col)

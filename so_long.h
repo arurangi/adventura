@@ -6,7 +6,7 @@
 /*   By: lupin <lupin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 14:01:48 by arurangi          #+#    #+#             */
-/*   Updated: 2023/05/21 16:20:01 by lupin            ###   ########.fr       */
+/*   Updated: 2023/05/25 10:37:02 by lupin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,25 +23,34 @@
 # include <stdio.h>
 
 /* GAME MACROS */
-# define TILE 40
-# define HUD 80
+# define TRUE 1
+# define FALSE 0
+
+# define TILE_SIZE 40
+# define HUD_HEIGHT 80
 # define SPRITES_NBR 31
 # define VELOCITY 1
+# define PLAYER_JUMP 1
 # define BUFFER_SIZE 1
 
+# define NORTH 17
+# define SOUTH 16
+# define WEST 18
+# define EAST 19
+
 /* INPUT KEYS (HOME SETUP) */
-# define ESC 65307
-# define UP 65362
-# define DOWN 65364
-# define LEFT 65361
-# define RIGHT 65363
+# define ESC_KEY 65307
+# define UP_KEY 65362
+# define DOWN_KEY 65364
+# define LEFT_KEY 65361
+# define RIGHT_KEY 65363
 
 /* INPUT KEYS (SCHOOL SETUP #1) */
-// # define ESC 53
-// # define UP 13
-// # define DOWN 1
-// # define LEFT 0
-// # define RIGHT 2
+// # define ESC_KEY 53
+// # define UP_KEY 13
+// # define DOWN_KEY 1
+// # define LEFT_KEY 0
+// # define RIGHT_KEY 2
 
 /* ENUMS */
 typedef enum e_events {
@@ -144,6 +153,7 @@ int			handle_input(int keysym, t_game *game);
 void		move(t_game *game, int keysym, int x, int y);
 int			is_walkable(t_game *game, char ch);
 int			is_walkable_enemy(char ch);
+int			is_arrow_keys(int keysym);
 
 /* RENDERING */
 int			load_assets(t_game *game);

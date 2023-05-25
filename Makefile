@@ -6,7 +6,7 @@
 #    By: lupin <lupin@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/19 13:37:59 by arurangi          #+#    #+#              #
-#    Updated: 2023/05/25 09:13:07 by lupin            ###   ########.fr        #
+#    Updated: 2023/05/25 10:10:45 by lupin            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,6 @@ SRCS		= 	$(SRC_DIR)main.c \
 				$(SRC_DIR)input.c \
 				$(SRC_DIR)initializer.c \
 				$(SRC_DIR)load_assets.c \
-				$(SRC_DIR)game_over.c \
 				$(SRC_DIR)animate.c \
 				$(UTILS_DIR)map_checker_utils.c \
 				$(UTILS_DIR)path_finder_utils.c \

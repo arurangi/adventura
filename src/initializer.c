@@ -6,7 +6,7 @@
 /*   By: lupin <lupin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 09:40:40 by arurangi          #+#    #+#             */
-/*   Updated: 2023/05/15 15:51:59 by lupin            ###   ########.fr       */
+/*   Updated: 2023/05/25 10:20:42 by lupin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ int	game_init(t_game *game, char **av)
 	map_init(game, av);
 	if (map_checker(game) == 0)
 		return (0);
-	game->window = mlx_new_window(game->mlx, game->map_width * TILE,
-			game->map_height * TILE + (HUD + 40), "Adventura");
+	game->window = mlx_new_window(game->mlx, game->map_width * TILE_SIZE,
+			game->map_height * TILE_SIZE + (HUD_HEIGHT + 40), "Adventura");
 	if (game->window == NULL)
 	{
 		free(game->window);

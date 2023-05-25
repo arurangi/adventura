@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   input.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
+/*   By: lupin <lupin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 09:34:07 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/13 20:14:48 by Arsene           ###   ########.fr       */
+/*   Updated: 2023/05/25 10:36:33 by lupin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,12 @@
 
 #include "../so_long.h"
 
+void	process_input(t_game *game)
+{
+	mlx_hook(game->window, keypress, keypress_mask, &handle_input, game);
+	mlx_hook(game->window, destroy_notify, leave_window_mask, &end_game, game);
+}
+
 int	handle_input(int keysym, t_game *game)
 {
 	int	*x;
@@ -26,9 +32,9 @@ int	handle_input(int keysym, t_game *game)
 	y = &game->y_shift;
 	if (!game)
 		return (error_msg(0, "game struct missing, can't handle input"));
-	if (keysym == LEFT || keysym == RIGHT || keysym == UP || keysym == DOWN)
+	if (is_arrow_keys(keysym))
 		move(game, keysym, game->x_shift, game->y_shift);
-	if (keysym == ESC || game->life_points == 0
+	if (keysym == ESC_KEY || game->life_points == 0
 		|| (game->map[*y][*x] == 'E' && game->c_credit == 0))
 		end_game(game);
 	if (game->map[*y][*x] == 'C' || game->map[*y][*x] == 'T')
@@ -37,5 +43,19 @@ int	handle_input(int keysym, t_game *game)
 			game->c_credit -= 1;
 		game->map[*y][*x] = '0';
 	}
+	return (0);
+}
+
+int	end_game(t_game *game)
+{
+	if (game->map != NULL)
+		free_matrix(game->map);
+	if (game->window != NULL)
+	{
+		mlx_clear_window(game->mlx, game->window);
+		mlx_destroy_window(game->mlx, game->window);
+	}
+	free(game->mlx);
+	exit(EXIT_SUCCESS);
 	return (0);
 }

@@ -6,11 +6,20 @@
 /*   By: lupin <lupin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 16:06:13 by arurangi          #+#    #+#             */
-/*   Updated: 2023/05/25 09:28:20 by lupin            ###   ########.fr       */
+/*   Updated: 2023/05/25 10:37:29 by lupin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../so_long.h"
+
+int	is_arrow_keys(int keysym)
+{
+	if (keysym == LEFT_KEY || keysym == RIGHT_KEY
+		|| keysym == UP_KEY || keysym == DOWN_KEY)
+		return (TRUE);
+	return (FALSE);
+	
+}
 
 int	is_walkable(t_game *game, char ch)
 {
@@ -36,28 +45,28 @@ void	move(t_game *game, int keysym, int x, int y)
 {
 	switch (keysym)
 	{
-		case LEFT: {
-			game->plr_angle = 18;
-			if (is_walkable(game, game->map[y][x - VELOCITY]))
-				game->x_shift -= VELOCITY;
+		case LEFT_KEY: {
+			game->plr_angle = WEST;
+			if (is_walkable(game, game->map[y][x - PLAYER_JUMP]))
+				game->x_shift -= PLAYER_JUMP;
 			break ;
 		}
-		case RIGHT: {
-			game->plr_angle = 19;
-			if (is_walkable(game, game->map[y][x + VELOCITY]))
-				game->x_shift += VELOCITY;
+		case RIGHT_KEY: {
+			game->plr_angle = EAST;
+			if (is_walkable(game, game->map[y][x + PLAYER_JUMP]))
+				game->x_shift += PLAYER_JUMP;
 			break ;
 		}
-		case DOWN: {
-			game->plr_angle = 16;
-			if (is_walkable(game, game->map[y + VELOCITY][x]))
-				game->y_shift += VELOCITY;
+		case DOWN_KEY: {
+			game->plr_angle = SOUTH;
+			if (is_walkable(game, game->map[y + PLAYER_JUMP][x]))
+				game->y_shift += PLAYER_JUMP;
 			break ;
 		}
-		case UP: {
-			game->plr_angle = 17;
-			if (is_walkable(game, game->map[y - VELOCITY][x]))
-				game->y_shift -= VELOCITY;
+		case UP_KEY: {
+			game->plr_angle = NORTH;
+			if (is_walkable(game, game->map[y - PLAYER_JUMP][x]))
+				game->y_shift -= PLAYER_JUMP;
 			break ;
 		}
 	}
