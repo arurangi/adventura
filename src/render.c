@@ -6,7 +6,7 @@
 /*   By: lupin <lupin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 12:29:26 by Arsene            #+#    #+#             */
-/*   Updated: 2023/05/21 16:17:39 by lupin            ###   ########.fr       */
+/*   Updated: 2023/05/22 09:04:39 by lupin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ int	render(t_game *game)
 	int	row;
 	int	col;
 
-	// mlx_clear_window(game->mlx, game->window);
 	render_hud(game);
 	row = 0;
 	while (row < game->map_height)
@@ -37,9 +36,9 @@ int	render(t_game *game)
 			identify_sprites(game, row, col++);
 		row++;
 	}
-	update_life_points(game);
 	render_sprite(game, game->plr_angle, game->x_shift, game->y_shift);
-	mlx_do_sync(game->mlx);
+	update_life_points(game);
+	//mlx_do_sync(game->mlx);
 	return (0);
 }
 
