@@ -6,7 +6,7 @@
 /*   By: lupin <lupin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 12:29:26 by Arsene            #+#    #+#             */
-/*   Updated: 2023/05/25 16:32:30 by lupin            ###   ########.fr       */
+/*   Updated: 2023/05/25 18:20:58 by lupin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,19 +43,17 @@ int	render(t_game *game)
 		{
 			if (game->map[row][col] == 'N')
 				animate(game, col, row);
+			else if (game->map[row][col] == 'E' && game->c_credit == 0)
+				render_sprite(game, _exit_opened, col, row);
 			col++;
 		}
 		row++;
 	}
-	
-	//mlx_do_sync(game->mlx);
-
 	return (0);
 }
 
 void	identify_sprites(t_game *game, int row, int col)
 {
-	
 	switch (game->map[row][col])
 	{
 		case '0': {
@@ -90,21 +88,6 @@ void	identify_sprites(t_game *game, int row, int col)
 			break ;
 		}
 	}
-
-
-		
-	// if (game->map[row][col] == '0' || game->map[row][col] == 'P')
-	// 	render_sprite(game, _emptyspace, col, row);
-	// else if (game->map[row][col] == '1')
-	// 	identify_walls(game, col, row);
-	// else if (game->map[row][col] == 'C')
-	// 	render_sprite(game, _coins, col, row);
-	// else if (game->map[row][col] == 'T')
-	// 	render_sprite(game, _treasure_chest, col, row);
-	// else if (game->map[row][col] == 'E')
-	// 	identify_exit(game, col, row);
-	// else if (game->map[row][col] == 'N')
-	// 	animate(game, col, row);
 }
 
 void	update_life_points(t_game *game)
