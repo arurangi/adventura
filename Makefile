@@ -6,7 +6,7 @@
 #    By: lupin <lupin@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/19 13:37:59 by arurangi          #+#    #+#              #
-#    Updated: 2023/05/21 16:19:27 by lupin            ###   ########.fr        #
+#    Updated: 2023/05/25 08:58:22 by lupin            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -67,6 +67,9 @@ $(LIBFT):
 				@make -C $(LIBFT_DIR)
 
 all:		$(NAME) 
+
+sub-module:
+			git submodule update --init --recursive
 
 run:
 			./$(NAME) $(MAPS_DIR)$(LEVEL)
