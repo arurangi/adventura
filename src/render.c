@@ -6,7 +6,7 @@
 /*   By: lupin <lupin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 12:29:26 by Arsene            #+#    #+#             */
-/*   Updated: 2023/05/25 10:09:53 by lupin            ###   ########.fr       */
+/*   Updated: 2023/05/25 10:42:29 by lupin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	render(t_game *game)
 	}
 	render_sprite(game, game->plr_angle, game->x_shift, game->y_shift);
 	update_life_points(game);
-	//mlx_do_sync(game->mlx);
+	mlx_do_sync(game->mlx);
 	return (0);
 }
 

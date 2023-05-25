@@ -6,7 +6,7 @@
 /*   By: lupin <lupin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 14:01:48 by arurangi          #+#    #+#             */
-/*   Updated: 2023/05/25 10:37:02 by lupin            ###   ########.fr       */
+/*   Updated: 2023/05/25 11:03:29 by lupin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,9 @@
 # define VELOCITY 1
 # define PLAYER_JUMP 1
 # define BUFFER_SIZE 1
+
+# define STATE_PERIOD 6
+# define LAST_FRAME_INDEX 4
 
 # define NORTH 17
 # define SOUTH 16
@@ -104,6 +107,7 @@ typedef struct s_asset
 typedef struct s_game {
 	void		*mlx;
 	void		*window;
+	
 	char		**map;
 	char		*map_filepath;
 	int			map_height;
@@ -112,15 +116,20 @@ typedef struct s_game {
 	int			e_credit;
 	int			p_credit;
 	t_node		starting_pos;
+	
 	t_asset		sprites[SPRITES_NBR];
+	
 	int			x_shift;
 	int			y_shift;
 	int			plr_angle;
-	int			movements;
-	int			state;
-	int			life_points;
-	int			delay;
 	int			polarity;
+	
+	int			animation_state;
+	int			delay;
+	
+	int			steps_count;
+	int			life_points;
+	
 }	t_game;
 
 /* START/END */

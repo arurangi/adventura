@@ -6,7 +6,7 @@
 /*   By: lupin <lupin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 15:15:51 by arurangi          #+#    #+#             */
-/*   Updated: 2023/05/25 10:21:34 by lupin            ###   ########.fr       */
+/*   Updated: 2023/05/25 11:03:54 by lupin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	render_hud(t_game *game)
 			game->map_height * TILE_SIZE + HUD_HEIGHT);
 		i += 40;
 	}
-	hud_data[0] = ft_itoa(game->movements);
+	hud_data[0] = ft_itoa(game->steps_count);
 	hud_data[1] = ft_itoa(game->life_points);
 	mlx_put_image_to_window(game->mlx, game->window,
 		game->sprites[game->life_points + 24].img, TILE_SIZE, 20);

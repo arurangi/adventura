@@ -6,7 +6,7 @@
 /*   By: lupin <lupin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 16:06:13 by arurangi          #+#    #+#             */
-/*   Updated: 2023/05/25 10:37:29 by lupin            ###   ########.fr       */
+/*   Updated: 2023/05/25 11:03:40 by lupin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ int	is_walkable(t_game *game, char ch)
 {
 	if (ch == '0' || ch == 'C' || ch == 'P' || ch == 'T' || ch == 'E')
 	{
-		game->movements += 1;
-		ft_printf("steps: %d\n", game->movements);
+		game->steps_count += 1;
+		ft_printf("steps: %d\n", game->steps_count);
 		return (1);
 	}
 	if (ch == 'N')
