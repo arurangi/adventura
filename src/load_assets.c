@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   load_assets.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
+/*   By: lupin <lupin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 22:00:20 by Arsene            #+#    #+#             */
-/*   Updated: 2022/12/13 20:34:14 by Arsene           ###   ########.fr       */
+/*   Updated: 2023/05/26 18:03:38 by lupin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 int	load_assets(t_game *game)
 {
 	game->sprites[0].path = "assets/sprites/empty_space.xpm";
+	
 	game->sprites[1].path = "assets/sprites/wall.xpm";
 	game->sprites[2].path = "assets/sprites/wall_top_left.xpm";
 	game->sprites[3].path = "assets/sprites/wall_top_right.xpm";
@@ -31,14 +32,18 @@ int	load_assets(t_game *game)
 	game->sprites[9].path = "assets/sprites/wall_middle_left2.xpm";
 	game->sprites[10].path = "assets/sprites/wall_middle_right1.xpm";
 	game->sprites[11].path = "assets/sprites/wall_middle_right2.xpm";
+	
 	game->sprites[12].path = "assets/sprites/coins.xpm";
 	game->sprites[13].path = "assets/sprites/treasure_chest.xpm";
+	
 	game->sprites[14].path = "assets/sprites/exit_closed.xpm";
 	game->sprites[15].path = "assets/sprites/exit_opened.xpm";
+	
 	game->sprites[16].path = "assets/sprites/player_down.xpm";
 	game->sprites[17].path = "assets/sprites/player_up.xpm";
 	game->sprites[18].path = "assets/sprites/player_left.xpm";
 	game->sprites[19].path = "assets/sprites/player_right.xpm";
+	
 	game->sprites[20].path = "assets/sprites/enemy_0.xpm";
 	game->sprites[21].path = "assets/sprites/enemy_1.xpm";
 	game->sprites[22].path = "assets/sprites/enemy_2.xpm";

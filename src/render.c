@@ -6,7 +6,7 @@
 /*   By: lupin <lupin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 12:29:26 by Arsene            #+#    #+#             */
-/*   Updated: 2023/05/26 17:55:00 by lupin            ###   ########.fr       */
+/*   Updated: 2023/05/26 18:09:56 by lupin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ void	add_node_back(t_list **list, int x, int y)
 		return ;
 	new->x = x;
 	new->y = y;
+	new->delay = 0; // random ???
+	new->state = 0; // random ???
 	new->next = NULL;
 
 	if (!*list) {
@@ -118,6 +120,15 @@ int	render(t_game *game)
 	}
 	// animated objects {enemies, coins}
 	print_list(game->enemies);
+
+	t_list *enemy_list = game->enemies;
+	while (enemy_list) {
+		animate(game, enemy_list->x, enemy_list->y);
+		enemy_list = enemy_list->next;
+	}
+	// traverse the list of enemies
+		// update their state
+		// move them
 	
 	row = 0;
 	while (row < game->map_height)
@@ -125,9 +136,9 @@ int	render(t_game *game)
 		col = 0;
 		while (col < game->map_width)
 		{
-			if (game->map[row][col] == 'N')
-				animate(game, col, row);
-			else if (game->map[row][col] == 'E' && game->c_credit == 0)
+			// if (game->map[row][col] == 'N')
+			// 	animate(game, col, row);
+			if (game->map[row][col] == 'E' && game->c_credit == 0)
 				render_sprite(game, _exit_opened, col, row);
 			col++;
 		}

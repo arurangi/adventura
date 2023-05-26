@@ -6,7 +6,7 @@
 /*   By: lupin <lupin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 14:01:48 by arurangi          #+#    #+#             */
-/*   Updated: 2023/05/26 17:49:52 by lupin            ###   ########.fr       */
+/*   Updated: 2023/05/26 18:02:34 by lupin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,13 +103,15 @@ typedef struct s_node{
 	int				col;
 }	t_node;
 
+
 typedef struct s_list {
-	int x;
-	int y;
-	int state;
-	int delay;
-	struct s_list *next;
+	int				x;
+	int				y;
+	int				state;
+	int				delay;
+	struct s_list	*next;
 }	t_list;
+
 
 typedef struct s_asset
 {
