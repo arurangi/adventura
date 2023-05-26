@@ -6,7 +6,7 @@
 /*   By: lupin <lupin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 16:06:13 by arurangi          #+#    #+#             */
-/*   Updated: 2023/05/25 14:30:49 by lupin            ###   ########.fr       */
+/*   Updated: 2023/05/25 20:04:06 by lupin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	is_arrow_keys(int keysym)
 
 int	is_walkable(t_game *game, char ch)
 {
-	if (ch == '0' || ch == 'C' || ch == 'P' || ch == 'T' || ch == 'E')
+	if (ch == '0' || ch == 'C' || ch == 'P' || ch == 'T' || (ch == 'E' && game->c_credit == 0))
 	{
 		game->steps_count += 1;
 		ft_printf("steps: %d\n", game->steps_count);
@@ -49,7 +49,6 @@ void	move(t_game *game, int keysym, int x, int y)
 		case LEFT_KEY: {
 			game->plr_angle = WEST;
 			if (is_walkable(game, game->map[y][x - PLAYER_JUMP])) {
-				// game->x_last = game->x_shift;
 				render_sprite(game, _emptyspace, x, y);
 				game->x_shift -= PLAYER_JUMP;
 			}
@@ -58,7 +57,6 @@ void	move(t_game *game, int keysym, int x, int y)
 		case RIGHT_KEY: {
 			game->plr_angle = EAST;
 			if (is_walkable(game, game->map[y][x + PLAYER_JUMP])) {
-				// game->x_last = game->x_shift;	
 				render_sprite(game, _emptyspace, x, y);
 				game->x_shift += PLAYER_JUMP;
 			}
@@ -67,7 +65,6 @@ void	move(t_game *game, int keysym, int x, int y)
 		case DOWN_KEY: {
 			game->plr_angle = SOUTH;
 			if (is_walkable(game, game->map[y + PLAYER_JUMP][x])) {
-				// game->y_last = game->y_shift;
 				render_sprite(game, _emptyspace, x, y);
 				game->y_shift += PLAYER_JUMP;
 			}
@@ -76,7 +73,6 @@ void	move(t_game *game, int keysym, int x, int y)
 		case UP_KEY: {
 			game->plr_angle = NORTH;
 			if (is_walkable(game, game->map[y - PLAYER_JUMP][x])) {
-				// game->y_last = game->y_shift;
 				render_sprite(game, _emptyspace, x, y);
 				game->y_shift -= PLAYER_JUMP;
 			}

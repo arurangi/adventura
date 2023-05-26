@@ -6,13 +6,13 @@
 #    By: lupin <lupin@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/19 13:37:59 by arurangi          #+#    #+#              #
-#    Updated: 2023/05/25 18:21:11 by lupin            ###   ########.fr        #
+#    Updated: 2023/05/26 07:11:58 by lupin            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # PROGRAM
 NAME		= 	so_long
-lvl			=	2
+lvl			=	3
 LEVEL		=	00$(lvl).ber
 LIBFT		=	./src/libft/libft.a
 

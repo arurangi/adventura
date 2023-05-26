@@ -6,7 +6,7 @@
 /*   By: lupin <lupin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 14:01:48 by arurangi          #+#    #+#             */
-/*   Updated: 2023/05/25 16:32:17 by lupin            ###   ########.fr       */
+/*   Updated: 2023/05/25 21:07:58 by lupin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,15 @@
 # define PLAYER_JUMP 1
 # define BUFFER_SIZE 1
 
+#define HUD_STR1_Y (HUD_HEIGHT - 35) // life points
+#define HUD_STR1_X (TILE_SIZE * 2 + 5)
+#define HUD_STR2_Y (HUD_HEIGHT - 35) // steps
+#define HUD_STR2_X  (TILE_SIZE * 3 + 40)
+
+
 # define STATE_PERIOD 15
-# define LAST_FRAME_INDEX 4
+# define FIRST_FRAME_INDEX 20
+# define NBR_OF_FRAMES 4
 
 # define NORTH 17
 # define SOUTH 16

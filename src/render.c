@@ -6,7 +6,7 @@
 /*   By: lupin <lupin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 12:29:26 by Arsene            #+#    #+#             */
-/*   Updated: 2023/05/25 18:20:58 by lupin            ###   ########.fr       */
+/*   Updated: 2023/05/25 20:44:35 by lupin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	render(t_game *game)
 		update_life_points(game);
 		game->player_moved = FALSE;
 	}
-	// animated objects
+	// animated objects {enemies, coins}
 	row = 0;
 	while (row < game->map_height)
 	{

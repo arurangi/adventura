@@ -6,7 +6,7 @@
 /*   By: lupin <lupin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 15:15:51 by arurangi          #+#    #+#             */
-/*   Updated: 2023/05/25 18:12:19 by lupin            ###   ########.fr       */
+/*   Updated: 2023/05/25 19:29:05 by lupin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,13 +47,13 @@ void	render_hud(t_game *game)
 	mlx_put_image_to_window(game->mlx, game->window,								// draw heart
 		game->sprites[game->life_points + 24].img, TILE_SIZE, 20);
 	mlx_string_put(game->mlx, game->window,											// write life pointa
-		TILE_SIZE * 2, HUD_HEIGHT - 50, rgbify(255, 255, 255), hud_data[1]);
+		HUD_STR1_X, HUD_STR1_Y, rgbify(255, 255, 255), hud_data[1]);
 
-	// Step counts
+	// Step count
 	mlx_put_image_to_window(game->mlx, game->window,								// draw steps
 		game->sprites[30].img, TILE_SIZE * 3, 20);
 	mlx_string_put(game->mlx, game->window,											// write steps count
-		TILE_SIZE * 3 + 40, HUD_HEIGHT - 50, rgbify(255, 255, 255), hud_data[0]);
+		HUD_STR2_X, HUD_STR2_Y, rgbify(255, 255, 255), hud_data[0]);
 
 	free_hud(hud_data);
 }
@@ -72,10 +72,10 @@ void	render_hud_values(t_game *game)
 	mlx_put_image_to_window(game->mlx, game->window, img_ptr, TILE_SIZE * 4 - 4, HUD_HEIGHT - 75);
 	// Print life points
 	mlx_string_put(game->mlx, game->window,
-		TILE_SIZE * 2, HUD_HEIGHT - 50, rgbify(255, 255, 255), hud_data[1]);
+		HUD_STR1_X, HUD_STR1_Y, rgbify(255, 255, 255), hud_data[1]);
 	// Print steps count
 	mlx_string_put(game->mlx, game->window,
-		TILE_SIZE * 3 + 40, HUD_HEIGHT - 50, rgbify(255, 255, 255), hud_data[0]);
+		HUD_STR2_X, HUD_STR2_Y, rgbify(255, 255, 255), hud_data[0]);
 	free_hud(hud_data);
 }
 
