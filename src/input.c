@@ -6,7 +6,7 @@
 /*   By: lupin <lupin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 09:34:07 by arurangi          #+#    #+#             */
-/*   Updated: 2023/05/25 10:36:33 by lupin            ###   ########.fr       */
+/*   Updated: 2023/05/26 08:15:08 by lupin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,13 +48,15 @@ int	handle_input(int keysym, t_game *game)
 
 int	end_game(t_game *game)
 {
-	if (game->map != NULL)
-		free_matrix(game->map);
 	if (game->window != NULL)
 	{
 		mlx_clear_window(game->mlx, game->window);
+		//draw_black_screen(game);
+		//usleep(1000000);
 		mlx_destroy_window(game->mlx, game->window);
 	}
+	if (game->map != NULL)
+		free_matrix(game->map);
 	free(game->mlx);
 	exit(EXIT_SUCCESS);
 	return (0);

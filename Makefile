@@ -6,13 +6,13 @@
 #    By: lupin <lupin@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/19 13:37:59 by arurangi          #+#    #+#              #
-#    Updated: 2023/05/26 07:11:58 by lupin            ###   ########.fr        #
+#    Updated: 2023/05/26 17:52:32 by lupin            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # PROGRAM
 NAME		= 	so_long
-lvl			=	3
+lvl			=	5
 LEVEL		=	00$(lvl).ber
 LIBFT		=	./src/libft/libft.a
 
@@ -34,6 +34,7 @@ SRCS		= 	$(SRC_DIR)main.c \
 				$(SRC_DIR)initializer.c \
 				$(SRC_DIR)load_assets.c \
 				$(SRC_DIR)animate.c \
+				$(SRC_DIR)display.c \
 				$(UTILS_DIR)map_checker_utils.c \
 				$(UTILS_DIR)path_finder_utils.c \
 				$(UTILS_DIR)error_handling.c \

@@ -6,7 +6,7 @@
 /*   By: lupin <lupin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 14:01:48 by arurangi          #+#    #+#             */
-/*   Updated: 2023/05/25 21:07:58 by lupin            ###   ########.fr       */
+/*   Updated: 2023/05/26 17:49:52 by lupin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,9 +99,17 @@ typedef enum e_sprite {
 
 /* STRUCTURES */
 typedef struct s_node{
-	int		row;
-	int		col;
+	int				row;
+	int				col;
 }	t_node;
+
+typedef struct s_list {
+	int x;
+	int y;
+	int state;
+	int delay;
+	struct s_list *next;
+}	t_list;
 
 typedef struct s_asset
 {
@@ -128,6 +136,8 @@ typedef struct s_game {
 
 	int			x_last;
 	int			y_last;
+
+	t_list		*enemies;
 	
 	int			x_shift;
 	int			y_shift;
@@ -210,5 +220,14 @@ int			success_msg(int return_code, char *message, ...);
 void		update_life_points(t_game *game);
 void		render_and_update(t_game *game);
 void		process_input(t_game *game);
+
+void		draw_map(t_game *game);
+void		draw_black_screen(t_game *game);
+void		render_sprite_nohud(t_game *game, int asset, int col, int row);
+
+// Lists
+t_list	*find_last_node(t_list *lst);
+void	ft_lstadd_back(t_list **lst, int x, int y);
+void    print_list(t_list *list);
 
 #endif

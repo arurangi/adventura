@@ -6,7 +6,7 @@
 /*   By: lupin <lupin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 15:15:51 by arurangi          #+#    #+#             */
-/*   Updated: 2023/05/25 19:29:05 by lupin            ###   ########.fr       */
+/*   Updated: 2023/05/26 08:14:11 by lupin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,16 @@ void	render_sprite(t_game *game, int asset, int col, int row)
 	img_ptr = game->sprites[asset].img;
 	mlx_put_image_to_window(game->mlx, game->window,
 		img_ptr, col * TILE_SIZE, row * TILE_SIZE + HUD_HEIGHT);
+	mlx_do_sync(game->mlx);
+}
+
+void	render_sprite_nohud(t_game *game, int asset, int col, int row)
+{
+	void	*img_ptr;
+
+	img_ptr = game->sprites[asset].img;
+	mlx_put_image_to_window(game->mlx, game->window,
+		img_ptr, col * TILE_SIZE, row * TILE_SIZE);
 	mlx_do_sync(game->mlx);
 }
 
