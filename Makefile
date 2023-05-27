@@ -6,7 +6,7 @@
 #    By: lupin <lupin@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/19 13:37:59 by arurangi          #+#    #+#              #
-#    Updated: 2023/05/26 17:52:32 by lupin            ###   ########.fr        #
+#    Updated: 2023/05/27 12:27:46 by lupin            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,11 +46,12 @@ SRCS		= 	$(SRC_DIR)main.c \
 # VARIABLES
 COMPILER	= 	gcc
 C_FLAGS		=	-Wall -Wextra -Werror $(SANITIZE)
-SANITIZE	=	-g -fsanitize=address
+SANITIZE	=	#-g -fsanitize=address
 FRAMEWORK	=	-framework OpenGL -framework AppKit
 LIB_FLAGS	=	-L$(X11_PATH) -lX11 -lXext -L$(MLX_PATH) -lmlx 
 OBJ			=	${SRCS:.c=.o}
 rm			=	rm -f
+INC			=	-I./includes -I./src/libft -I./mlx
 
 LIBX		=	/Users/lupin/Documents/education/coding/cursus/so_long/minilibx-linux
 
@@ -59,7 +60,7 @@ LIBX		=	/Users/lupin/Documents/education/coding/cursus/so_long/minilibx-linux
 # 				@$(COMPILER) $(C_FLAGS) -Imlx -c $< -o $@
 
 %.o: %.c
-	$(COMPILER) $(C_FLAGS) -Imlx -c $< -o $@
+	$(COMPILER) $(C_FLAGS) $(INC) -Imlx -c $< -o $@
 
 $(NAME): 	$(OBJ) $(LIBFT)
 				@$(COMPILER) $(C_FLAGS) $(OBJ) $(LIBFT_DIR)libft.a $(LIB_FLAGS) $(FRAMEWORK) -o $(NAME)

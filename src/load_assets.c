@@ -6,7 +6,7 @@
 /*   By: lupin <lupin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 22:00:20 by Arsene            #+#    #+#             */
-/*   Updated: 2023/05/26 18:03:38 by lupin            ###   ########.fr       */
+/*   Updated: 2023/05/27 12:28:47 by lupin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
  * in an array for later use
 */
 
-#include "../so_long.h"
+#include "so_long.h"
 
 int	load_assets(t_game *game)
 {
@@ -48,18 +48,16 @@ int	load_assets(t_game *game)
 	game->sprites[21].path = "assets/sprites/enemy_1.xpm";
 	game->sprites[22].path = "assets/sprites/enemy_2.xpm";
 	game->sprites[23].path = "assets/sprites/enemy_3.xpm";
-	return (save_assets(game));
-}
 
-void	load_heart(t_game *game)
-{
 	game->sprites[24].path = "assets/sprites/health_0.xpm";
 	game->sprites[25].path = "assets/sprites/health_10.xpm";
 	game->sprites[26].path = "assets/sprites/health_25.xpm";
 	game->sprites[27].path = "assets/sprites/health_50.xpm";
 	game->sprites[28].path = "assets/sprites/health_75.xpm";
 	game->sprites[29].path = "assets/sprites/health_100.xpm";
+	
 	game->sprites[30].path = "assets/sprites/footsteps.xpm";
+	return (save_assets(game));
 }
 
 int	save_assets(t_game *game)
@@ -67,11 +65,11 @@ int	save_assets(t_game *game)
 	int	i;
 
 	i = 0;
-	load_heart(game);
 	while (i < SPRITES_NBR)
 	{
 		game->sprites[i].img = mlx_xpm_file_to_image(game->mlx,
-				game->sprites[i].path, &game->sprites[i].width,
+				game->sprites[i].path,
+				&game->sprites[i].width,
 				&game->sprites[i].height);
 		if (game->sprites[i].img == NULL)
 			return (error_msg(0, "can't save asset: %s",

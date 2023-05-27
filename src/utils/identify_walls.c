@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   identify_walls.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
+/*   By: lupin <lupin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 13:43:53 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/13 20:16:25 by Arsene           ###   ########.fr       */
+/*   Updated: 2023/05/27 12:29:05 by lupin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../so_long.h"
+#include "so_long.h"
 
 void	top_walls(t_game *game, int x, int y)
 {

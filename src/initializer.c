@@ -6,7 +6,7 @@
 /*   By: lupin <lupin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 09:40:40 by arurangi          #+#    #+#             */
-/*   Updated: 2023/05/26 08:00:16 by lupin            ###   ########.fr       */
+/*   Updated: 2023/05/27 12:28:40 by lupin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
  * - initialize player position and movement count 
 */
 
-#include "../so_long.h"
+#include "so_long.h"
 
 int	game_init(t_game *game, char **av)
 {

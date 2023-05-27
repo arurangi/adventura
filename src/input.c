@@ -6,7 +6,7 @@
 /*   By: lupin <lupin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 09:34:07 by arurangi          #+#    #+#             */
-/*   Updated: 2023/05/26 08:15:08 by lupin            ###   ########.fr       */
+/*   Updated: 2023/05/27 12:28:44 by lupin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
  * move in all directions within the walls
 */
 
-#include "../so_long.h"
+#include "so_long.h"
 
 void	process_input(t_game *game)
 {

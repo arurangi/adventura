@@ -6,11 +6,11 @@
 /*   By: lupin <lupin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 17:47:00 by lupin             #+#    #+#             */
-/*   Updated: 2023/05/26 17:51:16 by lupin            ###   ########.fr       */
+/*   Updated: 2023/05/27 12:28:37 by lupin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "so_long.h"
 
 void    print_list(t_list *list)
 {

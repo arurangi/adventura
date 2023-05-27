@@ -6,7 +6,7 @@
 /*   By: lupin <lupin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 12:29:26 by Arsene            #+#    #+#             */
-/*   Updated: 2023/05/26 18:09:56 by lupin            ###   ########.fr       */
+/*   Updated: 2023/05/27 12:28:54 by lupin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
  * based on their location on the map
  */
 
-#include "../so_long.h"
+#include "so_long.h"
 
 void	add_node_back(t_list **list, int x, int y)
 {
@@ -25,7 +25,8 @@ void	add_node_back(t_list **list, int x, int y)
 	new->x = x;
 	new->y = y;
 	new->delay = 0; // random ???
-	new->state = 0; // random ???
+	
+	new->frame = 0; // random ???
 	new->next = NULL;
 
 	if (!*list) {
@@ -118,12 +119,22 @@ int	render(t_game *game)
 		update_life_points(game);
 		game->player_moved = FALSE;
 	}
-	// animated objects {enemies, coins}
-	print_list(game->enemies);
 
+	// animated objects {enemies, coins}
 	t_list *enemy_list = game->enemies;
 	while (enemy_list) {
-		animate(game, enemy_list->x, enemy_list->y);
+		// animate(game, enemy_list->x, enemy_list->y);
+
+		//animate sprite
+		int frame = enemy_list->frame;
+		render_sprite(game, frame + FIRST_FRAME_INDEX, enemy_list->x, enemy_list->y);
+		enemy_list->delay += 1;
+		if (enemy_list->delay % STATE_PERIOD == STATE_PERIOD - 1)
+			enemy_list->frame = (frame + 1) % NBR_OF_FRAMES;
+		usleep(10000);
+		// move sprite
+
+		
 		enemy_list = enemy_list->next;
 	}
 	// traverse the list of enemies

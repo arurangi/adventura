@@ -6,7 +6,7 @@
 /*   By: lupin <lupin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 11:36:54 by arurangi          #+#    #+#             */
-/*   Updated: 2023/05/26 08:06:06 by lupin            ###   ########.fr       */
+/*   Updated: 2023/05/27 12:22:42 by lupin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
  * - start the game loop
 */
 
-#include "../so_long.h"
+#include "so_long.h"
 
 int	main(int ac, char **av)
 {

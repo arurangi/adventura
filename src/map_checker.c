@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_checker.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
+/*   By: lupin <lupin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 11:05:41 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/13 20:15:01 by Arsene           ###   ########.fr       */
+/*   Updated: 2023/05/27 12:28:12 by lupin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
  * - valid path
 */
 
-#include "../so_long.h"
+#include "so_long.h"
 
 int	map_checker(t_game *game)
 {

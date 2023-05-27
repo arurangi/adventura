@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   error_handling.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Arsene <Arsene@student.42.fr>              +#+  +:+       +#+        */
+/*   By: lupin <lupin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 11:38:48 by arurangi          #+#    #+#             */
-/*   Updated: 2022/12/13 20:16:11 by Arsene           ###   ########.fr       */
+/*   Updated: 2023/05/27 12:29:00 by lupin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../so_long.h"
+#include "so_long.h"
 
 int	error_msg(int return_code, char *message, ...)
 {

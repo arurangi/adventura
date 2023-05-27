@@ -6,11 +6,11 @@
 /*   By: lupin <lupin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 16:06:13 by arurangi          #+#    #+#             */
-/*   Updated: 2023/05/25 20:04:06 by lupin            ###   ########.fr       */
+/*   Updated: 2023/05/27 12:29:09 by lupin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../so_long.h"
+#include "so_long.h"
 
 int	is_arrow_keys(int keysym)
 {

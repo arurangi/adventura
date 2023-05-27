@@ -6,11 +6,11 @@
 /*   By: lupin <lupin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 15:15:51 by arurangi          #+#    #+#             */
-/*   Updated: 2023/05/26 08:14:11 by lupin            ###   ########.fr       */
+/*   Updated: 2023/05/27 12:29:25 by lupin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../so_long.h"
+#include "so_long.h"
 
 void	render_sprite(t_game *game, int asset, int col, int row)
 {

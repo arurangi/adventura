@@ -16,7 +16,7 @@
  * and a queue as data structure
 */
 
-#include "../so_long.h"
+#include "so_long.h"
 
 int	path_finder(t_game *game)
 {

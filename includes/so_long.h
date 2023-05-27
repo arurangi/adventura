@@ -1,38 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   memory_management.c                                :+:      :+:    :+:   */
+/*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lupin <lupin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/07 14:58:19 by Arsene            #+#    #+#             */
-/*   Updated: 2023/05/27 12:29:18 by lupin            ###   ########.fr       */
+/*   Created: 2022/10/04 14:01:48 by arurangi          #+#    #+#             */
+/*   Updated: 2023/05/27 12:38:53 by lupin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#ifndef SO_LONG_H
+# define SO_LONG_H
 
-int	free_arr_nodes(int return_code, t_node *arr)
-{
-	free(arr);
-	return (return_code);
-}
+// Libraries
+// # include "../src/libft/libft.h"
+# include "libft.h"
+# include "mlx.h"
+# include "functions.h"
 
-void	free_matrix(char **matrix)
-{
-	int	i;
+# include <stdlib.h> 
+# include <unistd.h>
+# include <limits.h>
+# include <stdarg.h>
+# include <stdio.h>
 
-	i = 0;
-	while (matrix[i])
-	{
-		free(matrix[i]);
-		i++;
-	}
-	free(matrix);
-}
-
-void	free_hud(char **hud_data)
-{
-	free(hud_data[0]);
-	free(hud_data[1]);
-}
+#endif
