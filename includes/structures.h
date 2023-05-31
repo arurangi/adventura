@@ -6,7 +6,7 @@
 /*   By: lupin <lupin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 12:33:19 by lupin             #+#    #+#             */
-/*   Updated: 2023/05/27 12:44:04 by lupin            ###   ########.fr       */
+/*   Updated: 2023/05/27 20:32:58 by lupin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ typedef struct s_list {
 	int				frame;
 	int				asset_offset;
 	int				nbr_frames;
+	int				direction;
 	int				delay;
 	u_int8_t		type;
 	struct s_list	*next;

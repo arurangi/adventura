@@ -6,7 +6,7 @@
 /*   By: lupin <lupin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 12:31:06 by lupin             #+#    #+#             */
-/*   Updated: 2023/05/27 12:38:47 by lupin            ###   ########.fr       */
+/*   Updated: 2023/05/30 19:52:38 by lupin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,13 @@
 
 # define TILE_SIZE 40
 # define HUD_HEIGHT 80
-# define SPRITES_NBR 31
+# define SPRITES_NBR 32
 # define VELOCITY 1
 # define PLAYER_JUMP 1
 # define BUFFER_SIZE 1
+
+# define FPS 30
+# define FRAME_TIME_LENGTH (1000 / FPS)
 
 # define HUD_STR1_Y (HUD_HEIGHT - 35) // life points
 # define HUD_STR1_X (TILE_SIZE * 2 + 5)
@@ -86,6 +89,7 @@ typedef enum e_sprite {
 	_enemy2 = 21,
 	_enemy3 = 22,
 	_enemy4 = 23,
+	_game_over = 31
 }	t_sprite;
 
 #endif

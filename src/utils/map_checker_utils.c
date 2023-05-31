@@ -6,7 +6,7 @@
 /*   By: lupin <lupin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 15:15:12 by arurangi          #+#    #+#             */
-/*   Updated: 2023/05/27 12:29:14 by lupin            ###   ########.fr       */
+/*   Updated: 2023/05/31 10:39:10 by lupin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,13 @@ int	invalid_extension(char *filepath)
 			&& filepath[len - 4] == '.'))
 		return (0);
 	return (1);
+}
+
+int	is_option(char *arg)
+{
+	if (ft_strncmp("--help", arg, 6) == 0)
+		return (1);
+	return (0);
 }
 
 int	valid_character(char ch)

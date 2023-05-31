@@ -6,7 +6,7 @@
 /*   By: lupin <lupin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 12:31:42 by lupin             #+#    #+#             */
-/*   Updated: 2023/05/27 12:43:06 by lupin            ###   ########.fr       */
+/*   Updated: 2023/05/31 10:56:20 by lupin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void		identify_walls(t_game *game, int x, int y);
 void		identify_exit(t_game *game, int x, int y);
 void		top_walls(t_game *game, int x, int y);
 void		bottom_walls(t_game *game, int x, int y);
-void		inner_walls(t_game *game, int x, int y);
+void		side_walls(t_game *game, int x, int y);
 
 int			rgbify(uint8_t red, uint8_t green, uint8_t blue);
 
@@ -76,6 +76,7 @@ void		free_hud(char **hud_data);
 /* ERROR HANDLING */
 int			error_msg(int return_code, char *message, ...);
 int			success_msg(int return_code, char *message, ...);
+void		error_usage(char *msg1, char *msg2);
 
 void		update_life_points(t_game *game);
 void		render_and_update(t_game *game);
@@ -89,5 +90,9 @@ void		render_sprite_nohud(t_game *game, int asset, int col, int row);
 t_list		*find_last_node(t_list *lst);
 void		ft_lstadd_back(t_list **lst, int x, int y);
 void		print_list(t_list *list);
+
+int			is_option(char *arg);
+
+int			show_helper(void);
 
 #endif

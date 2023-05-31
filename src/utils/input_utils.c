@@ -6,7 +6,7 @@
 /*   By: lupin <lupin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 16:06:13 by arurangi          #+#    #+#             */
-/*   Updated: 2023/05/27 12:29:09 by lupin            ###   ########.fr       */
+/*   Updated: 2023/05/27 12:49:57 by lupin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,42 +41,4 @@ int	is_walkable_enemy(char ch)
 	return (0);
 }
 
-void	move(t_game *game, int keysym, int x, int y)
-{
-	game->player_moved = TRUE;
-	switch (keysym)
-	{
-		case LEFT_KEY: {
-			game->plr_angle = WEST;
-			if (is_walkable(game, game->map[y][x - PLAYER_JUMP])) {
-				render_sprite(game, _emptyspace, x, y);
-				game->x_shift -= PLAYER_JUMP;
-			}
-			break ;
-		}
-		case RIGHT_KEY: {
-			game->plr_angle = EAST;
-			if (is_walkable(game, game->map[y][x + PLAYER_JUMP])) {
-				render_sprite(game, _emptyspace, x, y);
-				game->x_shift += PLAYER_JUMP;
-			}
-			break ;
-		}
-		case DOWN_KEY: {
-			game->plr_angle = SOUTH;
-			if (is_walkable(game, game->map[y + PLAYER_JUMP][x])) {
-				render_sprite(game, _emptyspace, x, y);
-				game->y_shift += PLAYER_JUMP;
-			}
-			break ;
-		}
-		case UP_KEY: {
-			game->plr_angle = NORTH;
-			if (is_walkable(game, game->map[y - PLAYER_JUMP][x])) {
-				render_sprite(game, _emptyspace, x, y);
-				game->y_shift -= PLAYER_JUMP;
-			}
-			break ;
-		}
-	}
-}
+

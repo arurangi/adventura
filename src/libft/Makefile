@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: arurangi <arurangi@student.42.fr>          +#+  +:+       +#+         #
+#    By: lupin <lupin@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/07 07:27:54 by Arsene            #+#    #+#              #
-#    Updated: 2022/12/10 16:25:06 by arurangi         ###   ########.fr        #
+#    Updated: 2023/05/31 10:36:18 by lupin            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,6 +26,7 @@ SRCS	=	ft_strlen.c \
 			ft_strjoin.c \
 			ft_split_fd.c \
 			ft_itoa.c \
+			ft_strncmp.c \
 
 NAME =		libft.a
 

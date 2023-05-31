@@ -6,13 +6,23 @@
 /*   By: lupin <lupin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 15:15:51 by arurangi          #+#    #+#             */
-/*   Updated: 2023/05/27 12:29:25 by lupin            ###   ########.fr       */
+/*   Updated: 2023/05/27 20:05:01 by lupin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
 void	render_sprite(t_game *game, int asset, int col, int row)
+{
+	void	*img_ptr;
+
+	img_ptr = game->sprites[asset].img;
+	mlx_put_image_to_window(game->mlx, game->window,
+		img_ptr, col * TILE_SIZE, row * TILE_SIZE + HUD_HEIGHT);
+	mlx_do_sync(game->mlx);
+}
+
+void	render_player(t_game *game, int asset, int col, int row)
 {
 	void	*img_ptr;
 
@@ -94,17 +104,7 @@ int	rgbify(uint8_t red, uint8_t green, uint8_t blue)
 	return (red << 16 | green << 8 | blue);
 }
 
-void	identify_walls(t_game *game, int x, int y)
-{
-	if (y == 0)
-		top_walls(game, x, y);
-	else if (y == game->map_height - 1)
-		bottom_walls(game, x, y);
-	else if (x == 0 || x == game->map_width - 1)
-		inner_walls(game, x, y);
-	else
-		render_sprite(game, _wall_inside, x, y);
-}
+
 
 // Check whether exit is opened or closed
 void	identify_exit(t_game *game, int x, int y)

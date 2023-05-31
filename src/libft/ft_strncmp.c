@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lupin <lupin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/04 14:01:48 by arurangi          #+#    #+#             */
-/*   Updated: 2023/05/30 20:24:15 by lupin            ###   ########.fr       */
+/*   Created: 2023/05/31 10:35:27 by lupin             #+#    #+#             */
+/*   Updated: 2023/05/31 10:35:29 by lupin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#include "libft.h"
 
-// Libraries
-// # include "../src/libft/libft.h"
-# include "libft.h"
-# include "mlx.h"
-# include "functions.h"
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
+{
+	size_t	i;
 
-# include <stdlib.h> 
-# include <unistd.h>
-# include <limits.h>
-# include <stdarg.h>
-# include <stdio.h>
-# include <time.h>
-
-#endif
+	i = 0;
+	if (n == 0)
+		return (0);
+	if (!s1 || !s2)
+		return (0);
+	while ((unsigned char)s1[i] == (unsigned char)s2[i]
+		&& (unsigned char)s1[i] != '\0' && i < n - 1)
+		i++;
+	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+}

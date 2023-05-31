@@ -6,7 +6,7 @@
 /*   By: lupin <lupin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 11:38:48 by arurangi          #+#    #+#             */
-/*   Updated: 2023/05/27 12:29:00 by lupin            ###   ########.fr       */
+/*   Updated: 2023/05/31 10:30:48 by lupin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,16 @@ int	error_msg(int return_code, char *message, ...)
 	}
 	write(1, "\n", 1);
 	return (return_code);
+}
+
+void	error_usage(char *msg1, char *msg2)
+{
+	ft_putstr("\033[31mError\033[0m (Usage)\n");
+	
+	if (msg1)
+		printf("|_ %s\n", msg1);
+	if (msg2)
+		printf("|_ %s\n", msg2);
 }
 
 int	success_msg(int return_code, char *message, ...)

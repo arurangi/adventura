@@ -6,7 +6,7 @@
 #    By: lupin <lupin@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/19 13:37:59 by arurangi          #+#    #+#              #
-#    Updated: 2023/05/27 12:27:46 by lupin            ###   ########.fr        #
+#    Updated: 2023/05/30 19:37:34 by lupin            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,10 +54,6 @@ rm			=	rm -f
 INC			=	-I./includes -I./src/libft -I./mlx
 
 LIBX		=	/Users/lupin/Documents/education/coding/cursus/so_long/minilibx-linux
-
-# RULES
-# %.o: 		%.c
-# 				@$(COMPILER) $(C_FLAGS) -Imlx -c $< -o $@
 
 %.o: %.c
 	$(COMPILER) $(C_FLAGS) $(INC) -Imlx -c $< -o $@

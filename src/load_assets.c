@@ -6,7 +6,7 @@
 /*   By: lupin <lupin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 22:00:20 by Arsene            #+#    #+#             */
-/*   Updated: 2023/05/27 12:28:47 by lupin            ###   ########.fr       */
+/*   Updated: 2023/05/30 19:51:46 by lupin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,8 @@ int	load_assets(t_game *game)
 	game->sprites[29].path = "assets/sprites/health_100.xpm";
 	
 	game->sprites[30].path = "assets/sprites/footsteps.xpm";
+
+	game->sprites[31].path = "assets/ui/game_over.xpm";
 	return (save_assets(game));
 }
 

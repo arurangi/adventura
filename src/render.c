@@ -6,7 +6,7 @@
 /*   By: lupin <lupin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 12:29:26 by Arsene            #+#    #+#             */
-/*   Updated: 2023/05/27 12:28:54 by lupin            ###   ########.fr       */
+/*   Updated: 2023/05/27 20:33:54 by lupin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,17 @@
  */
 
 #include "so_long.h"
+
+int randomize(__unused int limit) {
+   int randomNumber;
+   srand(time(NULL)); // seed the random number generator
+
+   randomNumber = rand(); // generate a random number
+   randomNumber %= limit;
+   printf("Random: %d\n", randomNumber);
+
+   return (randomNumber);
+}
 
 void	add_node_back(t_list **list, int x, int y)
 {
@@ -27,7 +38,9 @@ void	add_node_back(t_list **list, int x, int y)
 	new->delay = 0; // random ???
 	
 	new->frame = 0; // random ???
+
 	new->next = NULL;
+	new->direction = WEST;
 
 	if (!*list) {
 		*list = new;
@@ -133,7 +146,6 @@ int	render(t_game *game)
 			enemy_list->frame = (frame + 1) % NBR_OF_FRAMES;
 		usleep(10000);
 		// move sprite
-
 		
 		enemy_list = enemy_list->next;
 	}

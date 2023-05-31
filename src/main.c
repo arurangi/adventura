@@ -6,7 +6,7 @@
 /*   By: lupin <lupin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 11:36:54 by arurangi          #+#    #+#             */
-/*   Updated: 2023/05/27 12:22:42 by lupin            ###   ########.fr       */
+/*   Updated: 2023/05/31 10:40:27 by lupin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,13 @@ int	main(int ac, char **av)
 {
 	t_game		game;
 
-	if (ac != 2 || invalid_extension(av[1]))
-		return (error_msg(EXIT_FAILURE, ":usage ./so_long <map-path>.ber"));
+	if (ac != 2 || (invalid_extension(av[1]) && !is_option(av[1])))
+	{
+		error_usage("./so_long <map-path>.ber", "./so_long --help");
+		return (EXIT_FAILURE);
+	}
+	if (is_option(av[1]))
+		return (show_helper());
 	if (!game_init(&game, av))
 	{
 		error_msg(EXIT_FAILURE, "couldn't initialize the environment.");
