@@ -59,6 +59,18 @@ To do so, I opted for a graph algorithm: breath-first search. I chose it because
 ### 4. animation
 
 ### 5. improvements
-- smoother animation
-- monster follows the player
-- player can move in between tiles instead of jumps
+**Portability**
+- [ ] user SDL library instead of minilibx
+**Animation**
+- [ ] monster attack the player when close
+- [ ] idle animation for the player
+- [ ] walking animation for the player
+**Movements**
+- [ ] player can move in between tiles instead of jumps
+	- [ ] collision detection
+**Map**
+- [x] draw once, only redraw the animated objects
+- [ ] add inside walls sprites
+- [ ] add decoration objects
+**Pathfinding**
+- [ ] try flood-fill algorithm. better for unaccessible collectibles
