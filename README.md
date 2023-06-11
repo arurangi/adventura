@@ -1,11 +1,14 @@
-<h1 align="center">so_long</h1>
-<p align="center">In this project, I created a 2D game from scratch using the minilibx library</p>
+<h1 align="center">so_long [repo in progress]</h1>
+<p align="center">
+	<b>In this project, I created a 2D game from scratch using the minilibx library</b>
+</p>
+
 
 ![game preview](./documentation/preview.png)
 
 Find more informations about the project requirements [here](./documentation/project_requirements.pdf).
 
-## About the game
+## About the game <a name="about"></a>
 
 Write a program that checks whether a given map is valid, me
 
@@ -31,8 +34,11 @@ Here is what a valid map looks like.
 11111111111
 ```
 
+## Assets
+
 ## How it works
-### 1. parsing the map
+
+### 1. path finding
 Since the game's foundation is the map, it's the first thing I implemented.
 
 To be able to navigate the map easier, I store it in a matrix. This way, every element of the map will have a coordinate that is easy to access.
@@ -51,26 +57,31 @@ int	map_checker(t_game *game)
 }
 ```
 
-### 2. path finding
 For the map to be valid, I needed to check whether a viable path to the exit was present.
 To do so, I opted for a graph algorithm: breath-first search. I chose it because it's implementation straight forward and since I only cared about 
-### 2. displaying sprites on the window
-### 3. game machanics
+### 3. rendering
+Rendering is displaying things on the screen. The basic idea of rendering in games is	 having a "game loop" within which you render your graphics a certain number of frames per second. More simply it consists of having an infinite loop, to only stops when you exit the game. At every turn of the loop, you update the state of your objects (ex: player position) than you render your graphics on the window with their updated states. 
+#### The map
+#### The objects
 ### 4. animation
 
 ### 5. improvements
 **Portability**
 - [ ] user SDL library instead of minilibx
+
 **Animation**
 - [ ] monster attack the player when close
 - [ ] idle animation for the player
 - [ ] walking animation for the player
+
 **Movements**
 - [ ] player can move in between tiles instead of jumps
 	- [ ] collision detection
+
 **Map**
 - [x] draw once, only redraw the animated objects
 - [ ] add inside walls sprites
 - [ ] add decoration objects
+
 **Pathfinding**
-- [ ] try flood-fill algorithm. better for unaccessible collectibles
+- [ ] try [flood-fill](https://en.wikipedia.org/wiki/Flood_fill) algorithm. better for inaccessible coins
