@@ -38,7 +38,7 @@ Here is what a valid map looks like.
 
 ## How it works
 
-### 1. path finding
+### Path finding
 Since the game's foundation is the map, it's the first thing I implemented.
 
 To be able to navigate the map easier, I store it in a matrix. This way, every element of the map will have a coordinate that is easy to access.
@@ -59,13 +59,13 @@ int	map_checker(t_game *game)
 
 For the map to be valid, I needed to check whether a viable path to the exit was present.
 To do so, I opted for a graph algorithm: breath-first search. I chose it because it's implementation straight forward and since I only cared about 
-### 3. rendering
+### Rendering
 Rendering is displaying things on the screen. The basic idea of rendering in games is	 having a "game loop" within which you render your graphics a certain number of frames per second. More simply it consists of having an infinite loop, to only stops when you exit the game. At every turn of the loop, you update the state of your objects (ex: player position) than you render your graphics on the window with their updated states. 
 #### The map
 #### The objects
-### 4. animation
+### Animation
 
-### 5. improvements
+### Potential Improvements
 **Portability**
 - [ ] user SDL library instead of minilibx
 
