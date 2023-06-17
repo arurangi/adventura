@@ -38,7 +38,7 @@ Here is what a valid map looks like.
 
 ## How it works
 
-### Path finding
+### 📍 Path finding
 Since the game's foundation is the map, it's the first thing I implemented.
 
 To be able to navigate the map easier, I store it in a matrix. This way, every element of the map will have a coordinate that is easy to access.
@@ -59,29 +59,28 @@ int	map_checker(t_game *game)
 
 For the map to be valid, I needed to check whether a viable path to the exit was present.
 To do so, I opted for a graph algorithm: breath-first search. I chose it because it's implementation straight forward and since I only cared about 
-### Rendering
+### 🎥 Rendering
 Rendering is displaying things on the screen. The basic idea of rendering in games is	 having a "game loop" within which you render your graphics a certain number of frames per second. More simply it consists of having an infinite loop, to only stops when you exit the game. At every turn of the loop, you update the state of your objects (ex: player position) than you render your graphics on the window with their updated states. 
+```C
+while ( gameIsRunning ) {
+	processInput();
+	updateObjects();
+	render();
+}
+
+```
 #### The map
-#### The objects
-### Animation
+#### The animated objects
 
-### Potential Improvements
-**Portability**
-- [ ] user SDL library instead of minilibx
+### 🧩 Potential Improvements
+1. better maps, 5-10 well designed maps for nice gameplay
+2. more animation states: idle, walking, attack, dying (4x : UP, DOWN, LEFT, RIGHT).
+3. add dashboard and menu 
+4. wall collision, player can move between tiles instead of jumping from one to another
+5. enemy patrol, patrol in random directions and attack when the player is close
+6. try [flood-fill](https://en.wikipedia.org/wiki/Flood_fill) algorithm. better for inaccessible coins
+7. graphical library and language, change from using C and the minilibx library to using C++ and SDL for easier development and betetr portability
 
-**Animation**
-- [ ] monster attack the player when close
-- [ ] idle animation for the player
-- [ ] walking animation for the player
-
-**Movements**
-- [ ] player can move in between tiles instead of jumps
-	- [ ] collision detection
-
-**Map**
-- [x] draw once, only redraw the animated objects
-- [ ] add inside walls sprites
-- [ ] add decoration objects
-
-**Pathfinding**
-- [ ] try [flood-fill](https://en.wikipedia.org/wiki/Flood_fill) algorithm. better for inaccessible coins
+## Useful Links
+- [Game programming patters: State](https://gameprogrammingpatterns.com/state.html)
+- [Making A Game #1: Making The Game Loop : C++ And SDL2 Tutorial](https://youtu.be/44tO977slsU)
