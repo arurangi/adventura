@@ -80,6 +80,8 @@ while ( gameIsRunning ) {
 5. enemy patrol, patrol in random directions and attack when the player is close
 6. try [flood-fill](https://en.wikipedia.org/wiki/Flood_fill) algorithm. better for inaccessible coins
 7. graphical library and language, change from using C and the minilibx library to using C++ and SDL for easier development and betetr portability
+8. create Docker image of the game, so that it can easily run on any system
+9. play background music ([afplay](https://ss64.com/osx/afplay.html), [FMOD](https://stackoverflow.com/questions/428884/how-to-play-mp3-files-in-c) or [SDL_mixer](https://lazyfoo.net/tutorials/SDL/21_sound_effects_and_music/index.php))
 
 ## Useful Links
 - [Game programming patters: State](https://gameprogrammingpatterns.com/state.html)
